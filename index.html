@@ -1,0 +1,2122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Hotel MadhuJay Restaurant</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        
+        /* Tabs Navigation - Category Buttons */
+        .tabs-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .tabs-scroll {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 8px 0;
+            justify-content: center;
+        }
+
+        .tab {
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 14px;
+            color: var(--muted);
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            margin: 2px;
+        }
+
+
+
+
+
+        
+
+.tabs-container {
+  text-align: center;
+}
+
+.tab-row {
+  margin-bottom: 10px;
+}
+
+.tab {
+  margin: 4px;
+}
+
+
+
+
+
+        
+        
+        .tab.active {
+            background: linear-gradient(90deg, var(--gold1), var(--gold2));
+            color: #0b0b0d;
+            border: none;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.12);
+        }
+
+        /* Hover effect for better UX */
+        .tab:hover {
+            border-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-1px);
+        }
+
+        /* Tablet styles */
+        @media (min-width: 768px) {
+            .tabs-scroll {
+                justify-content: flex-start;
+            }
+
+            .tab {
+                padding: 12px 20px;
+                font-size: 15px;
+            }
+        }
+
+        /* Desktop styles */
+        @media (min-width: 1024px) {
+            .tab {
+                padding: 12px 24px;
+                font-size: 15px;
+            }
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 767px) {
+            .tab {
+                padding: 8px 14px;
+                font-size: 13px;
+            }
+
+            .tabs-scroll {
+                justify-content: center;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .tab {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .tabs-scroll {
+                gap: 5px;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        :root {
+            --bg: #0b0b0d;
+            --surface: #0f1114;
+            --muted: #9aa0a6;
+            --gold1: #d4af37;
+            --gold2: #ffcc66;
+            --accent: linear-gradient(90deg, var(--gold1), var(--gold2));
+            --glass: rgba(255, 255, 255, 0.03);
+            --card-radius: 16px;
+            --shadow: 0 10px 30px rgba(2, 6, 23, 0.6);
+            --glass-strong: rgba(255, 255, 255, 0.04);
+            --maxw: 1200px;
+            --gap: 20px;
+            --ff-heading: 'Playfair Display', serif;
+            --ff-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            --orange: #ff9800;
+            --green: #4CAF50;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-size: 16px;
+        }
+
+        body {
+            position: relative;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background image layer */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('bg.png') no-repeat center center/cover;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        body {
+            background: radial-gradient(1200px 600px at 10% 10%, rgba(212, 175, 55, 0.06), transparent 6%),
+                radial-gradient(1000px 500px at 95% 90%, rgba(255, 204, 102, 0.04), transparent 8%),
+                var(--bg);
+            color: #e8e6e3;
+            font-family: var(--ff-ui);
+            -webkit-font-smoothing: antialiased;
+            padding: 16px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.5;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--maxw);
+            display: flex;
+            flex-direction: column;
+            gap: var(--gap);
+        }
+  
+        /* Cafe Header - Original Style */
+        .cafe-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+
+        .cafe-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--gold1);
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.1);
+            line-height: 1;
+            margin-bottom: 5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .cafe-name::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: var(--gold1);
+        }
+
+        .cafe-subtitle {
+            font-size: 1.2rem;
+            color: var(--orange);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-top: 10px;
+        }
+
+        .location-info {
+            font-size: 1rem;
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .location-text {
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .address {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        .mobile-numbers {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 15px;
+        }
+
+        .veg-nonveg {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .veg,
+        .nonveg {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .veg {
+            color: #2e7d32;
+            background: rgba(46, 125, 50, 0.1);
+        }
+
+        .nonveg {
+            color: #c62828;
+            background: rgba(198, 40, 40, 0.1);
+        }
+
+        .veg:hover,
+        .nonveg:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .symbol {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .veg .symbol {
+            background: #4caf50;
+            border: 2px solid #2e7d32;
+        }
+
+        .nonveg .symbol {
+            background: #f44336;
+            border: 2px solid #c62828;
+        }
+
+        /* Location Link Section - Added at bottom */
+        .location-link-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(6px);
+            text-align: center;
+        }
+
+        .location-link-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .location-link-header h3 {
+            font-family: var(--ff-heading);
+            color: var(--gold2);
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .location-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--gold1);
+        }
+
+        .map-link-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .map-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: linear-gradient(90deg, var(--gold1), var(--gold2));
+            color: #0b0b0d;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .map-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        .map-link svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Header and Navigation */
+        .header {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .brand {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gold1), var(--gold2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0b0b0d;
+            font-family: var(--ff-heading);
+            font-size: 20px;
+            font-weight: 700;
+            box-shadow: 0 6px 22px rgba(212, 175, 55, 0.12);
+            flex-shrink: 0;
+        }
+
+        .brand-text h1 {
+            margin: 0;
+            font-family: var(--ff-heading);
+            font-size: 20px;
+            letter-spacing: 0.6px;
+        }
+
+        .brand-text p {
+            margin: 2px 0 0 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .search-container {
+            background: var(--glass);
+            backdrop-filter: blur(6px);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            width: 100%;
+        }
+
+        .search-container input {
+            background: transparent;
+            border: 0;
+            outline: 0;
+            color: inherit;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        /* Tabs Navigation */
+        .tabs-container {
+            position: relative;
+            margin-bottom: 10px;
+        }
+
+        .tabs-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 8px 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .tabs-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab {
+            padding: 10px 16px;
+            border-radius: 999px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 14px;
+            color: var(--muted);
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .tab.active {
+            background: var(--accent);
+            color: #0b0b0d;
+            border: none;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.12);
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.01));
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 8px 24px rgba(2, 6, 23, 0.6);
+            transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 0.28s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(2, 6, 23, 0.7);
+        }
+
+        .card-header {
+            display: flex;
+            gap: 12px;
+        }
+
+        .thumb {
+            width: 180px;
+            height: 180px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .card:hover .thumb img {
+            transform: scale(1.06);
+        }
+
+        .card-info {
+            flex: 1;
+        }
+
+        .dish {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            font-family: var(--ff-heading);
+            line-height: 1.3;
+        }
+
+        .desc {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--gold2);
+            flex-shrink: 0;
+        }
+
+        .tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            padding: 4px 8px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            font-size: 11px;
+            color: var(--muted);
+            background: transparent;
+        }
+
+        /* Add to Cart Button */
+        .btn-primary {
+            background: linear-gradient(90deg, var(--gold1), var(--gold2));
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            color: #0b0b0d;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+            font-size: 13px;
+            width: auto;
+            min-width: 100px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0) scale(0.95);
+        }
+
+        /* Button Animation Effects */
+        .btn-primary.adding {
+            animation: addPulse 0.6s ease;
+        }
+
+        .btn-primary.added {
+            background: linear-gradient(90deg, #10b981, #059669);
+            animation: successPulse 0.8s ease;
+        }
+
+        @keyframes addPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+            }
+        }
+
+        @keyframes successPulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+            }
+
+            25% {
+                transform: scale(1.08);
+                box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+            }
+
+            50% {
+                transform: scale(0.95);
+                box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+            }
+
+            75% {
+                transform: scale(1.03);
+                box-shadow: 0 7px 25px rgba(16, 185, 129, 0.35);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(16, 185, 129, 0.15);
+            }
+        }
+
+        /* Cart Styles */
+        .cart-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        .cart-button {
+            background: linear-gradient(90deg, var(--gold1), var(--gold2));
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.12);
+            cursor: pointer;
+            position: relative;
+            border: none;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #e74c3c;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .cart-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 11, 13, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 16px;
+        }
+
+        .cart-modal.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cart-content {
+            background: var(--surface);
+            width: 100%;
+            max-width: 500px;
+            border-radius: var(--card-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            padding-bottom: 12px;
+        }
+
+        .cart-title {
+            font-family: var(--ff-heading);
+            font-size: 22px;
+            margin: 0;
+            color: var(--gold2);
+        }
+
+        .close-cart {
+            background: transparent;
+            border: none;
+            color: var(--muted);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            margin: 0 0 4px 0;
+            font-size: 15px;
+        }
+
+        .item-price {
+            color: var(--gold2);
+            font-size: 14px;
+        }
+
+        .item-quantity {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quantity-btn {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            color: var(--muted);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .quantity {
+            font-weight: 600;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .remove-item {
+            background: transparent;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            margin-left: 12px;
+            font-size: 18px;
+        }
+
+        .cart-empty {
+            text-align: center;
+            color: var(--muted);
+            padding: 20px 0;
+        }
+
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .total-amount {
+            color: var(--gold2);
+        }
+
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        /* Add Another Item Button */
+        .btn-add-another {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), rgba(255, 204, 102, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 12px 14px;
+            border-radius: 12px;
+            color: var(--gold2);
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add-another:hover {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.15), rgba(255, 204, 102, 0.15));
+            border-color: var(--gold1);
+            transform: translateY(-2px);
+        }
+
+        .btn-add-another svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 3;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            border: none;
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 16px;
+        }
+
+        .btn-clear {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 12px 14px;
+            border-radius: 12px;
+            color: var(--muted);
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Delivery Options in Cart */
+        .delivery-options {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.015);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .options-title {
+            font-family: var(--ff-heading);
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--gold2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .options-title svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .delivery-option-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .option-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            color: var(--muted);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .option-btn:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .option-btn.active {
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.1), rgba(255, 204, 102, 0.1));
+            border-color: var(--gold1);
+            color: var(--gold2);
+        }
+
+        .option-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Delivery Forms */
+        .delivery-form {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .delivery-form.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--gold2);
+            box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Customer Details Summary */
+        .customer-details-summary {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            display: none;
+        }
+
+        .customer-details-summary.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .summary-title {
+            font-weight: 600;
+            color: var(--gold2);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .summary-title svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .summary-details {
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .summary-details div {
+            margin-bottom: 5px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            color: var(--muted);
+            font-size: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            margin-top: 20px;
+        }
+
+        /* Gold Line */
+        .gold-line {
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--gold1), var(--gold2));
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.08);
+            margin: 8px 0 16px 0;
+        }
+
+        /* Tablet and Desktop Styles */
+        @media (min-width: 768px) {
+            body {
+                padding: 24px;
+            }
+
+            .container {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 24px;
+                align-items: start;
+            }
+
+            .header {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .brand {
+                flex: 1;
+            }
+
+            .search-container {
+                width: auto;
+                min-width: 300px;
+            }
+
+            .tabs-container {
+                grid-column: 1 / -1;
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cart-actions {
+                flex-direction: row;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .menu-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .cart-container,
+            .cart-modal,
+            .btn-ghost {
+                display: none;  
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Cafe Header - Original Style -->
+        <div class="cafe-header">
+<img src="logo.png" alt="Logo" style="width:400px; height:auto; display:block; margin:0 auto;">
+            <div class="cafe-name">BHAGWATI FOOD ZONE</div>
+            <div class="cafe-subtitle">All in One</div>
+            <div class="location-info">
+                <div class="location-text"></div>
+                <div class="address"></div>
+                <div class="mobile-numbers">Mo no. +91 83907 11777</div>
+            </div>
+            <div class="veg-nonveg">
+                <div class="veg">
+                    <span class="symbol"></span>
+                    <span>VEG</span>
+                </div>
+                <div class="nonveg">
+                    <span class="symbol"></span>
+                    <span>NON VEG</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Menu -->
+        <main class="menu">
+            <div class="menu-head">
+                <div class="controls">
+                    <div class="search" role="search">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+                            <path d="M21 21l-4.35-4.35" stroke="rgba(255,255,255,0.6)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round"></path>
+                            <circle cx="11" cy="11" r="6" stroke="rgba(255,255,255,0.6)" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round"></circle>
+                        </svg>
+                        <input id="search" placeholder="Search dishes, ingredients..." />
+                    </div>
+
+
+
+   <div class="tabs-scroll">
+     
+     
+<button class="tab active" data-cat="all">All Items</button>
+
+<button class="tab" data-cat="व्हेज स्टार्टर / Veg Starter">Veg Starters</button>
+<button class="tab" data-cat="नॉन व्हेज स्टार्टर / Non Veg Starter">Non Veg Starters</button>
+
+<button class="tab" data-cat="व्हेज मेन कोर्स / Veg Main Course">Veg Main Course</button>
+<button class="tab" data-cat="पनीर डिशेस / Paneer Dishes">Paneer Dishes</button>
+
+<button class="tab" data-cat="फ्राय, मसाला / Fry, Masala">Fry & Masala (Non-Veg)</button>
+<button class="tab" data-cat="हंडी / Handi">Handi (Chicken/Mutton)</button>
+
+<button class="tab" data-cat="थाळी / Thali">Thali (थाळी)</button>
+<button class="tab" data-cat="स्पेशल थाळी / Special Thali">Special Thali</button>
+
+<button class="tab" data-cat="रोटी / Roti">Roti / Breads</button>
+<button class="tab" data-cat="राईस / Rice">Rice / Biryani</button>
+
+<button class="tab" data-cat="पापड और सलाद / Papad & Salad">Papad & Salad</button>
+<button class="tab" data-cat="ड्रिंक्स / Drinks">Drinks</button>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <section class="menu-grid" id="menuGrid">
+                <!-- Cards injected by JS -->
+            </section>
+        </main>
+
+        <!-- Location Link Section - Added at bottom -->
+        <div class="location-link-section">
+            <div class="location-link-header">
+                <svg class="location-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                <h3>Find Us on Google Maps</h3>
+            </div>
+            <div class="map-link-container">
+                <a href="https://maps.app.goo.gl/ZQLxHMYFPU28SqMv7" target="_blank" class="map-link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    Open in Google Maps
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Button -->
+    <div class="cart-container">
+        <button class="cart-button" id="cartButton">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3 class="cart-title">Your Order</h3>
+                <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+
+            <!-- Delivery Options -->
+            <div class="delivery-options">
+                <h4 class="options-title">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                    Select Delivery Type
+                </h4>
+
+                <div class="delivery-option-buttons">
+                    <button class="option-btn active" id="restaurantOption"
+                        onclick="selectDeliveryOption('restaurant')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M9 12v12M15 12v12M5 12l-2 9h18l-2-9M5 12V8c0-1.105.895-2 2-2h10c1.105 0 2 .895 2 2v4" />
+                            <circle cx="12" cy="6" r="2" />
+                        </svg>
+                        Restaurant
+                    </button>
+                    <button class="option-btn" id="homeDeliveryOption" onclick="selectDeliveryOption('home')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        Home Delivery
+                    </button>
+                </div>
+
+                <!-- Restaurant Form -->
+                <div class="delivery-form active" id="restaurantForm">
+                    <div class="form-group">
+                        <label class="form-label" for="tableNumber">Table Number</label>
+                        <input type="text" id="tableNumber" class="form-input"
+                            placeholder="Enter your table number (e.g., Table 5, Booth 2)" />
+                    </div>
+                </div>
+
+                <!-- Home Delivery Form -->
+                <div class="delivery-form" id="homeDeliveryForm">
+                    <div class="form-group">
+                        <label class="form-label" for="customerName">Full Name</label>
+                        <input type="text" id="customerName" class="form-input" placeholder="Enter your full name" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="customerMobile">Mobile Number</label>
+                        <input type="tel" id="customerMobile" class="form-input"
+                            placeholder="Enter your mobile number" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="customerAddress">Delivery Address</label>
+                        <textarea id="customerAddress" class="form-input" placeholder="Enter your complete address"
+                            rows="3"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Customer Details Summary -->
+            <div class="customer-details-summary" id="customerDetailsSummary">
+                <!-- Will be populated by JavaScript -->
+            </div>
+
+            <div class="cart-items" id="cartItems">
+                <!-- Cart items will be inserted here -->
+                <div class="cart-empty" id="cartEmpty">Your cart is empty</div>
+            </div>
+
+            <div class="cart-total">
+                <span>Total:</span>
+                <span class="total-amount" id="cartTotal">₹0</span>
+            </div>
+
+            <div class="cart-actions">
+                <button class="btn-add-another" id="addAnotherItem">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 5v14M5 12h14"/>
+                    </svg>
+                    Add another Item
+                </button>
+                <button class="btn-clear" id="clearCart">Clear Cart</button>
+                <button class="btn-whatsapp" id="whatsappOrder">  
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.864 3.488" />
+                    </svg>
+                    Order via WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Menu Data - FIXED VERSION
+        const data = 
+
+[
+  // ============ 1. पिझ्झा / Pizza ============
+  { "id": 1, "cat": "पिझ्झा / Pizza", "name": "व्हेज चीज पिझ्झा / Veg Cheese Pizza", "price": "169 RS", "desc": "Classic pizza topped with mozzarella cheese and veggies", "tags": ["Veg", "Pizza"], "img": "img/veg_cheese_pizza.jpg" },
+  { "id": 2, "cat": "पिझ्झा / Pizza", "name": "स्वीतकॉर्न पिझ्झा / Sweetcorn Pizza", "price": "169 RS", "desc": "Pizza topped with sweet corn and cheese", "tags": ["Veg", "Pizza"], "img": "img/sweetcorn_pizza.jpg" },
+  { "id": 3, "cat": "पिझ्झा / Pizza", "name": "पनीर मसाला पिझ्झा / Paneer Masala Pizza", "price": "189 RS", "desc": "Spicy Indian style pizza topped with marinated paneer", "tags": ["Veg", "Pizza", "Paneer"], "img": "img/paneer_masala_pizza.jpg" },
+  { "id": 4, "cat": "पिझ्झा / Pizza", "name": "ओनियन चीज पिझ्झा / Onion Cheese Pizza", "price": "169 RS", "desc": "Pizza loaded with sliced onions and cheese", "tags": ["Veg", "Pizza"], "img": "img/onion_cheese_pizza.jpg" },
+  { "id": 80, "cat": "पिझ्झा / Pizza", "name": "व्हेज चीज पिझ्झा / Veg Cheese Pizza", "price": "149 RS", "desc": "Classic pizza topped with veggies and cheese", "tags": ["Veg", "Pizza"], "img": "img/veg_cheese_pizza_plaza.jpg" },
+  { "id": 81, "cat": "पिझ्झा / Pizza", "name": "प्लेन चीज पिझ्झा / Plain Cheese Pizza", "price": "179 RS", "desc": "Pizza loaded with extra mozzarella cheese", "tags": ["Veg", "Pizza"], "img": "img/plain_cheese_pizza.jpg" },
+  { "id": 82, "cat": "पिझ्झा / Pizza", "name": "स्वीतकॉर्न पिझ्झा / Sweetcorn Pizza", "price": "149 RS", "desc": "Pizza topped with sweet corn and cheese", "tags": ["Veg", "Pizza"], "img": "img/sweetcorn_pizza_plaza.jpg" },
+  { "id": 83, "cat": "पिझ्झा / Pizza", "name": "ओनियन पिझ्झा / Onion Pizza", "price": "129 RS", "desc": "Pizza topped with sliced onions and cheese", "tags": ["Veg", "Pizza"], "img": "img/onion_pizza_plaza.jpg" },
+  { "id": 84, "cat": "पिझ्झा / Pizza", "name": "पनीर मसाला पिझ्झा / Paneer Masala Pizza", "price": "169 RS", "desc": "Spicy pizza topped with marinated paneer", "tags": ["Veg", "Pizza", "Paneer"], "img": "img/paneer_masala_pizza_plaza.jpg" },
+
+  // ============ 2. सँडविच / Sandwich ============
+  { "id": 5, "cat": "सँडविच / Sandwich", "name": "व्हेज सँडविच / Veg Sandwich", "price": "79 RS", "desc": "Classic sandwich stuffed with fresh vegetables", "tags": ["Veg", "Sandwich"], "img": "img/veg_sandwich.jpg" },
+  { "id": 6, "cat": "सँडविच / Sandwich", "name": "चीज ब्लास्ट सँडविच / Cheese Blast Sandwich", "price": "99 RS", "desc": "Sandwich loaded with extra cheese", "tags": ["Veg", "Sandwich"], "img": "img/cheese_blast_sandwich.jpg" },
+  { "id": 7, "cat": "सँडविच / Sandwich", "name": "पनीर सँडविच / Paneer Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with spicy paneer filling", "tags": ["Veg", "Sandwich", "Paneer"], "img": "img/paneer_sandwich.jpg" },
+  { "id": 8, "cat": "सँडविच / Sandwich", "name": "स्वीतकॉर्न सँडविच / Sweetcorn Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with sweet corn and mayo", "tags": ["Veg", "Sandwich"], "img": "img/sweetcorn_sandwich.jpg" },
+  { "id": 85, "cat": "सँडविच / Sandwich", "name": "व्हेज सँडविच / Veg Sandwich", "price": "69 RS", "desc": "Sandwich stuffed with fresh mixed vegetables", "tags": ["Veg", "Sandwich"], "img": "img/veg_sandwich_plaza.jpg" },
+  { "id": 86, "cat": "सँडविच / Sandwich", "name": "चीज ब्लास्ट सँडविच / Cheese Blast Sandwich", "price": "89 RS", "desc": "Loaded cheese sandwich for cheese lovers", "tags": ["Veg", "Sandwich"], "img": "img/cheese_blast_sandwich_plaza.jpg" },
+  { "id": 87, "cat": "सँडविच / Sandwich", "name": "पनीर सँडविच / Paneer Sandwich", "price": "89 RS", "desc": "Sandwich with spicy paneer filling", "tags": ["Veg", "Sandwich", "Paneer"], "img": "img/paneer_sandwich_plaza.jpg" },
+  { "id": 88, "cat": "सँडविच / Sandwich", "name": "स्वीतकॉर्न सँडविच / Sweetcorn Sandwich", "price": "89 RS", "desc": "Sandwich with sweet corn and mayo filling", "tags": ["Veg", "Sandwich"], "img": "img/sweetcorn_sandwich_plaza.jpg" },
+
+  // ============ 3. पावभाजी & मिसळ / Pav Bhaji & Misal ============
+  { "id": 22, "cat": "पावभाजी / Pav Bhaji", "name": "स्पेशल पावभाजी / Special Pav Bhaji", "price": "90 RS", "desc": "Buttery mashed vegetable curry served with soft pav rolls", "tags": ["Veg", "Pav Bhaji"], "img": "img/special_pav_bhaji.jpg" },
+  { "id": 23, "cat": "पावभाजी / Pav Bhaji", "name": "जैन पावभाजी / Jain Pav Bhaji", "price": "100 RS", "desc": "Pav bhaji prepared without onions and garlic", "tags": ["Veg", "Pav Bhaji", "Jain"], "img": "img/jain_pav_bhaji.jpg" },
+  { "id": 131, "cat": "पावभाजी / Pav Bhaji", "name": "पाव भाजी / Pav Bhaji", "price": "70 RS", "desc": "Spicy mashed vegetable curry with buttered bread rolls", "tags": ["Veg", "Snacks", "Pav Bhaji"], "img": "img/pav_bhaji_shrinath.jpg" },
+  { "id": 9, "cat": "मिसळ / Misal", "name": "स्पेशल मिसळ थाळी / Special Misal Thali", "price": "140 RS", "desc": "Spicy sprouted bean curry served with farsan and bread/pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/special_misal_thali.jpg" },
+  { "id": 10, "cat": "मिसळ / Misal", "name": "दही मिसळ थाळी / Dahi Misal Thali", "price": "100 RS", "desc": "Misal topped with cooling yogurt served with pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/dahi_misal_thali.jpg" },
+  { "id": 11, "cat": "मिसळ / Misal", "name": "रेगुलर मिसळ थाळी / Regular Misal Thali", "price": "90 RS", "desc": "Classic Maharashtrian spicy misal pav thali", "tags": ["Veg", "Misal", "Thali"], "img": "img/regular_misal_thali.jpg" },
+  { "id": 145, "cat": "मिसळ / Misal", "name": "श्रीनाथ स्पेशल मिसळ थाळी / Shrinath Special Misal Thali", "price": "120 RS", "desc": "Farsan, Rassa, Papad, 2 Sweets, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak, Papdi, Pohe, Shev, Pani Bottle", "tags": ["Veg", "Misal", "Thali", "Special"], "img": "img/shrinath_special_misal_thali.jpg" },
+  { "id": 146, "cat": "मिसळ / Misal", "name": "श्रीनाथ दही मिसळ थाळी / Shrinath Dahi Misal Thali", "price": "80 RS", "desc": "Farsan, Rassa, Papad, Gulab Jamun, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_dahi_misal_thali.jpg" },
+  { "id": 147, "cat": "मिसळ / Misal", "name": "श्रीनाथ मिसळ थाळी / Shrinath Misal Thali", "price": "70 RS", "desc": "Farsan, Rassa, Papad, 1 Sweet, Kanda-Limbu, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_misal_thali.jpg" },
+
+  // ============ 4. चाट / Chaat ============
+  { "id": 12, "cat": "चाट / Chaat", "name": "स्पेशल भेळ / Special Bhel", "price": "60 RS", "desc": "Puffed rice mixed with tangy chutneys and special toppings", "tags": ["Veg", "Chaat"], "img": "img/special_bhel.jpg" },
+  { "id": 13, "cat": "चाट / Chaat", "name": "दही भेळ / Dahi Bhel", "price": "80 RS", "desc": "Bhel topped with sweet and tangy yogurt", "tags": ["Veg", "Chaat"], "img": "img/dahi_bhel.jpg" },
+  { "id": 14, "cat": "चाट / Chaat", "name": "मटकी भेळ / Matki Bhel", "price": "70 RS", "desc": "Healthy bhel made with sprouted moth beans", "tags": ["Veg", "Chaat"], "img": "img/matki_bhel.jpg" },
+  { "id": 15, "cat": "चाट / Chaat", "name": "शेव पुरी / Shev Puri", "price": "60 RS", "desc": "Crispy puris topped with potatoes, chutneys and lots of sev", "tags": ["Veg", "Chaat"], "img": "img/shev_puri.jpg" },
+  { "id": 16, "cat": "चाट / Chaat", "name": "दही पुरी / Dahi Puri", "price": "80 RS", "desc": "Crispy puris filled with yogurt and tangy chutneys", "tags": ["Veg", "Chaat"], "img": "img/dahi_puri.jpg" },
+  { "id": 17, "cat": "चाट / Chaat", "name": "सुकी पुरी / Suki Puri", "price": "30 RS", "desc": "Crispy puris served with dry masala stuffing", "tags": ["Veg", "Chaat"], "img": "img/suki_puri.jpg" },
+  { "id": 18, "cat": "चाट / Chaat", "name": "पाणी पुरी / Pani Puri", "price": "30 RS", "desc": "Crispy puris filled with spicy tangy water and stuffing", "tags": ["Veg", "Chaat"], "img": "img/pani_puri.jpg" },
+  { "id": 106, "cat": "चाट / Chaat", "name": "श्रीनाथ स्पे. ओली भेळ / Shrinath Spl. Oli Bhel", "price": "40 RS", "desc": "Special wet bhel with secret chutneys", "tags": ["Veg", "Chaat", "Special"], "img": "img/shrinath_spl_oli_bhel.jpg" },
+  { "id": 107, "cat": "चाट / Chaat", "name": "दही भेळ / Dahi Bhel", "price": "50 RS", "desc": "Bhel topped with fresh sweet yogurt", "tags": ["Veg", "Chaat"], "img": "img/dahi_bhel_shrinath.jpg" },
+  { "id": 108, "cat": "चाट / Chaat", "name": "मटकी भेळ / Matki Bhel", "price": "50 RS", "desc": "Healthy bhel made with sprouted moth beans", "tags": ["Veg", "Chaat"], "img": "img/matki_bhel_shrinath.jpg" },
+  { "id": 109, "cat": "चाट / Chaat", "name": "सुकी भेळ / Suki Bhel", "price": "40 RS", "desc": "Crispy dry bhel mixture with farsan", "tags": ["Veg", "Chaat"], "img": "img/suki_bhel.jpg" },
+  { "id": 110, "cat": "चाट / Chaat", "name": "पाणी पुरी / Pani Puri", "price": "20 RS", "desc": "Crispy puris filled with spicy tangy water", "tags": ["Veg", "Chaat"], "img": "img/pani_puri_shrinath.jpg" },
+  { "id": 111, "cat": "चाट / Chaat", "name": "शेव पुरी / Shev Puri", "price": "40 RS", "desc": "Flat puris topped with potatoes, chutneys and sev", "tags": ["Veg", "Chaat"], "img": "img/shev_puri_shrinath.jpg" },
+  { "id": 112, "cat": "चाट / Chaat", "name": "दही पुरी / Dahi Puri", "price": "40 RS", "desc": "Crispy puris stuffed with yogurt and sweet chutney", "tags": ["Veg", "Chaat"], "img": "img/dahi_puri_shrinath.jpg" },
+  { "id": 113, "cat": "चाट / Chaat", "name": "सुकी पुरी / Suki Puri", "price": "20 RS", "desc": "Crispy puris served with dry masala", "tags": ["Veg", "Chaat"], "img": "img/suki_puri_shrinath.jpg" },
+
+  // ============ 5. नाष्टा / Snacks & Fries ============
+  { "id": 19, "cat": "फ्रेंच फ्राईज / French Fries", "name": "प्लेन फ्राईज / Plain Fries", "price": "100 RS", "desc": "Classic salted crispy french fries", "tags": ["Veg", "Fries"], "img": "img/plain_fries.jpg" },
+  { "id": 20, "cat": "फ्रेंच फ्राईज / French Fries", "name": "पेरी पेरी फ्राईज / Peri Peri Fries", "price": "120 RS", "desc": "Crispy fries tossed in spicy peri peri masala", "tags": ["Veg", "Fries"], "img": "img/peri_peri_fries.jpg" },
+  { "id": 21, "cat": "फ्रेंच फ्राईज / French Fries", "name": "चीज फ्राईज / Cheese Fries", "price": "150 RS", "desc": "French fries loaded with melted cheese", "tags": ["Veg", "Fries"], "img": "img/cheese_fries.jpg" },
+  { "id": 89, "cat": "फ्रेंच फ्राईज / French Fries", "name": "प्लेन फ्राईज / Plain Fries", "price": "89 RS", "desc": "Classic salted crispy french fries", "tags": ["Veg", "Fries"], "img": "img/plain_fries_plaza.jpg" },
+  { "id": 90, "cat": "फ्रेंच फ्राईज / French Fries", "name": "पेरी पेरी फ्राईज / Fries with Peri Peri", "price": "110 RS", "desc": "Fries tossed in spicy peri peri masala", "tags": ["Veg", "Fries"], "img": "img/peri_peri_fries_plaza.jpg" },
+  { "id": 91, "cat": "फ्रेंच फ्राईज / French Fries", "name": "चीज फ्राईज / Cheese Fries", "price": "130 RS", "desc": "Crispy fries topped with melted cheese", "tags": ["Veg", "Fries"], "img": "img/cheese_fries_plaza.jpg" },
+  { "id": 133, "cat": "फ्रेंच फ्राईज / French Fries", "name": "फिंगर चिप्स / Finger Chips", "price": "70 RS", "desc": "Crispy french fries", "tags": ["Veg", "Snacks", "Fries"], "img": "img/finger_chips_shrinath.jpg" },
+  { "id": 24, "cat": "नाष्टा / Snacks", "name": "रस्सा पोहे / Rassa Pohe", "price": "40 RS", "desc": "Flattened rice served with spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_pohe.jpg" },
+  { "id": 25, "cat": "नाष्टा / Snacks", "name": "वडापाव / Vadapav", "price": "25 RS", "desc": "Mumbai style potato fritter served in a bun", "tags": ["Veg", "Snacks"], "img": "img/vadapav.jpg" },
+  { "id": 26, "cat": "नाष्टा / Snacks", "name": "स्पेशल कांदा पकोडा / Special Kanda Pakoda", "price": "70 RS", "desc": "Crispy onion fritters served with chutney", "tags": ["Veg", "Snacks"], "img": "img/special_kanda_pakoda.jpg" },
+  { "id": 27, "cat": "नाष्टा / Snacks", "name": "रस्सा वडा / Rassa Vada", "price": "70 RS", "desc": "Potato fritter served in spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_vada.jpg" },
+  { "id": 28, "cat": "नाष्टा / Snacks", "name": "मसाला मॅगी / Masala Maggi", "price": "70 RS", "desc": "Spicy vegetable instant noodles", "tags": ["Veg", "Snacks"], "img": "img/masala_maggi.jpg" },
+  { "id": 124, "cat": "नाष्टा / Snacks", "name": "रस्सा पोहे / Rassa Pohe", "price": "25 RS", "desc": "Flattened rice served with spicy gravy (rassa)", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/rassa_pohe_shrinath.jpg" },
+  { "id": 125, "cat": "नाष्टा / Snacks", "name": "दही पोहे / Dahi Pohe", "price": "35 RS", "desc": "Flattened rice served with yogurt", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/dahi_pohe_shrinath.jpg" },
+  { "id": 126, "cat": "नाष्टा / Snacks", "name": "वडा पाव / Vada Pav", "price": "15 RS", "desc": "Mumbai's favorite potato fritter in a bun", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/vada_pav_shrinath.jpg" },
+  { "id": 127, "cat": "नाष्टा / Snacks", "name": "ब्रेड वडा / Bread Vada", "price": "20 RS", "desc": "Deep fried potato stuffed bread fritter", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/bread_vada_shrinath.jpg" },
+  { "id": 128, "cat": "नाष्टा / Snacks", "name": "कांदा भजी / Kanda Bhaji", "price": "40 RS", "desc": "Crispy onion fritters", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/kanda_bhaji_shrinath.jpg" },
+  { "id": 129, "cat": "नाष्टा / Snacks", "name": "रस्सा वडा / Rassa Vada", "price": "50 RS", "desc": "Potato fritter served in spicy gravy", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/rassa_vada_shrinath.jpg" },
+  { "id": 134, "cat": "नाष्टा / Snacks", "name": "मॅगी / Maggi", "price": "50 RS", "desc": "Classic instant noodles", "tags": ["Veg", "Snacks"], "img": "img/maggi_shrinath.jpg" },
+  { "id": 135, "cat": "नाष्टा / Snacks", "name": "मसाला मॅगी / Masala Maggi", "price": "60 RS", "desc": "Spicy vegetable instant noodles", "tags": ["Veg", "Snacks"], "img": "img/masala_maggi_shrinath.jpg" },
+
+  // ============ 6. उपवास / Fasting Special ============
+  { "id": 29, "cat": "उपवास / Upvas Special", "name": "साबुदाणा खिचडी / Sabudana Khichdi", "price": "80 RS", "desc": "Sago pearl pilaf specially for fasting", "tags": ["Veg", "Upvas"], "img": "img/sabudana_khichdi.jpg" },
+  { "id": 132, "cat": "उपवास / Upvas Special", "name": "साबुदाणा खिचडी / Sabudana Khichdi", "price": "50 RS", "desc": "Sago pearl pilaf (fasting special)", "tags": ["Veg", "Breakfast", "Upvas"], "img": "img/sabudana_khichdi_shrinath.jpg" },
+
+  // ============ 7. शेक्स & कॉफी / Shakes & Coffee ============
+  { "id": 30, "cat": "शेक्स / Shakes", "name": "बटरस्कॉच शेक / Butterscotch Shake", "price": "100 RS", "desc": "Creamy butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/butterscotch_shake.jpg" },
+  { "id": 31, "cat": "शेक्स / Shakes", "name": "चॉकलेट शेक / Chocolate Shake", "price": "110 RS", "desc": "Rich and thick chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake.jpg" },
+  { "id": 32, "cat": "शेक्स / Shakes", "name": "ओरिओ शेक / Oreo Shake", "price": "110 RS", "desc": "Milkshake blended with Oreo cookies", "tags": ["Veg", "Shakes"], "img": "img/oreo_shake.jpg" },
+  { "id": 33, "cat": "शेक्स / Shakes", "name": "किटकॅट शेक / Kitkat Shake", "price": "110 RS", "desc": "Milkshake blended with Kitkat chocolate bars", "tags": ["Veg", "Shakes"], "img": "img/kitkat_shake.jpg" },
+  { "id": 34, "cat": "शेक्स / Shakes", "name": "स्ट्रॉबेरी शेक / Strawberry Shake", "price": "110 RS", "desc": "Fresh strawberry flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/strawberry_shake.jpg" },
+  { "id": 57, "cat": "शेक्स / Shakes", "name": "व्हॅनिला/बटर स्कॉच शेक / Vanilla/Butterscotch Shake", "price": "80 RS", "desc": "Classic vanilla or butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/vanilla_butterscotch_shake.jpg" },
+  { "id": 58, "cat": "शेक्स / Shakes", "name": "रोज शेक / Rose Shake", "price": "80 RS", "desc": "Refreshing rose syrup flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_shake.jpg" },
+  { "id": 59, "cat": "शेक्स / Shakes", "name": "चॉकलेट शेक / Chocolate Shake", "price": "90 RS", "desc": "Rich chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake_printed.jpg" },
+  { "id": 60, "cat": "शेक्स / Shakes", "name": "मँगो शेक / Mango Shake", "price": "90 RS", "desc": "Thick mango pulp milkshake", "tags": ["Veg", "Shakes"], "img": "img/mango_shake.jpg" },
+  { "id": 92, "cat": "शेक्स / Shakes", "name": "बटरस्कॉच शेक / Butterscotch Shake", "price": "99 RS", "desc": "Creamy butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/butterscotch_shake_plaza.jpg" },
+  { "id": 93, "cat": "शेक्स / Shakes", "name": "पायनॅपल शेक / Pineapple Shake", "price": "99 RS", "desc": "Fresh pineapple milkshake", "tags": ["Veg", "Shakes"], "img": "img/pineapple_shake_plaza.jpg" },
+  { "id": 94, "cat": "शेक्स / Shakes", "name": "स्ट्रॉबेरी शेक / Strawberry Shake", "price": "99 RS", "desc": "Fresh strawberry milkshake", "tags": ["Veg", "Shakes"], "img": "img/strawberry_shake_plaza.jpg" },
+  { "id": 95, "cat": "शेक्स / Shakes", "name": "चॉकलेट शेक / Chocolate Shake", "price": "99 RS", "desc": "Rich chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake_plaza.jpg" },
+  { "id": 96, "cat": "शेक्स / Shakes", "name": "ओरिओ शेक / Oreo Shake", "price": "99 RS", "desc": "Milkshake blended with Oreo cookies", "tags": ["Veg", "Shakes"], "img": "img/oreo_shake_plaza.jpg" },
+  { "id": 97, "cat": "शेक्स / Shakes", "name": "किटकॅट शेक / Kitkat Shake", "price": "99 RS", "desc": "Milkshake blended with Kitkat chocolate", "tags": ["Veg", "Shakes"], "img": "img/kitkat_shake_plaza.jpg" },
+  { "id": 98, "cat": "शेक्स / Shakes", "name": "रोज मिल्क शेक / Rose Milk Shake", "price": "99 RS", "desc": "Refreshing rose flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_milk_shake.jpg" },
+  { "id": 35, "cat": "कॉफी / Coffee", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "99 RS", "desc": "Chilled refreshing coffee drink", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee.jpg" },
+  { "id": 36, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ चॉकलेट / Cold Coffee with Chocolate", "price": "120 RS", "desc": "Cold coffee topped with chocolate syrup", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_chocolate.jpg" },
+  { "id": 37, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "125 RS", "desc": "Cold coffee served with a scoop of vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_ice_cream.jpg" },
+  { "id": 61, "cat": "कॉफी / Coffee", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "70 RS", "desc": "Chilled classic cold coffee", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee_printed.jpg" },
+  { "id": 62, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "80 RS", "desc": "Cold coffee served with a scoop of vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_ice_cream_printed.jpg" },
+  { "id": 103, "cat": "कॉफी / Coffee", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "79 RS", "desc": "Chilled refreshing coffee drink", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee_plaza.jpg" },
+  { "id": 104, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ चॉकलेट / Cold Coffee with Chocolate", "price": "89 RS", "desc": "Cold coffee topped with chocolate sauce", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_chocolate_plaza.jpg" },
+  { "id": 105, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "89 RS", "desc": "Cold coffee served with vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_ice_cream_plaza.jpg" },
+  { "id": 121, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी / Cold Coffee", "price": "90 RS", "desc": "Chilled refreshing cold coffee", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_shrinath.jpg" },
+  { "id": 142, "cat": "कॉफी / Coffee", "name": "चहा / Tea", "price": "10 RS", "desc": "Hot milk tea", "tags": ["Veg", "Hot Drink"], "img": "img/tea_shrinath.jpg" },
+  { "id": 143, "cat": "कॉफी / Coffee", "name": "कॉफी / Coffee", "price": "15 RS", "desc": "Hot coffee", "tags": ["Veg", "Hot Drink"], "img": "img/coffee_shrinath.jpg" },
+  { "id": 144, "cat": "कॉफी / Coffee", "name": "दुध / Milk", "price": "10 RS", "desc": "Hot milk cup", "tags": ["Veg", "Hot Drink"], "img": "img/milk_shrinath.jpg" },
+
+  // ============ 8. ज्यूस & ड्रिंक्स / Juice & Drinks ============
+  { "id": 45, "cat": "ज्यूस / Juice", "name": "मॅन्गो ज्यूस / Mango Juice", "price": "60 RS", "desc": "Fresh mango fruit juice", "tags": ["Veg", "Juice"], "img": "img/mango_juice.jpg" },
+  { "id": 46, "cat": "ज्यूस / Juice", "name": "पायनॅपल ज्यूस / Pineapple Juice", "price": "60 RS", "desc": "Fresh pineapple fruit juice", "tags": ["Veg", "Juice"], "img": "img/pineapple_juice.jpg" },
+  { "id": 47, "cat": "ज्यूस / Juice", "name": "मिक्स ज्यूस / Mix Juice", "price": "60 RS", "desc": "Mixed fruit juice blend", "tags": ["Veg", "Juice"], "img": "img/mix_juice.jpg" },
+  { "id": 48, "cat": "ज्यूस / Juice", "name": "अंजीर ज्यूस / Anjeer Juice", "price": "60 RS", "desc": "Fresh fig fruit juice", "tags": ["Veg", "Juice"], "img": "img/anjeer_juice.jpg" },
+  { "id": 49, "cat": "ज्यूस / Juice", "name": "स्पेशल भगवती ज्यूस / Special Bhagwati Juice", "price": "75 RS", "desc": "House special mixed fruit juice", "tags": ["Veg", "Juice"], "img": "img/special_bhagwati_juice.jpg" },
+  { "id": 50, "cat": "ज्यूस / Juice", "name": "मँगो ज्यूस / Mango Juice", "price": "60 RS", "desc": "Fresh and pulpy mango juice", "tags": ["Veg", "Juice"], "img": "img/mango_juice_printed.jpg" },
+  { "id": 51, "cat": "ज्यूस / Juice", "name": "पायनॅपल ज्यूस / Pineapple Juice", "price": "50 RS", "desc": "Fresh pineapple fruit juice", "tags": ["Veg", "Juice"], "img": "img/pineapple_juice_printed.jpg" },
+  { "id": 52, "cat": "ज्यूस / Juice", "name": "सफरचंद ज्यूस / Apple Juice", "price": "50 RS", "desc": "Healthy fresh apple juice", "tags": ["Veg", "Juice"], "img": "img/apple_juice.jpg" },
+  { "id": 53, "cat": "ज्यूस / Juice", "name": "स्ट्रॉबेरी ज्यूस / Strawberry Juice", "price": "50 RS", "desc": "Fresh strawberry fruit juice", "tags": ["Veg", "Juice"], "img": "img/strawberry_juice.jpg" },
+  { "id": 54, "cat": "ज्यूस / Juice", "name": "टर्बूज ज्यूस / Watermelon Juice", "price": "50 RS", "desc": "Refreshing watermelon juice", "tags": ["Veg", "Juice"], "img": "img/watermelon_juice.jpg" },
+  { "id": 55, "cat": "ज्यूस / Juice", "name": "मिक्स ज्यूस / Mix Juice", "price": "50 RS", "desc": "Blend of assorted fresh fruit juices", "tags": ["Veg", "Juice"], "img": "img/mix_juice_printed.jpg" },
+  { "id": 56, "cat": "ज्यूस / Juice", "name": "लिंबूसरबत / Lime Juice", "price": "20 RS", "desc": "Sweet and tangy lemon juice refresher", "tags": ["Veg", "Juice"], "img": "img/lime_juice.jpg" },
+  { "id": 122, "cat": "ड्रिंक्स / Drinks", "name": "लस्सी / Lassi", "price": "Check Availability", "desc": "Sweet traditional yogurt drink", "tags": ["Veg", "Drink"], "img": "img/lassi_shrinath.jpg" },
+  { "id": 123, "cat": "ड्रिंक्स / Drinks", "name": "कोल्ड्रींग / Cold Drink", "price": "MRP", "desc": "Chilled bottled soft drinks", "tags": ["Veg", "Drink"], "img": "img/cold_drink_shrinath.jpg" },
+  { "id": 136, "cat": "ड्रिंक्स / Drinks", "name": "मसाला ताक / Masala Taak", "price": "20 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_shrinath.jpg" },
+
+  // ============ 9. आईस्क्रीम & डेझर्ट / Ice Cream & Dessert ============
+  { "id": 38, "cat": "आईस्क्रीम / Ice Cream", "name": "अमूल आईस्क्रीम / Amul Ice Cream", "price": "Check Availability", "desc": "Assorted flavors of Amul ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/amul_ice_cream.jpg" },
+  { "id": 63, "cat": "आईस्क्रीम / Ice Cream", "name": "व्हॅनिला / Vanilla", "price": "40 RS", "desc": "Classic vanilla ice cream (Half: 25 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream.jpg" },
+  { "id": 64, "cat": "आईस्क्रीम / Ice Cream", "name": "बटर स्कॉच / Butter Scotch", "price": "50 RS", "desc": "Crunchy butterscotch ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/butter_scotch_ice_cream.jpg" },
+  { "id": 65, "cat": "आईस्क्रीम / Ice Cream", "name": "मँगो / Mango", "price": "50 RS", "desc": "Fresh mango flavored ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/mango_ice_cream.jpg" },
+  { "id": 66, "cat": "आईस्क्रीम / Ice Cream", "name": "चॉकलेट / Chocolate", "price": "60 RS", "desc": "Rich chocolate ice cream (Half: 35 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/chocolate_ice_cream.jpg" },
+  { "id": 67, "cat": "आईस्क्रीम / Ice Cream", "name": "अमेरिकन नट / American Nuts", "price": "70 RS", "desc": "Ice cream loaded with nuts and jelly (Half: 40 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/american_nuts_ice_cream.jpg" },
+  { "id": 68, "cat": "आईस्क्रीम / Ice Cream", "name": "काजु किशमिश / Kaju Kishmis", "price": "80 RS", "desc": "Ice cream with cashews and raisins (Half: 45 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kaju_kishmis_ice_cream.jpg" },
+  { "id": 69, "cat": "आईस्क्रीम / Ice Cream", "name": "केशर पिस्ता / Kesar Pista", "price": "90 RS", "desc": "Saffron and pistachio flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kesar_pista_ice_cream.jpg" },
+  { "id": 70, "cat": "आईस्क्रीम / Ice Cream", "name": "राजभोग / Raj Bhog", "price": "90 RS", "desc": "Royal traditional flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/raj_bhog_ice_cream.jpg" },
+  { "id": 99, "cat": "आईस्क्रीम / Ice Cream", "name": "व्हॅनिला आईस्क्रीम / Vanilla Ice Cream", "price": "69 RS", "desc": "Classic vanilla scoop", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream_plaza.jpg" },
+  { "id": 100, "cat": "आईस्क्रीम / Ice Cream", "name": "चोकोचिप्स आईस्क्रीम / Chocochips Ice Cream", "price": "89 RS", "desc": "Chocolate ice cream with chocolate chips", "tags": ["Veg", "Ice Cream"], "img": "img/chocochips_ice_cream.jpg" },
+  { "id": 101, "cat": "आईस्क्रीम / Ice Cream", "name": "बटरस्कॉच आईस्क्रीम / Butterscotch Ice Cream", "price": "79 RS", "desc": "Crunchy butterscotch scoop", "tags": ["Veg", "Ice Cream"], "img": "img/butterscotch_ice_cream_plaza.jpg" },
+  { "id": 102, "cat": "आईस्क्रीम / Ice Cream", "name": "स्ट्रॉबेरी आईस्क्रीम / Strawberry Ice Cream", "price": "79 RS", "desc": "Strawberry flavored ice cream scoop", "tags": ["Veg", "Ice Cream"], "img": "img/strawberry_ice_cream_plaza.jpg" },
+  { "id": 114, "cat": "आईस्क्रीम / Ice Cream", "name": "व्हॅनिला आईस्क्रीम / Vanilla Ice Cream", "price": "30 RS", "desc": "Classic vanilla flavor scoop", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream_shrinath.jpg" },
+  { "id": 115, "cat": "आईस्क्रीम / Ice Cream", "name": "बटरस्कॉच / Butterscotch", "price": "35 RS", "desc": "Crunchy butterscotch flavor scoop", "tags": ["Veg", "Ice Cream"], "img": "img/butterscotch_shrinath.jpg" },
+  { "id": 116, "cat": "आईस्क्रीम / Ice Cream", "name": "स्ट्रॉबेरी / Strawberry", "price": "30 RS", "desc": "Fresh strawberry flavor scoop", "tags": ["Veg", "Ice Cream"], "img": "img/strawberry_shrinath.jpg" },
+  { "id": 117, "cat": "आईस्क्रीम / Ice Cream", "name": "अमेरिकन नट्स / American Nuts", "price": "40 RS", "desc": "Ice cream loaded with jelly and nuts", "tags": ["Veg", "Ice Cream"], "img": "img/american_nuts_shrinath.jpg" },
+  { "id": 118, "cat": "आईस्क्रीम / Ice Cream", "name": "चॉकलेट / Chocolate", "price": "40 RS", "desc": "Rich chocolate flavor scoop", "tags": ["Veg", "Ice Cream"], "img": "img/chocolate_shrinath.jpg" },
+  { "id": 119, "cat": "आईस्क्रीम / Ice Cream", "name": "राजभोग / Rajbhog", "price": "50 RS", "desc": "Royal traditional flavor ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/rajbhog_shrinath.jpg" },
+  { "id": 120, "cat": "आईस्क्रीम / Ice Cream", "name": "केसर पिस्ता / Kesar Pista", "price": "50 RS", "desc": "Saffron and pistachio flavor ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/kesar_pista_shrinath.jpg" },
+  { "id": 39, "cat": "डेझर्ट / Dessert", "name": "भगवती स्पेशल लस्सी / Bhagwati Special Lassi", "price": "Check Availability", "desc": "Thick and creamy sweet yogurt drink", "tags": ["Veg", "Dessert"], "img": "img/bhagwati_special_lassi.jpg" },
+  { "id": 40, "cat": "डेझर्ट / Dessert", "name": "बासुंदी / Basundi", "price": "Check Availability", "desc": "Traditional thickened sweetened milk dessert", "tags": ["Veg", "Dessert"], "img": "img/basundi.jpg" },
+  { "id": 41, "cat": "डेझर्ट / Dessert", "name": "फालुदा / Falooda", "price": "Check Availability", "desc": "Dessert drink with vermicelli, basil seeds and ice cream", "tags": ["Veg", "Dessert"], "img": "img/falooda.jpg" },
+  { "id": 42, "cat": "डेझर्ट / Dessert", "name": "बादाम शेक / Badam Shake", "price": "Check Availability", "desc": "Rich almond flavored milk drink", "tags": ["Veg", "Shakes"], "img": "img/badam_shake.jpg" },
+  { "id": 43, "cat": "डेझर्ट / Dessert", "name": "मॅन्गो मस्तानी / Mango Mastani", "price": "Check Availability", "desc": "Mango milkshake topped with ice cream and dry fruits", "tags": ["Veg", "Dessert"], "img": "img/mango_mastani.jpg" },
+  { "id": 44, "cat": "डेझर्ट / Dessert", "name": "मसाला ताक / Masala Taak", "price": "Check Availability", "desc": "Spiced buttermilk digestive drink", "tags": ["Veg", "Drink"], "img": "img/masala_taak.jpg" },
+  { "id": 71, "cat": "डेझर्ट / Dessert", "name": "लस्सी विथ आईस क्रिम / Lassi with Ice Cream", "price": "70 RS", "desc": "Sweet lassi topped with a scoop of ice cream", "tags": ["Veg", "Dessert", "Lassi"], "img": "img/lassi_with_ice_cream.jpg" },
+  { "id": 72, "cat": "डेझर्ट / Dessert", "name": "गुलाब जामुन विथ आईस क्रिम / Gulab Jamun with Ice Cream", "price": "70 RS", "desc": "Hot gulab jamun served with cold vanilla ice cream", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_with_ice_cream.jpg" },
+  { "id": 73, "cat": "डेझर्ट / Dessert", "name": "मँगो मस्तानी / Mango Mastani", "price": "110 RS", "desc": "Thick mango shake topped with ice cream and dry fruits", "tags": ["Veg", "Dessert"], "img": "img/mango_mastani_special.jpg" },
+  { "id": 74, "cat": "डेझर्ट / Dessert", "name": "मँगो लस्सी / Mango Lassi", "price": "50 RS", "desc": "Mango flavored sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/mango_lassi.jpg" },
+  { "id": 75, "cat": "डेझर्ट / Dessert", "name": "लस्सी / Lassi", "price": "40 RS", "desc": "Traditional sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/lassi.jpg" },
+  { "id": 76, "cat": "डेझर्ट / Dessert", "name": "बदाम शेक / Badam Shake", "price": "50 RS", "desc": "Rich almond milk shake", "tags": ["Veg", "Shakes"], "img": "img/badam_shake_special.jpg" },
+  { "id": 77, "cat": "डेझर्ट / Dessert", "name": "फालुदा / Falooda", "price": "60 RS", "desc": "Royal dessert drink with vermicelli and basil seeds", "tags": ["Veg", "Dessert"], "img": "img/falooda_special.jpg" },
+  { "id": 78, "cat": "डेझर्ट / Dessert", "name": "मसाला ताक / Masala Taak", "price": "25 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_special.jpg" },
+  { "id": 79, "cat": "डेझर्ट / Dessert", "name": "भगवती स्पेशल आईस क्रिम थाळी / Bhagwati Special Ice Cream Thali", "price": "250 RS", "desc": "Assorted special ice cream platter", "tags": ["Veg", "Ice Cream", "Thali"], "img": "img/bhagwati_special_ice_cream_thali.jpg" },
+  { "id": 137, "cat": "डेझर्ट / Dessert", "name": "गुलाब जामुन (२ पीस) / Gulab Jamun (2 Pcs)", "price": "20 RS", "desc": "Sweet fried dough balls in sugar syrup", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_shrinath.jpg" },
+
+  // ============ 10. केक & पेस्ट्री / Cakes & Pastries ============
+  { "id": 148, "cat": "केक / Cakes", "name": "रसमलाई केक / Rasmalai Cake", "price": "350 RS", "desc": "Fusion cake with rich rasmalai flavor and nuts", "tags": ["Veg", "Cake", "Premium"], "img": "img/rasmalai_cake.jpg" },
+  { "id": 149, "cat": "केक / Cakes", "name": "काजू मलाई केक / Kaju Malai Cake", "price": "400 RS", "desc": "Rich premium cake loaded with cashews and cream", "tags": ["Veg", "Cake", "Premium"], "img": "img/kaju_malai_cake.jpg" },
+  { "id": 150, "cat": "केक / Cakes", "name": "चॉकलेट ट्रफल / Chocolate Truffle", "price": "320 RS", "desc": "Dense and rich chocolate cake with truffle ganache", "tags": ["Veg", "Cake", "Premium"], "img": "img/chocolate_truffle.jpg" },
+  { "id": 151, "cat": "केक / Cakes", "name": "रेड वेलवेट / Red Velvet", "price": "350 RS", "desc": "Classic red velvet sponge with cream cheese frosting", "tags": ["Veg", "Cake", "Premium"], "img": "img/red_velvet.jpg" },
+  { "id": 152, "cat": "केक / Cakes", "name": "गुलकंद केक / Gulakand Cake", "price": "350 RS", "desc": "Refreshing cake flavored with sweet rose petal preserve", "tags": ["Veg", "Cake", "Premium"], "img": "img/gulakand_cake.jpg" },
+  { "id": 153, "cat": "केक / Cakes", "name": "कॉफी चॉकलेट / Coffee Chocolate", "price": "350 RS", "desc": "Perfect blend of coffee and chocolate flavors", "tags": ["Veg", "Cake", "Premium"], "img": "img/coffee_chocolate.jpg" },
+  { "id": 154, "cat": "केक / Cakes", "name": "फ्रूट केक / Fruit Cake", "price": "400 RS", "desc": "Fresh cream cake topped with exotic fruits", "tags": ["Veg", "Cake", "Premium"], "img": "img/fruit_cake.jpg" },
+  { "id": 155, "cat": "केक / Cakes", "name": "नॉर्मल रेगुलर केक / Normal Regular Cake", "price": "150 RS", "desc": "Basic sponge cake with light cream", "tags": ["Veg", "Cake"], "img": "img/normal_regular_cake.jpg" },
+  { "id": 156, "cat": "केक / Cakes", "name": "चॉकलेट केक / Chocolate Cake", "price": "300 RS", "desc": "Classic chocolate sponge with cream", "tags": ["Veg", "Cake"], "img": "img/chocolate_cake.jpg" },
+  { "id": 157, "cat": "केक / Cakes", "name": "बटरस्कॉच केक / Butterscotch Cake", "price": "300 RS", "desc": "Crunchy butterscotch flavored cake with caramel crunch", "tags": ["Veg", "Cake"], "img": "img/butterscotch_cake.jpg" },
+  { "id": 158, "cat": "केक / Cakes", "name": "पायनॅपल केक / Pineapple Cake", "price": "300 RS", "desc": "Fresh cream cake with pineapple chunks", "tags": ["Veg", "Cake"], "img": "img/pineapple_cake.jpg" },
+  { "id": 159, "cat": "केक / Cakes", "name": "स्ट्रॉबेरी केक / Strawberry Cake", "price": "300 RS", "desc": "Pink strawberry flavored fresh cream cake", "tags": ["Veg", "Cake"], "img": "img/strawberry_cake.jpg" },
+  { "id": 160, "cat": "केक / Cakes", "name": "ब्लॅक फॉरेस्ट / Black Forest", "price": "300 RS", "desc": "Classic chocolate cake with cherries and cream", "tags": ["Veg", "Cake"], "img": "img/black_forest.jpg" },
+  { "id": 161, "cat": "केक / Cakes", "name": "व्हाईट फॉरेस्ट / White Forest", "price": "300 RS", "desc": "Vanilla cake with white chocolate shavings and cherries", "tags": ["Veg", "Cake"], "img": "img/white_forest.jpg" },
+  { "id": 162, "cat": "पेस्ट्री / Pastries", "name": "चॉकलेट पेस्ट्री / Chocolate Pastry", "price": "45 RS", "desc": "Single slice of rich chocolate cake", "tags": ["Veg", "Pastry"], "img": "img/chocolate_pastry.jpg" },
+  { "id": 163, "cat": "पेस्ट्री / Pastries", "name": "पायनॅपल पेस्ट्री / Pineapple Pastry", "price": "45 RS", "desc": "Single slice of fresh pineapple cake", "tags": ["Veg", "Pastry"], "img": "img/pineapple_pastry.jpg" },
+  { "id": 164, "cat": "पेस्ट्री / Pastries", "name": "ब्लॅक फॉरेस्ट पेस्ट्री / Black Forest Pastry", "price": "45 RS", "desc": "Single slice of classic black forest cake", "tags": ["Veg", "Pastry"], "img": "img/black_forest_pastry.jpg" },
+  { "id": 165, "cat": "पेस्ट्री / Pastries", "name": "बटरस्कॉच पेस्ट्री / Butterscotch Pastry", "price": "45 RS", "desc": "Single slice of crunchy butterscotch cake", "tags": ["Veg", "Pastry"], "img": "img/butterscotch_pastry.jpg" },
+  { "id": 166, "cat": "केक / Cakes", "name": "बर्थडे थीम केक / Birthday Theme Cake", "price": "On Order", "desc": "Customized theme cakes for birthdays (Price depends on design)", "tags": ["Veg", "Cake", "Custom"], "img": "img/birthday_theme_cake.jpg" },
+  { "id": 167, "cat": "केक / Cakes", "name": "फोटो केक / Photo Cake", "price": "On Order", "desc": "Personalized cake with edible photo print", "tags": ["Veg", "Cake", "Custom"], "img": "img/photo_cake.jpg" },
+  { "id": 168, "cat": "केक / Cakes", "name": "अॅनिव्हर्सरी केक / Anniversary Special Cake", "price": "On Order", "desc": "Romantic heart shape or designer cakes for anniversary", "tags": ["Veg", "Cake", "Custom"], "img": "img/anniversary_cake.jpg" },
+  { "id": 169, "cat": "केक / Cakes", "name": "किड्स कार्टून केक / Kids Cartoon Cake", "price": "On Order", "desc": "Cakes with popular cartoon characters for kids", "tags": ["Veg", "Cake", "Custom"], "img": "img/kids_cartoon_cake.jpg" },
+  { "id": 170, "cat": "केक / Cakes", "name": "वेडिंग केक / Wedding Cake", "price": "On Order", "desc": "Multi-tier special cakes for weddings", "tags": ["Veg", "Cake", "Custom"], "img": "img/wedding_cake.jpg" },
+  { "id": 171, "cat": "केक / Cakes", "name": "आईस्क्रीम केक / Ice Cream Cake", "price": "On Order", "desc": "Delicious cake with ice cream layers (Custom Order)", "tags": ["Veg", "Cake", "Ice Cream"], "img": "img/ice_cream_cake.jpg" },
+
+  // ============ 11. साइड्स / Extras ============
+  { "id": 130, "cat": "साइड्स / Extras", "name": "रोस्टेड पापड / Roasted Papad", "price": "10 RS", "desc": "Roasted lentil cracker", "tags": ["Veg", "Sides"], "img": "img/roasted_papad_shrinath.jpg" },
+  { "id": 138, "cat": "साइड्स / Extras", "name": "एक्स्ट्रा पावजोडी / Extra Pav Pair", "price": "10 RS", "desc": "Extra pair of bread rolls", "tags": ["Veg", "Sides"], "img": "img/extra_pav.jpg" },
+  { "id": 139, "cat": "साइड्स / Extras", "name": "एक्स्ट्रा फरसान प्लेट / Extra Farsan Plate", "price": "20 RS", "desc": "Extra plate of crispy mix snacks", "tags": ["Veg", "Sides"], "img": "img/extra_farsan.jpg" },
+  { "id": 140, "cat": "साइड्स / Extras", "name": "मटकी वाटी / Matki Wati", "price": "10 RS", "desc": "Bowl of sprouted moth beans", "tags": ["Veg", "Sides"], "img": "img/matki_wati.jpg" },
+  { "id": 141, "cat": "साइड्स / Extras", "name": "दही वाटी / Dahi Wati", "price": "10 RS", "desc": "Bowl of fresh yogurt", "tags": ["Veg", "Sides"], "img": "img/dahi_wati_shrinath.jpg" },
+];
+
+          
+  //       [
+
+  // { "id": 1, "cat": "पिझ्झा / Pizza", "name": "व्हेज चीज पिझ्झा / Veg Cheese Pizza", "price": "169 RS", "desc": "Classic pizza topped with mozzarella cheese and veggies", "tags": ["Veg", "Pizza"], "img": "img/veg_cheese_pizza.jpg" },
+  // { "id": 2, "cat": "पिझ्झा / Pizza", "name": "स्वीतकॉर्न पिझ्झा / Sweetcorn Pizza", "price": "169 RS", "desc": "Pizza topped with sweet corn and cheese", "tags": ["Veg", "Pizza"], "img": "img/sweetcorn_pizza.jpg" },
+  // { "id": 3, "cat": "पिझ्झा / Pizza", "name": "पनीर मसाला पिझ्झा / Paneer Masala Pizza", "price": "189 RS", "desc": "Spicy Indian style pizza topped with marinated paneer", "tags": ["Veg", "Pizza", "Paneer"], "img": "img/paneer_masala_pizza.jpg" },
+  // { "id": 4, "cat": "पिझ्झा / Pizza", "name": "ओनियन चीज पिझ्झा / Onion Cheese Pizza", "price": "169 RS", "desc": "Pizza loaded with sliced onions and cheese", "tags": ["Veg", "Pizza"], "img": "img/onion_cheese_pizza.jpg" },
+  // { "id": 5, "cat": "सँडविच / Sandwich", "name": "व्हेज सँडविच / Veg Sandwich", "price": "79 RS", "desc": "Classic sandwich stuffed with fresh vegetables", "tags": ["Veg", "Sandwich"], "img": "img/veg_sandwich.jpg" },
+  // { "id": 6, "cat": "सँडविच / Sandwich", "name": "चीज ब्लास्ट सँडविच / Cheese Blast Sandwich", "price": "99 RS", "desc": "Sandwich loaded with extra cheese", "tags": ["Veg", "Sandwich"], "img": "img/cheese_blast_sandwich.jpg" },
+  // { "id": 7, "cat": "सँडविच / Sandwich", "name": "पनीर सँडविच / Paneer Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with spicy paneer filling", "tags": ["Veg", "Sandwich", "Paneer"], "img": "img/paneer_sandwich.jpg" },
+  // { "id": 8, "cat": "सँडविच / Sandwich", "name": "स्वीतकॉर्न सँडविच / Sweetcorn Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with sweet corn and mayo", "tags": ["Veg", "Sandwich"], "img": "img/sweetcorn_sandwich.jpg" },
+  // { "id": 9, "cat": "मिसळ / Misal", "name": "स्पेशल मिसळ थाळी / Special Misal Thali", "price": "140 RS", "desc": "Spicy sprouted bean curry served with farsan and bread/pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/special_misal_thali.jpg" },
+  // { "id": 10, "cat": "मिसळ / Misal", "name": "दही मिसळ थाळी / Dahi Misal Thali", "price": "100 RS", "desc": "Misal topped with cooling yogurt served with pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/dahi_misal_thali.jpg" },
+  // { "id": 11, "cat": "मिसळ / Misal", "name": "रेगुलर मिसळ थाळी / Regular Misal Thali", "price": "90 RS", "desc": "Classic Maharashtrian spicy misal pav thali", "tags": ["Veg", "Misal", "Thali"], "img": "img/regular_misal_thali.jpg" },
+  // { "id": 12, "cat": "चाट / Chaat", "name": "स्पेशल भेळ / Special Bhel", "price": "60 RS", "desc": "Puffed rice mixed with tangy chutneys and special toppings", "tags": ["Veg", "Chaat"], "img": "img/special_bhel.jpg" },
+  // { "id": 13, "cat": "चाट / Chaat", "name": "दही भेळ / Dahi Bhel", "price": "80 RS", "desc": "Bhel topped with sweet and tangy yogurt", "tags": ["Veg", "Chaat"], "img": "img/dahi_bhel.jpg" },
+  // { "id": 14, "cat": "चाट / Chaat", "name": "मटकी भेळ / Matki Bhel", "price": "70 RS", "desc": "Healthy bhel made with sprouted moth beans", "tags": ["Veg", "Chaat"], "img": "img/matki_bhel.jpg" },
+  // { "id": 15, "cat": "चाट / Chaat", "name": "शेव पुरी / Shev Puri", "price": "60 RS", "desc": "Crispy puris topped with potatoes, chutneys and lots of sev", "tags": ["Veg", "Chaat"], "img": "img/shev_puri.jpg" },
+  // { "id": 16, "cat": "चाट / Chaat", "name": "दही पुरी / Dahi Puri", "price": "80 RS", "desc": "Crispy puris filled with yogurt and tangy chutneys", "tags": ["Veg", "Chaat"], "img": "img/dahi_puri.jpg" },
+
+  // { "id": 17, "cat": "चाट / Chaat", "name": "सुकी पुरी / Suki Puri", "price": "30 RS", "desc": "Crispy puris served with dry masala stuffing", "tags": ["Veg", "Chaat"], "img": "img/suki_puri.jpg" },
+  // { "id": 18, "cat": "चाट / Chaat", "name": "पाणी पुरी / Pani Puri", "price": "30 RS", "desc": "Crispy puris filled with spicy tangy water and stuffing", "tags": ["Veg", "Chaat"], "img": "img/pani_puri.jpg" },
+  // { "id": 19, "cat": "फ्रेंच फ्राईज / French Fries", "name": "प्लेन फ्राईज / Plain Fries", "price": "100 RS", "desc": "Classic salted crispy french fries", "tags": ["Veg", "Fries"], "img": "img/plain_fries.jpg" },
+  // { "id": 20, "cat": "फ्रेंच फ्राईज / French Fries", "name": "पेरी पेरी फ्राईज / Peri Peri Fries", "price": "120 RS", "desc": "Crispy fries tossed in spicy peri peri masala", "tags": ["Veg", "Fries"], "img": "img/peri_peri_fries.jpg" },
+  // { "id": 21, "cat": "फ्रेंच फ्राईज / French Fries", "name": "चीज फ्राईज / Cheese Fries", "price": "150 RS", "desc": "French fries loaded with melted cheese", "tags": ["Veg", "Fries"], "img": "img/cheese_fries.jpg" },
+  // { "id": 22, "cat": "पावभाजी / Pav Bhaji", "name": "स्पेशल पावभाजी / Special Pav Bhaji", "price": "90 RS", "desc": "Buttery mashed vegetable curry served with soft pav rolls", "tags": ["Veg", "Pav Bhaji"], "img": "img/special_pav_bhaji.jpg" },
+  // { "id": 23, "cat": "पावभाजी / Pav Bhaji", "name": "जैन पावभाजी / Jain Pav Bhaji", "price": "100 RS", "desc": "Pav bhaji prepared without onions and garlic", "tags": ["Veg", "Pav Bhaji", "Jain"], "img": "img/jain_pav_bhaji.jpg" },
+  // { "id": 24, "cat": "नाश्ता / Snacks", "name": "रस्सा पोहे / Rassa Pohe", "price": "40 RS", "desc": "Flattened rice served with spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_pohe.jpg" },
+  // { "id": 25, "cat": "नाश्ता / Snacks", "name": "वडापाव / Vadapav", "price": "25 RS", "desc": "Mumbai style potato fritter served in a bun", "tags": ["Veg", "Snacks"], "img": "img/vadapav.jpg" },
+  // { "id": 26, "cat": "नाश्ता / Snacks", "name": "स्पेशल कांदा पकोडा / Special Kanda Pakoda", "price": "70 RS", "desc": "Crispy onion fritters served with chutney", "tags": ["Veg", "Snacks"], "img": "img/special_kanda_pakoda.jpg" },
+  // { "id": 27, "cat": "नाश्ता / Snacks", "name": "रस्सा वडा / Rassa Vada", "price": "70 RS", "desc": "Potato fritter served in spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_vada.jpg" },
+  // { "id": 28, "cat": "नाश्ता / Snacks", "name": "मसाला मॅगी / Masala Maggi", "price": "70 RS", "desc": "Spicy vegetable instant noodles", "tags": ["Veg", "Snacks"], "img": "img/masala_maggi.jpg" },
+  // { "id": 29, "cat": "उपवास स्पेशल / Upvas Special", "name": "साबुदाणा खिचडी / Sabudana Khichdi", "price": "80 RS", "desc": "Sago pearl pilaf specially for fasting", "tags": ["Veg", "Upvas"], "img": "img/sabudana_khichdi.jpg" },
+
+  
+  // { "id": 30, "cat": "शेक्स / Shakes", "name": "बटरस्कॉच शेक / Butterscotch Shake", "price": "100 RS", "desc": "Creamy butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/butterscotch_shake.jpg" },
+  // { "id": 31, "cat": "शेक्स / Shakes", "name": "चॉकलेट शेक / Chocolate Shake", "price": "110 RS", "desc": "Rich and thick chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake.jpg" },
+  // { "id": 32, "cat": "शेक्स / Shakes", "name": "ओरिओ शेक / Oreo Shake", "price": "110 RS", "desc": "Milkshake blended with Oreo cookies", "tags": ["Veg", "Shakes"], "img": "img/oreo_shake.jpg" },
+  // { "id": 33, "cat": "शेक्स / Shakes", "name": "किटकॅट शेक / Kitkat Shake", "price": "110 RS", "desc": "Milkshake blended with Kitkat chocolate bars", "tags": ["Veg", "Shakes"], "img": "img/kitkat_shake.jpg" },
+  // { "id": 34, "cat": "शेक्स / Shakes", "name": "स्ट्रॉबेरी शेक / Strawberry Shake", "price": "110 RS", "desc": "Fresh strawberry flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/strawberry_shake.jpg" },
+  // { "id": 35, "cat": "कॉफी / Coffee", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "99 RS", "desc": "Chilled refreshing coffee drink", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee.jpg" },
+  // { "id": 36, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ चॉकलेट / Cold Coffee with Chocolate", "price": "120 RS", "desc": "Cold coffee topped with chocolate syrup", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_chocolate.jpg" },
+  // { "id": 37, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "125 RS", "desc": "Cold coffee served with a scoop of vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_ice_cream.jpg" },
+  // { "id": 38, "cat": "आईस्क्रीम / Ice Cream", "name": "अमूल आईस्क्रीम / Amul Ice Cream", "price": "Check Availability", "desc": "Assorted flavors of Amul ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/amul_ice_cream.jpg" },
+  // { "id": 39, "cat": "आईस्क्रीम / Ice Cream", "name": "भगवती स्पेशल लस्सी / Bhagwati Special Lassi", "price": "Check Availability", "desc": "Thick and creamy sweet yogurt drink", "tags": ["Veg", "Dessert"], "img": "img/bhagwati_special_lassi.jpg" },
+  // { "id": 40, "cat": "आईस्क्रीम / Ice Cream", "name": "बासुंदी / Basundi", "price": "Check Availability", "desc": "Traditional thickened sweetened milk dessert", "tags": ["Veg", "Dessert"], "img": "img/basundi.jpg" },
+  // { "id": 41, "cat": "आईस्क्रीम / Ice Cream", "name": "फालुदा / Falooda", "price": "Check Availability", "desc": "Dessert drink with vermicelli, basil seeds and ice cream", "tags": ["Veg", "Dessert"], "img": "img/falooda.jpg" },
+  // { "id": 42, "cat": "आईस्क्रीम / Ice Cream", "name": "बादाम शेक / Badam Shake", "price": "Check Availability", "desc": "Rich almond flavored milk drink", "tags": ["Veg", "Shakes"], "img": "img/badam_shake.jpg" },
+  // { "id": 43, "cat": "आईस्क्रीम / Ice Cream", "name": "मॅन्गो मस्तानी / Mango Mastani", "price": "Check Availability", "desc": "Mango milkshake topped with ice cream and dry fruits", "tags": ["Veg", "Dessert"], "img": "img/mango_mastani.jpg" },
+  // { "id": 44, "cat": "आईस्क्रीम / Ice Cream", "name": "मसाला ताक / Masala Taak", "price": "Check Availability", "desc": "Spiced buttermilk digestive drink", "tags": ["Veg", "Drink"], "img": "img/masala_taak.jpg" },
+  // { "id": 45, "cat": "ज्यूस / Juice", "name": "मॅन्गो ज्यूस / Mango Juice", "price": "60 RS", "desc": "Fresh mango fruit juice", "tags": ["Veg", "Juice"], "img": "img/mango_juice.jpg" },
+  // { "id": 46, "cat": "ज्यूस / Juice", "name": "पायनॅपल ज्यूस / Pineapple Juice", "price": "60 RS", "desc": "Fresh pineapple fruit juice", "tags": ["Veg", "Juice"], "img": "img/pineapple_juice.jpg" },
+  // { "id": 47, "cat": "ज्यूस / Juice", "name": "मिक्स ज्यूस / Mix Juice", "price": "60 RS", "desc": "Mixed fruit juice blend", "tags": ["Veg", "Juice"], "img": "img/mix_juice.jpg" },
+  // { "id": 48, "cat": "ज्यूस / Juice", "name": "अंजीर ज्यूस / Anjeer Juice", "price": "60 RS", "desc": "Fresh fig fruit juice", "tags": ["Veg", "Juice"], "img": "img/anjeer_juice.jpg" },
+  // { "id": 49, "cat": "ज्यूस / Juice", "name": "स्पेशल भगवती ज्यूस / Special Bhagwati Juice", "price": "75 RS", "desc": "House special mixed fruit juice", "tags": ["Veg", "Juice"], "img": "img/special_bhagwati_juice.jpg" },
+
+  // { "id": 50, "cat": "ज्यूस / Juice", "name": "मँगो ज्यूस / Mango Juice", "price": "60 RS", "desc": "Fresh and pulpy mango juice", "tags": ["Veg", "Juice"], "img": "img/mango_juice_printed.jpg" },
+  // { "id": 51, "cat": "ज्यूस / Juice", "name": "पायनॅपल ज्यूस / Pineapple Juice", "price": "50 RS", "desc": "Fresh pineapple fruit juice", "tags": ["Veg", "Juice"], "img": "img/pineapple_juice_printed.jpg" },
+  // { "id": 52, "cat": "ज्यूस / Juice", "name": "सफरचंद ज्यूस / Apple Juice", "price": "50 RS", "desc": "Healthy fresh apple juice", "tags": ["Veg", "Juice"], "img": "img/apple_juice.jpg" },
+  // { "id": 53, "cat": "ज्यूस / Juice", "name": "स्ट्रॉबेरी ज्यूस / Strawberry Juice", "price": "50 RS", "desc": "Fresh strawberry fruit juice", "tags": ["Veg", "Juice"], "img": "img/strawberry_juice.jpg" },
+  // { "id": 54, "cat": "ज्यूस / Juice", "name": "टर्बूज ज्यूस / Watermelon Juice", "price": "50 RS", "desc": "Refreshing watermelon juice", "tags": ["Veg", "Juice"], "img": "img/watermelon_juice.jpg" },
+  // { "id": 55, "cat": "ज्यूस / Juice", "name": "मिक्स ज्यूस / Mix Juice", "price": "50 RS", "desc": "Blend of assorted fresh fruit juices", "tags": ["Veg", "Juice"], "img": "img/mix_juice_printed.jpg" },
+  // { "id": 56, "cat": "ज्यूस / Juice", "name": "लिंबूसरबत / Lime Juice", "price": "20 RS", "desc": "Sweet and tangy lemon juice refresher", "tags": ["Veg", "Juice"], "img": "img/lime_juice.jpg" },
+  // { "id": 57, "cat": "शेक्स / Shakes", "name": "व्हॅनिला/बटर स्कॉच शेक / Vanilla/Butterscotch Shake", "price": "80 RS", "desc": "Classic vanilla or butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/vanilla_butterscotch_shake.jpg" },
+  // { "id": 58, "cat": "शेक्स / Shakes", "name": "रोज शेक / Rose Shake", "price": "80 RS", "desc": "Refreshing rose syrup flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_shake.jpg" },
+  // { "id": 59, "cat": "शेक्स / Shakes", "name": "चॉकलेट शेक / Chocolate Shake", "price": "90 RS", "desc": "Rich chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake_printed.jpg" },
+  // { "id": 60, "cat": "शेक्स / Shakes", "name": "मँगो शेक / Mango Shake", "price": "90 RS", "desc": "Thick mango pulp milkshake", "tags": ["Veg", "Shakes"], "img": "img/mango_shake.jpg" },
+  // { "id": 61, "cat": "कॉफी / Coffee", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "70 RS", "desc": "Chilled classic cold coffee", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee_printed.jpg" },
+  // { "id": 62, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "80 RS", "desc": "Cold coffee served with a scoop of vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_ice_cream_printed.jpg" },
+
+
+  // { "id": 63, "cat": "आईस्क्रीम / Ice Cream", "name": "व्हॅनिला / Vanilla", "price": "40 RS", "desc": "Classic vanilla ice cream (Half: 25 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream.jpg" },
+  // { "id": 64, "cat": "आईस्क्रीम / Ice Cream", "name": "बटर स्कॉच / Butter Scotch", "price": "50 RS", "desc": "Crunchy butterscotch ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/butter_scotch_ice_cream.jpg" },
+  // { "id": 65, "cat": "आईस्क्रीम / Ice Cream", "name": "मँगो / Mango", "price": "50 RS", "desc": "Fresh mango flavored ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/mango_ice_cream.jpg" },
+  // { "id": 66, "cat": "आईस्क्रीम / Ice Cream", "name": "चॉकलेट / Chocolate", "price": "60 RS", "desc": "Rich chocolate ice cream (Half: 35 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/chocolate_ice_cream.jpg" },
+  // { "id": 67, "cat": "आईस्क्रीम / Ice Cream", "name": "अमेरिकन नट / American Nuts", "price": "70 RS", "desc": "Ice cream loaded with nuts and jelly (Half: 40 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/american_nuts_ice_cream.jpg" },
+  // { "id": 68, "cat": "आईस्क्रीम / Ice Cream", "name": "काजु किशमिश / Kaju Kishmis", "price": "80 RS", "desc": "Ice cream with cashews and raisins (Half: 45 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kaju_kishmis_ice_cream.jpg" },
+  // { "id": 69, "cat": "आईस्क्रीम / Ice Cream", "name": "केशर पिस्ता / Kesar Pista", "price": "90 RS", "desc": "Saffron and pistachio flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kesar_pista_ice_cream.jpg" },
+  // { "id": 70, "cat": "आईस्क्रीम / Ice Cream", "name": "राजभोग / Raj Bhog", "price": "90 RS", "desc": "Royal traditional flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/raj_bhog_ice_cream.jpg" },
+  // { "id": 71, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "लस्सी विथ आईस क्रिम / Lassi with Ice Cream", "price": "70 RS", "desc": "Sweet lassi topped with a scoop of ice cream", "tags": ["Veg", "Dessert", "Lassi"], "img": "img/lassi_with_ice_cream.jpg" },
+  // { "id": 72, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "गुलाब जामुन विथ आईस क्रिम / Gulab Jamun with Ice Cream", "price": "70 RS", "desc": "Hot gulab jamun served with cold vanilla ice cream", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_with_ice_cream.jpg" },
+  // { "id": 73, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "मँगो मस्तानी / Mango Mastani", "price": "110 RS", "desc": "Thick mango shake topped with ice cream and dry fruits", "tags": ["Veg", "Dessert"], "img": "img/mango_mastani_special.jpg" },
+  // { "id": 74, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "मँगो लस्सी / Mango Lassi", "price": "50 RS", "desc": "Mango flavored sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/mango_lassi.jpg" },
+  // { "id": 75, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "लस्सी / Lassi", "price": "40 RS", "desc": "Traditional sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/lassi.jpg" },
+  // { "id": 76, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "बदाम शेक / Badam Shake", "price": "50 RS", "desc": "Rich almond milk shake", "tags": ["Veg", "Shakes"], "img": "img/badam_shake_special.jpg" },
+  // { "id": 77, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "फालुदा / Falooda", "price": "60 RS", "desc": "Royal dessert drink with vermicelli and basil seeds", "tags": ["Veg", "Dessert"], "img": "img/falooda_special.jpg" },
+  // { "id": 78, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "मसाला ताक / Masala Taak", "price": "25 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_special.jpg" },
+  // { "id": 79, "cat": "भगवती स्पेशल / Bhagwati Special", "name": "भगवती स्पेशल आईस क्रिम थाळी / Bhagwati Special Ice Cream Thali", "price": "250 RS", "desc": "Assorted special ice cream platter", "tags": ["Veg", "Ice Cream", "Thali"], "img": "img/bhagwati_special_ice_cream_thali.jpg" },
+
+   
+  // { "id": 80, "cat": "पिझ्झा / Pizza", "name": "व्हेज चीज पिझ्झा / Veg Cheese Pizza", "price": "149 RS", "desc": "Classic pizza topped with veggies and cheese", "tags": ["Veg", "Pizza"], "img": "img/veg_cheese_pizza_plaza.jpg" },
+  // { "id": 81, "cat": "पिझ्झा / Pizza", "name": "प्लेन चीज पिझ्झा / Plain Cheese Pizza", "price": "179 RS", "desc": "Pizza loaded with extra mozzarella cheese", "tags": ["Veg", "Pizza"], "img": "img/plain_cheese_pizza.jpg" },
+  // { "id": 82, "cat": "पिझ्झा / Pizza", "name": "स्वीतकॉर्न पिझ्झा / Sweetcorn Pizza", "price": "149 RS", "desc": "Pizza topped with sweet corn and cheese", "tags": ["Veg", "Pizza"], "img": "img/sweetcorn_pizza_plaza.jpg" },
+  // { "id": 83, "cat": "पिझ्झा / Pizza", "name": "ओनियन पिझ्झा / Onion Pizza", "price": "129 RS", "desc": "Pizza topped with sliced onions and cheese", "tags": ["Veg", "Pizza"], "img": "img/onion_pizza_plaza.jpg" },
+  // { "id": 84, "cat": "पिझ्झा / Pizza", "name": "पनीर मसाला पिझ्झा / Paneer Masala Pizza", "price": "169 RS", "desc": "Spicy pizza topped with marinated paneer", "tags": ["Veg", "Pizza", "Paneer"], "img": "img/paneer_masala_pizza_plaza.jpg" },
+  // { "id": 85, "cat": "सँडविच / Sandwich", "name": "व्हेज सँडविच / Veg Sandwich", "price": "69 RS", "desc": "Sandwich stuffed with fresh mixed vegetables", "tags": ["Veg", "Sandwich"], "img": "img/veg_sandwich_plaza.jpg" },
+  // { "id": 86, "cat": "सँडविच / Sandwich", "name": "चीज ब्लास्ट सँडविच / Cheese Blast Sandwich", "price": "89 RS", "desc": "Loaded cheese sandwich for cheese lovers", "tags": ["Veg", "Sandwich"], "img": "img/cheese_blast_sandwich_plaza.jpg" },
+  // { "id": 87, "cat": "सँडविच / Sandwich", "name": "पनीर सँडविच / Paneer Sandwich", "price": "89 RS", "desc": "Sandwich with spicy paneer filling", "tags": ["Veg", "Sandwich", "Paneer"], "img": "img/paneer_sandwich_plaza.jpg" },
+  // { "id": 88, "cat": "सँडविच / Sandwich", "name": "स्वीतकॉर्न सँडविच / Sweetcorn Sandwich", "price": "89 RS", "desc": "Sandwich with sweet corn and mayo filling", "tags": ["Veg", "Sandwich"], "img": "img/sweetcorn_sandwich_plaza.jpg" },
+  // { "id": 89, "cat": "फ्रेंच फ्राईज / French Fries", "name": "प्लेन फ्राईज / Plain Fries", "price": "89 RS", "desc": "Classic salted crispy french fries", "tags": ["Veg", "Fries"], "img": "img/plain_fries_plaza.jpg" },
+  // { "id": 90, "cat": "फ्रेंच फ्राईज / French Fries", "name": "पेरी पेरी फ्राईज / Fries with Peri Peri", "price": "110 RS", "desc": "Fries tossed in spicy peri peri masala", "tags": ["Veg", "Fries"], "img": "img/peri_peri_fries_plaza.jpg" },
+  // { "id": 91, "cat": "फ्रेंच फ्राईज / French Fries", "name": "चीज फ्राईज / Cheese Fries", "price": "130 RS", "desc": "Crispy fries topped with melted cheese", "tags": ["Veg", "Fries"], "img": "img/cheese_fries_plaza.jpg" },
+  // { "id": 92, "cat": "शेक्स / Shakes", "name": "बटरस्कॉच शेक / Butterscotch Shake", "price": "99 RS", "desc": "Creamy butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/butterscotch_shake_plaza.jpg" },
+  // { "id": 93, "cat": "शेक्स / Shakes", "name": "पायनॅपल शेक / Pineapple Shake", "price": "99 RS", "desc": "Fresh pineapple milkshake", "tags": ["Veg", "Shakes"], "img": "img/pineapple_shake_plaza.jpg" },
+  // { "id": 94, "cat": "शेक्स / Shakes", "name": "स्ट्रॉबेरी शेक / Strawberry Shake", "price": "99 RS", "desc": "Fresh strawberry milkshake", "tags": ["Veg", "Shakes"], "img": "img/strawberry_shake_plaza.jpg" },
+  // { "id": 95, "cat": "शेक्स / Shakes", "name": "चॉकलेट शेक / Chocolate Shake", "price": "99 RS", "desc": "Rich chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake_plaza.jpg" },
+  // { "id": 96, "cat": "शेक्स / Shakes", "name": "ओरिओ शेक / Oreo Shake", "price": "99 RS", "desc": "Milkshake blended with Oreo cookies", "tags": ["Veg", "Shakes"], "img": "img/oreo_shake_plaza.jpg" },
+  // { "id": 97, "cat": "शेक्स / Shakes", "name": "किटकॅट शेक / Kitkat Shake", "price": "99 RS", "desc": "Milkshake blended with Kitkat chocolate", "tags": ["Veg", "Shakes"], "img": "img/kitkat_shake_plaza.jpg" },
+  // { "id": 98, "cat": "शेक्स / Shakes", "name": "रोज मिल्क शेक / Rose Milk Shake", "price": "99 RS", "desc": "Refreshing rose flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_milk_shake.jpg" },
+  // { "id": 99, "cat": "आईस्क्रीम / Ice Cream", "name": "व्हॅनिला आईस्क्रीम / Vanilla Ice Cream", "price": "69 RS", "desc": "Classic vanilla scoop", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream_plaza.jpg" },
+  // { "id": 100, "cat": "आईस्क्रीम / Ice Cream", "name": "चोकोचिप्स आईस्क्रीम / Chocochips Ice Cream", "price": "89 RS", "desc": "Chocolate ice cream with chocolate chips", "tags": ["Veg", "Ice Cream"], "img": "img/chocochips_ice_cream.jpg" },
+  // { "id": 101, "cat": "आईस्क्रीम / Ice Cream", "name": "बटरस्कॉच आईस्क्रीम / Butterscotch Ice Cream", "price": "79 RS", "desc": "Crunchy butterscotch scoop", "tags": ["Veg", "Ice Cream"], "img": "img/butterscotch_ice_cream_plaza.jpg" },
+  // { "id": 102, "cat": "आईस्क्रीम / Ice Cream", "name": "स्ट्रॉबेरी आईस्क्रीम / Strawberry Ice Cream", "price": "79 RS", "desc": "Strawberry flavored ice cream scoop", "tags": ["Veg", "Ice Cream"], "img": "img/strawberry_ice_cream_plaza.jpg" },
+  // { "id": 103, "cat": "कॉफी / Coffee", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "79 RS", "desc": "Chilled refreshing coffee drink", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee_plaza.jpg" },
+  // { "id": 104, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ चॉकलेट / Cold Coffee with Chocolate", "price": "89 RS", "desc": "Cold coffee topped with chocolate sauce", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_chocolate_plaza.jpg" },
+  // { "id": 105, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "89 RS", "desc": "Cold coffee served with vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_ice_cream_plaza.jpg" },       
+        
+  
+  // { "id": 106, "cat": "चाट / Chaat", "name": "श्रीनाथ स्पे. ओली भेळ / Shrinath Spl. Oli Bhel", "price": "40 RS", "desc": "Special wet bhel with secret chutneys", "tags": ["Veg", "Chaat", "Special"], "img": "img/shrinath_spl_oli_bhel.jpg" },
+  // { "id": 107, "cat": "चाट / Chaat", "name": "दही भेळ / Dahi Bhel", "price": "50 RS", "desc": "Bhel topped with fresh sweet yogurt", "tags": ["Veg", "Chaat"], "img": "img/dahi_bhel_shrinath.jpg" },
+  // { "id": 108, "cat": "चाट / Chaat", "name": "मटकी भेळ / Matki Bhel", "price": "50 RS", "desc": "Healthy bhel made with sprouted moth beans", "tags": ["Veg", "Chaat"], "img": "img/matki_bhel_shrinath.jpg" },
+  // { "id": 109, "cat": "चाट / Chaat", "name": "सुकी भेळ / Suki Bhel", "price": "40 RS", "desc": "Crispy dry bhel mixture with farsan", "tags": ["Veg", "Chaat"], "img": "img/suki_bhel.jpg" },
+  // { "id": 110, "cat": "चाट / Chaat", "name": "पाणी पुरी / Pani Puri", "price": "20 RS", "desc": "Crispy puris filled with spicy tangy water", "tags": ["Veg", "Chaat"], "img": "img/pani_puri_shrinath.jpg" },
+  // { "id": 111, "cat": "चाट / Chaat", "name": "शेव पुरी / Shev Puri", "price": "40 RS", "desc": "Flat puris topped with potatoes, chutneys and sev", "tags": ["Veg", "Chaat"], "img": "img/shev_puri_shrinath.jpg" },
+  // { "id": 112, "cat": "चाट / Chaat", "name": "दही पुरी / Dahi Puri", "price": "40 RS", "desc": "Crispy puris stuffed with yogurt and sweet chutney", "tags": ["Veg", "Chaat"], "img": "img/dahi_puri_shrinath.jpg" },
+  // { "id": 113, "cat": "चाट / Chaat", "name": "सुकी पुरी / Suki Puri", "price": "20 RS", "desc": "Crispy puris served with dry masala", "tags": ["Veg", "Chaat"], "img": "img/suki_puri_shrinath.jpg" },
+  // { "id": 114, "cat": "आईस्क्रीम / Ice Cream", "name": "व्हॅनिला आईस्क्रीम / Vanilla Ice Cream", "price": "30 RS", "desc": "Classic vanilla flavor scoop", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream_shrinath.jpg" },
+  // { "id": 115, "cat": "आईस्क्रीम / Ice Cream", "name": "बटरस्कॉच / Butterscotch", "price": "35 RS", "desc": "Crunchy butterscotch flavor scoop", "tags": ["Veg", "Ice Cream"], "img": "img/butterscotch_shrinath.jpg" },
+  // { "id": 116, "cat": "आईस्क्रीम / Ice Cream", "name": "स्ट्रॉबेरी / Strawberry", "price": "30 RS", "desc": "Fresh strawberry flavor scoop", "tags": ["Veg", "Ice Cream"], "img": "img/strawberry_shrinath.jpg" },
+  // { "id": 117, "cat": "आईस्क्रीम / Ice Cream", "name": "अमेरिकन नट्स / American Nuts", "price": "40 RS", "desc": "Ice cream loaded with jelly and nuts", "tags": ["Veg", "Ice Cream"], "img": "img/american_nuts_shrinath.jpg" },
+  // { "id": 118, "cat": "आईस्क्रीम / Ice Cream", "name": "चॉकलेट / Chocolate", "price": "40 RS", "desc": "Rich chocolate flavor scoop", "tags": ["Veg", "Ice Cream"], "img": "img/chocolate_shrinath.jpg" },
+  // { "id": 119, "cat": "आईस्क्रीम / Ice Cream", "name": "राजभोग / Rajbhog", "price": "50 RS", "desc": "Royal traditional flavor ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/rajbhog_shrinath.jpg" },
+  // { "id": 120, "cat": "आईस्क्रीम / Ice Cream", "name": "केसर पिस्ता / Kesar Pista", "price": "50 RS", "desc": "Saffron and pistachio flavor ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/kesar_pista_shrinath.jpg" },
+  // { "id": 121, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी / Cold Coffee", "price": "90 RS", "desc": "Chilled refreshing cold coffee", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_shrinath.jpg" },
+  // { "id": 122, "cat": "ड्रिंक्स / Drinks", "name": "लस्सी / Lassi", "price": "Check Availability", "desc": "Sweet traditional yogurt drink", "tags": ["Veg", "Drink"], "img": "img/lassi_shrinath.jpg" },
+  // { "id": 123, "cat": "ड्रिंक्स / Drinks", "name": "कोल्ड्रींग / Cold Drink", "price": "MRP", "desc": "Chilled bottled soft drinks", "tags": ["Veg", "Drink"], "img": "img/cold_drink_shrinath.jpg" },
+
+
+      
+  // { "id": 124, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "रस्सा पोहे / Rassa Pohe", "price": "25 RS", "desc": "Flattened rice served with spicy gravy (rassa)", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/rassa_pohe_shrinath.jpg" },
+  // { "id": 125, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "दही पोहे / Dahi Pohe", "price": "35 RS", "desc": "Flattened rice served with yogurt", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/dahi_pohe_shrinath.jpg" },
+  // { "id": 126, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "वडा पाव / Vada Pav", "price": "15 RS", "desc": "Mumbai's favorite potato fritter in a bun", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/vada_pav_shrinath.jpg" },
+  // { "id": 127, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "ब्रेड वडा / Bread Vada", "price": "20 RS", "desc": "Deep fried potato stuffed bread fritter", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/bread_vada_shrinath.jpg" },
+  // { "id": 128, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "कांदा भजी / Kanda Bhaji", "price": "40 RS", "desc": "Crispy onion fritters", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/kanda_bhaji_shrinath.jpg" },
+  // { "id": 129, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "रस्सा वडा / Rassa Vada", "price": "50 RS", "desc": "Potato fritter served in spicy gravy", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/rassa_vada_shrinath.jpg" },
+  // { "id": 130, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "रोस्टेड पापड / Roasted Papad", "price": "10 RS", "desc": "Roasted lentil cracker", "tags": ["Veg", "Sides"], "img": "img/roasted_papad_shrinath.jpg" },
+  // { "id": 131, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "पाव भाजी / Pav Bhaji", "price": "70 RS", "desc": "Spicy mashed vegetable curry with buttered bread rolls", "tags": ["Veg", "Snacks", "Pav Bhaji"], "img": "img/pav_bhaji_shrinath.jpg" },
+  // { "id": 132, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "साबुदाणा खिचडी / Sabudana Khichdi", "price": "50 RS", "desc": "Sago pearl pilaf (fasting special)", "tags": ["Veg", "Breakfast", "Upvas"], "img": "img/sabudana_khichdi_shrinath.jpg" },
+  // { "id": 133, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "फिंगर चिप्स / Finger Chips", "price": "70 RS", "desc": "Crispy french fries", "tags": ["Veg", "Snacks", "Fries"], "img": "img/finger_chips_shrinath.jpg" },
+  // { "id": 134, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "मॅगी / Maggi", "price": "50 RS", "desc": "Classic instant noodles", "tags": ["Veg", "Snacks"], "img": "img/maggi_shrinath.jpg" },
+  // { "id": 135, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "मसाला मॅगी / Masala Maggi", "price": "60 RS", "desc": "Spicy vegetable instant noodles", "tags": ["Veg", "Snacks"], "img": "img/masala_maggi_shrinath.jpg" },
+  // { "id": 136, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "मसाला ताक / Masala Taak", "price": "20 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_shrinath.jpg" },
+  // { "id": 137, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "गुलाब जामुन (२ पीस) / Gulab Jamun (2 Pcs)", "price": "20 RS", "desc": "Sweet fried dough balls in sugar syrup", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_shrinath.jpg" },
+  // { "id": 138, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "एक्स्ट्रा पावजोडी / Extra Pav Pair", "price": "10 RS", "desc": "Extra pair of bread rolls", "tags": ["Veg", "Sides"], "img": "img/extra_pav.jpg" },
+  // { "id": 139, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "एक्स्ट्रा फरसान प्लेट / Extra Farsan Plate", "price": "20 RS", "desc": "Extra plate of crispy mix snacks", "tags": ["Veg", "Sides"], "img": "img/extra_farsan.jpg" },
+  // { "id": 140, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "मटकी वाटी / Matki Wati", "price": "10 RS", "desc": "Bowl of sprouted moth beans", "tags": ["Veg", "Sides"], "img": "img/matki_wati.jpg" },
+  // { "id": 141, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "दही वाटी / Dahi Wati", "price": "10 RS", "desc": "Bowl of fresh yogurt", "tags": ["Veg", "Sides"], "img": "img/dahi_wati_shrinath.jpg" },
+  // { "id": 142, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "चहा / Tea", "price": "10 RS", "desc": "Hot milk tea", "tags": ["Veg", "Hot Drink"], "img": "img/tea_shrinath.jpg" },
+  // { "id": 143, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "कॉफी / Coffee", "price": "15 RS", "desc": "Hot coffee", "tags": ["Veg", "Hot Drink"], "img": "img/coffee_shrinath.jpg" },
+  // { "id": 144, "cat": "नाष्टा कॉर्नर / Breakfast Corner", "name": "दुध / Milk", "price": "10 RS", "desc": "Hot milk cup", "tags": ["Veg", "Hot Drink"], "img": "img/milk_shrinath.jpg" },
+  // { "id": 145, "cat": "मिसळ थाळी / Misal Thali", "name": "श्रीनाथ स्पेशल मिसळ थाळी / Shrinath Special Misal Thali", "price": "120 RS", "desc": "Farsan, Rassa, Papad, 2 Sweets, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak, Papdi, Pohe, Shev, Pani Bottle", "tags": ["Veg", "Misal", "Thali", "Special"], "img": "img/shrinath_special_misal_thali.jpg" },
+  // { "id": 146, "cat": "मिसळ थाळी / Misal Thali", "name": "श्रीनाथ दही मिसळ थाळी / Shrinath Dahi Misal Thali", "price": "80 RS", "desc": "Farsan, Rassa, Papad, Gulab Jamun, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_dahi_misal_thali.jpg" },
+  // { "id": 147, "cat": "मिसळ थाळी / Misal Thali", "name": "श्रीनाथ मिसळ थाळी / Shrinath Misal Thali", "price": "70 RS", "desc": "Farsan, Rassa, Papad, 1 Sweet, Kanda-Limbu, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_misal_thali.jpg" },    
+  
+   
+  // { "id": 148, "cat": "प्रीमियम केक / Premium Cakes", "name": "रसमलाई केक / Rasmalai Cake", "price": "350 RS", "desc": "Fusion cake with rich rasmalai flavor and nuts", "tags": ["Veg", "Cake", "Premium"], "img": "img/rasmalai_cake.jpg" },
+  // { "id": 149, "cat": "प्रीमियम केक / Premium Cakes", "name": "काजू मलाई केक / Kaju Malai Cake", "price": "400 RS", "desc": "Rich premium cake loaded with cashews and cream", "tags": ["Veg", "Cake", "Premium"], "img": "img/kaju_malai_cake.jpg" },
+  // { "id": 150, "cat": "प्रीमियम केक / Premium Cakes", "name": "चॉकलेट ट्रफल / Chocolate Truffle", "price": "320 RS", "desc": "Dense and rich chocolate cake with truffle ganache", "tags": ["Veg", "Cake", "Premium"], "img": "img/chocolate_truffle.jpg" },
+  // { "id": 151, "cat": "प्रीमियम केक / Premium Cakes", "name": "रेड वेलवेट / Red Velvet", "price": "350 RS", "desc": "Classic red velvet sponge with cream cheese frosting", "tags": ["Veg", "Cake", "Premium"], "img": "img/red_velvet.jpg" },
+  // { "id": 152, "cat": "प्रीमियम केक / Premium Cakes", "name": "गुलकंद केक / Gulakand Cake", "price": "350 RS", "desc": "Refreshing cake flavored with sweet rose petal preserve", "tags": ["Veg", "Cake", "Premium"], "img": "img/gulakand_cake.jpg" },
+  // { "id": 153, "cat": "प्रीमियम केक / Premium Cakes", "name": "कॉफी चॉकलेट / Coffee Chocolate", "price": "350 RS", "desc": "Perfect blend of coffee and chocolate flavors", "tags": ["Veg", "Cake", "Premium"], "img": "img/coffee_chocolate.jpg" },
+  // { "id": 154, "cat": "प्रीमियम केक / Premium Cakes", "name": "फ्रूट केक / Fruit Cake", "price": "400 RS", "desc": "Fresh cream cake topped with exotic fruits", "tags": ["Veg", "Cake", "Premium"], "img": "img/fruit_cake.jpg" },
+  // { "id": 155, "cat": "रेगुलर केक / Regular Cakes", "name": "नॉर्मल रेगुलर केक / Normal Regular Cake", "price": "150 RS", "desc": "Basic sponge cake with light cream", "tags": ["Veg", "Cake"], "img": "img/normal_regular_cake.jpg" },
+  // { "id": 156, "cat": "रेगुलर केक / Regular Cakes", "name": "चॉकलेट केक / Chocolate Cake", "price": "300 RS", "desc": "Classic chocolate sponge with cream", "tags": ["Veg", "Cake"], "img": "img/chocolate_cake.jpg" },
+  // { "id": 157, "cat": "रेगुलर केक / Regular Cakes", "name": "बटरस्कॉच केक / Butterscotch Cake", "price": "300 RS", "desc": "Crunchy butterscotch flavored cake with caramel crunch", "tags": ["Veg", "Cake"], "img": "img/butterscotch_cake.jpg" },
+  // { "id": 158, "cat": "रेगुलर केक / Regular Cakes", "name": "पायनॅपल केक / Pineapple Cake", "price": "300 RS", "desc": "Fresh cream cake with pineapple chunks", "tags": ["Veg", "Cake"], "img": "img/pineapple_cake.jpg" },
+  // { "id": 159, "cat": "रेगुलर केक / Regular Cakes", "name": "स्ट्रॉबेरी केक / Strawberry Cake", "price": "300 RS", "desc": "Pink strawberry flavored fresh cream cake", "tags": ["Veg", "Cake"], "img": "img/strawberry_cake.jpg" },
+  // { "id": 160, "cat": "रेगुलर केक / Regular Cakes", "name": "ब्लॅक फॉरेस्ट / Black Forest", "price": "300 RS", "desc": "Classic chocolate cake with cherries and cream", "tags": ["Veg", "Cake"], "img": "img/black_forest.jpg" },
+  // { "id": 161, "cat": "रेगुलर केक / Regular Cakes", "name": "व्हाईट फॉरेस्ट / White Forest", "price": "300 RS", "desc": "Vanilla cake with white chocolate shavings and cherries", "tags": ["Veg", "Cake"], "img": "img/white_forest.jpg" },
+  // { "id": 162, "cat": "पेस्ट्री / Pastries", "name": "चॉकलेट पेस्ट्री / Chocolate Pastry", "price": "45 RS", "desc": "Single slice of rich chocolate cake", "tags": ["Veg", "Pastry"], "img": "img/chocolate_pastry.jpg" },
+  // { "id": 163, "cat": "पेस्ट्री / Pastries", "name": "पायनॅपल पेस्ट्री / Pineapple Pastry", "price": "45 RS", "desc": "Single slice of fresh pineapple cake", "tags": ["Veg", "Pastry"], "img": "img/pineapple_pastry.jpg" },
+  // { "id": 164, "cat": "पेस्ट्री / Pastries", "name": "ब्लॅक फॉरेस्ट पेस्ट्री / Black Forest Pastry", "price": "45 RS", "desc": "Single slice of classic black forest cake", "tags": ["Veg", "Pastry"], "img": "img/black_forest_pastry.jpg" },
+  // { "id": 165, "cat": "पेस्ट्री / Pastries", "name": "बटरस्कॉच पेस्ट्री / Butterscotch Pastry", "price": "45 RS", "desc": "Single slice of crunchy butterscotch cake", "tags": ["Veg", "Pastry"], "img": "img/butterscotch_pastry.jpg" },
+  // { "id": 166, "cat": "स्पेशल केक / Special Cakes", "name": "बर्थडे थीम केक / Birthday Theme Cake", "price": "On Order", "desc": "Customized theme cakes for birthdays (Price depends on design)", "tags": ["Veg", "Cake", "Custom"], "img": "img/birthday_theme_cake.jpg" },
+  // { "id": 167, "cat": "स्पेशल केक / Special Cakes", "name": "फोटो केक / Photo Cake", "price": "On Order", "desc": "Personalized cake with edible photo print", "tags": ["Veg", "Cake", "Custom"], "img": "img/photo_cake.jpg" },
+  // { "id": 168, "cat": "स्पेशल केक / Special Cakes", "name": "अ‍ॅनिव्हर्सरी केक / Anniversary Special Cake", "price": "On Order", "desc": "Romantic heart shape or designer cakes for anniversary", "tags": ["Veg", "Cake", "Custom"], "img": "img/anniversary_cake.jpg" },
+  // { "id": 169, "cat": "स्पेशल केक / Special Cakes", "name": "किड्स कार्टून केक / Kids Cartoon Cake", "price": "On Order", "desc": "Cakes with popular cartoon characters for kids", "tags": ["Veg", "Cake", "Custom"], "img": "img/kids_cartoon_cake.jpg" },
+  // { "id": 170, "cat": "स्पेशल केक / Special Cakes", "name": "वेडिंग केक / Wedding Cake", "price": "On Order", "desc": "Multi-tier special cakes for weddings", "tags": ["Veg", "Cake", "Custom"], "img": "img/wedding_cake.jpg" },
+  // { "id": 171, "cat": "स्पेशल केक / Special Cakes", "name": "आईस्क्रीम केक / Ice Cream Cake", "price": "On Order", "desc": "Delicious cake with ice cream layers (Custom Order)", "tags": ["Veg", "Cake", "Ice Cream"], "img": "img/ice_cream_cake.jpg" },     
+        
+        
+  //       ];
+        
+        // Cart functionality
+        let cart = [];
+        let deliveryType = 'restaurant'; // Default to restaurant
+        const cartButton = document.getElementById('cartButton');
+        const cartModal = document.getElementById('cartModal');
+        const closeCart = document.getElementById('closeCart');
+        const cartItems = document.getElementById('cartItems');
+        const cartEmpty = document.getElementById('cartEmpty');
+        const cartCount = document.getElementById('cartCount');
+        const cartTotal = document.getElementById('cartTotal');
+        const clearCart = document.getElementById('clearCart');
+        const whatsappOrder = document.getElementById('whatsappOrder');
+        const addAnotherItem = document.getElementById('addAnotherItem');
+        const customerDetailsSummary = document.getElementById('customerDetailsSummary');
+
+        // Delivery option selection
+        function selectDeliveryOption(type) {
+            deliveryType = type;
+
+            // Update button states
+            document.getElementById('restaurantOption').classList.toggle('active', type === 'restaurant');
+            document.getElementById('homeDeliveryOption').classList.toggle('active', type === 'home');
+
+            // Show/hide forms
+            document.getElementById('restaurantForm').classList.toggle('active', type === 'restaurant');
+            document.getElementById('homeDeliveryForm').classList.toggle('active', type === 'home');
+
+            // Update details summary
+            updateCustomerDetailsSummary();
+        }
+
+        // Update customer details summary
+        function updateCustomerDetailsSummary() {
+            let summaryHTML = '';
+            let showSummary = false;
+
+            if (deliveryType === 'restaurant') {
+                const tableNumber = document.getElementById('tableNumber').value.trim();
+
+                if (tableNumber) {
+                    showSummary = true;
+                    summaryHTML = `
+            <div class="summary-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 12v12M15 12v12M5 12l-2 9h18l-2-9M5 12V8c0-1.105.895-2 2-2h10c1.105 0 2 .895 2 2v4"/>
+                <circle cx="12" cy="6" r="2"/>
+              </svg>
+              Restaurant Order
+            </div>
+            <div class="summary-details">
+              <div><strong>Type:</strong> Dine-in</div>
+              <div><strong>Table Number:</strong> ${tableNumber}</div>
+            </div>
+          `;
+                }
+            } else {
+                const name = document.getElementById('customerName').value.trim();
+                const mobile = document.getElementById('customerMobile').value.trim();
+                const address = document.getElementById('customerAddress').value.trim();
+
+                if (name || mobile || address) {
+                    showSummary = true;
+                    summaryHTML = `
+            <div class="summary-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+              Delivery Order
+            </div>
+            <div class="summary-details">
+              <div><strong>Type:</strong> Home Delivery</div>
+              ${name ? `<div><strong>Name:</strong> ${name}</div>` : ''}
+              ${mobile ? `<div><strong>Mobile:</strong> ${mobile}</div>` : ''}
+              ${address ? `<div><strong>Address:</strong> ${address}</div>` : ''}
+            </div>
+          `;
+                }
+            }
+
+            if (showSummary) {
+                customerDetailsSummary.innerHTML = summaryHTML;
+                customerDetailsSummary.classList.add('active');
+            } else {
+                customerDetailsSummary.classList.remove('active');
+            }
+        }
+
+        // Toggle cart modal
+        cartButton.addEventListener('click', () => {
+            cartModal.classList.add('open');
+            updateCustomerDetailsSummary();
+        });
+
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.remove('open');
+        });
+
+        // Add to cart function with animation
+        function addToCart(item, button) {
+            const existingItem = cart.find(cartItem => cartItem.id === item.id);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price,
+                    quantity: 1
+                });
+            }
+
+            updateCart();
+
+            // Animation effect
+            button.classList.add('adding');
+            button.innerHTML = 'Adding...';
+
+            setTimeout(() => {
+                button.classList.remove('adding');
+                button.classList.add('added');
+                button.innerHTML = '✓ Added';
+
+                setTimeout(() => {
+                    button.classList.remove('added');
+                    button.innerHTML = 'Add to Cart';
+                }, 1000);
+            }, 500);
+        }
+
+        // Remove from cart function
+        function removeFromCart(itemId) {
+            cart = cart.filter(item => item.id !== itemId);
+            updateCart();
+        }
+
+        // Update quantity function
+        function updateQuantity(itemId, change) {
+            const item = cart.find(item => item.id === itemId);
+
+            if (item) {
+                item.quantity += change;
+
+                if (item.quantity <= 0) {
+                    removeFromCart(itemId);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+
+        // Update cart display
+        function updateCart() {
+            // Update cart count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // Update cart items
+            if (cart.length === 0) {
+                cartEmpty.style.display = 'block';
+                cartItems.innerHTML = '';
+            } else {
+                cartEmpty.style.display = 'none';
+
+                let itemsHTML = '';
+                let totalAmount = 0;
+
+                cart.forEach(item => {
+                    const price = parseInt(item.price.replace('₹', ''));
+                    const itemTotal = price * item.quantity;
+                    totalAmount += itemTotal;
+
+                    itemsHTML += `
+            <div class="cart-item">
+              <div class="item-info">
+                <div class="item-name">${item.name}</div>
+                <div class="item-price">${item.price}</div>
+              </div>
+              <div class="item-quantity">
+                <button class="quantity-btn" onclick="updateQuantity(${item.id}, -1)">-</button>
+                <span class="quantity">${item.quantity}</span>
+                <button class="quantity-btn" onclick="updateQuantity(${item.id}, 1)">+</button>
+                <button class="remove-item" onclick="removeFromCart(${item.id})">×</button>
+              </div>
+            </div>
+          `;
+                });
+
+                cartItems.innerHTML = itemsHTML;
+                cartTotal.textContent = `₹${totalAmount}`;
+            }
+        }
+
+        // Clear cart
+        clearCart.addEventListener('click', () => {
+            cart = [];
+            updateCart();
+        });
+
+        // Add another item button functionality
+        addAnotherItem.addEventListener('click', () => {
+            cartModal.classList.remove('open');
+            
+            // Scroll to top of menu
+            window.scrollTo({
+                top: document.querySelector('.menu-head').offsetTop - 20,
+                behavior: 'smooth'
+            });
+            
+            // Focus on search to help user find items
+            setTimeout(() => {
+                document.getElementById('search').focus();
+            }, 500);
+        });
+
+        // WhatsApp order function with customer details
+        whatsappOrder.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            // Validate details based on delivery type
+            let validationPassed = true;
+            let validationMessage = '';
+
+            if (deliveryType === 'restaurant') {
+                const tableNumber = document.getElementById('tableNumber').value.trim();
+
+                if (!tableNumber) {
+                    validationPassed = false;
+                    validationMessage = 'Please enter your table number';
+                }
+            } else {
+                const customerName = document.getElementById('customerName').value.trim();
+                const customerMobile = document.getElementById('customerMobile').value.trim();
+                const customerAddress = document.getElementById('customerAddress').value.trim();
+
+                if (!customerName || !customerMobile || !customerAddress) {
+                    validationPassed = false;
+                    validationMessage = 'Please fill in all delivery details (Name, Mobile, Address)';
+                }
+            }
+
+            if (!validationPassed) {
+                alert(validationMessage);
+                return;
+            }
+
+            let message = `Hello! I would like to place an order:\n\n`;
+
+            // Add delivery details
+            if (deliveryType === 'restaurant') {
+                const tableNumber = document.getElementById('tableNumber').value.trim();
+
+                message += `**Delivery Type:** Dine-in\n`;
+                message += `**Table Number:** ${tableNumber}\n\n`;
+            } else {
+                const customerName = document.getElementById('customerName').value.trim();
+                const customerMobile = document.getElementById('customerMobile').value.trim();
+                const customerAddress = document.getElementById('customerAddress').value.trim();
+
+                message += `**Delivery Type:** Home Delivery\n`;
+                message += `**Name:** ${customerName}\n`;
+                message += `**Mobile:** ${customerMobile}\n`;
+                message += `**Address:** ${customerAddress}\n\n`;
+            }
+
+            message += `**Order Details:**\n`;
+
+            cart.forEach(item => {
+                message += `• ${item.name} - ${item.quantity} x ${item.price}\n`;
+            });
+
+            const totalAmount = cart.reduce((sum, item) => {
+                const price = parseInt(item.price.replace('₹', ''));
+                return sum + (price * item.quantity);
+            }, 0);
+
+            message += `\n**Total Amount:** ₹${totalAmount}\n\n`;
+            message += `Thank you!`;
+
+            // Encode the message for WhatsApp URL
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappURL = `https://wa.me/918390711777?text=${encodedMessage}`;
+
+            // Open WhatsApp in a new tab
+            window.open(whatsappURL, '_blank');
+
+            // Close cart modal after order
+            setTimeout(() => {
+                cartModal.classList.remove('open');
+            }, 1000);
+        });
+
+        // Render menu items
+        function renderMenuItems(items) {
+            const menuGrid = document.getElementById('menuGrid');
+
+            if (items.length === 0) {
+                menuGrid.innerHTML = '<p style="text-align:center;color:var(--muted);grid-column:1/-1;padding:40px 20px">No items found</p>';
+                return;
+            }
+
+            menuGrid.innerHTML = items.map(item => `
+        <div class="card" data-cat="${item.cat}">
+          <div class="card-header">
+            <div class="thumb">
+              <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiBmaWxsPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMDMpIi8+CjxwYXRoIGQ9Ik03MCA4MEgxMTBNODAgNzBWOTBNNjUgOTVIMTA1TTk1IDY1VjEwNU02NSA2NVYxMDVNNzUgNzVIOThNNzUgODVIOThNNzUgOTVIOThNNzUgMTA1SDk4TTY1IDc1SDcyTTY1IDg1SDcyTTY1IDk1SDcyTTY1IDEwNUg3Mk0xMDggNzVIMTE1TTEwOCA4NUgxMTVNMTA4IDk1SDExNU0xMDggMTA1SDExNSIgc3Ryb2tlPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDAuMSkiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+'">
+            </div>
+            <div class="card-info">
+              <h3 class="dish">${item.name}</h3>
+              <p class="desc">${item.desc}</p>
+              <div class="tags">
+                ${item.tags.map(tag => `<span class="pill">${tag}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="price">${item.price}</div>
+            <button class="btn-primary" onclick="addToCart(${JSON.stringify(item).replace(/"/g, '&quot;')}, this)">Add to Cart</button>
+          </div>
+        </div>
+      `).join('');
+        }
+
+        // Filter menu items by category
+        function filterByCategory(category) {
+            if (category === 'all') {
+                renderMenuItems(data);
+            } else {
+                const filteredItems = data.filter(item => item.cat === category);
+                renderMenuItems(filteredItems);
+            }
+        }
+
+        // Search functionality
+        function searchItems(query) {
+            const filteredItems = data.filter(item =>
+                item.name.toLowerCase().includes(query.toLowerCase()) ||
+                item.desc.toLowerCase().includes(query.toLowerCase()) ||
+                item.tags.some(tag => tag.toLowerCase().includes(query.toLowerCase()))
+            );
+            renderMenuItems(filteredItems);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set default delivery option
+            selectDeliveryOption('restaurant');
+
+            // Render menu items
+            renderMenuItems(data);
+
+            // Tab functionality
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    filterByCategory(tab.dataset.cat);
+                });
+            });
+
+            // Search functionality
+            document.getElementById('search').addEventListener('input', (e) => {
+                searchItems(e.target.value);
+            });
+
+            // Update details summary when form inputs change
+            document.getElementById('tableNumber').addEventListener('input', updateCustomerDetailsSummary);
+            document.getElementById('customerName').addEventListener('input', updateCustomerDetailsSummary);
+            document.getElementById('customerMobile').addEventListener('input', updateCustomerDetailsSummary);
+            document.getElementById('customerAddress').addEventListener('input', updateCustomerDetailsSummary);
+        });
+
+        // Make functions available globally
+        window.addToCart = addToCart;
+        window.removeFromCart = removeFromCart;
+        window.updateQuantity = updateQuantity;
+        window.selectDeliveryOption = selectDeliveryOption;
+    </script>
+</body>
+
+</html>
