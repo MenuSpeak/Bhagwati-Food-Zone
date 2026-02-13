@@ -1157,10 +1157,10 @@
                     <span class="symbol"></span>
                     <span>VEG</span>
                 </div>
-                <div class="nonveg">
+                <!-- <div class="nonveg">
                     <span class="symbol"></span>
                     <span>NON VEG</span>
-                </div>
+                </div> -->
             </div>
         </div>
 
@@ -1183,25 +1183,11 @@
    <div class="tabs-scroll">
      
      
-<button class="tab active" data-cat="all">All Items</button>
+<button class="tab active" data-cat="all">🍽️ All Items</button>
 
-<button class="tab" data-cat="व्हेज स्टार्टर / Veg Starter">Veg Starters</button>
-<button class="tab" data-cat="नॉन व्हेज स्टार्टर / Non Veg Starter">Non Veg Starters</button>
-
-<button class="tab" data-cat="व्हेज मेन कोर्स / Veg Main Course">Veg Main Course</button>
-<button class="tab" data-cat="पनीर डिशेस / Paneer Dishes">Paneer Dishes</button>
-
-<button class="tab" data-cat="फ्राय, मसाला / Fry, Masala">Fry & Masala (Non-Veg)</button>
-<button class="tab" data-cat="हंडी / Handi">Handi (Chicken/Mutton)</button>
-
-<button class="tab" data-cat="थाळी / Thali">Thali (थाळी)</button>
-<button class="tab" data-cat="स्पेशल थाळी / Special Thali">Special Thali</button>
-
-<button class="tab" data-cat="रोटी / Roti">Roti / Breads</button>
-<button class="tab" data-cat="राईस / Rice">Rice / Biryani</button>
-
-<button class="tab" data-cat="पापड और सलाद / Papad & Salad">Papad & Salad</button>
-<button class="tab" data-cat="ड्रिंक्स / Drinks">Drinks</button>
+<button class="tab" data-cat="Fast Food">🍕 Fast Food</button>
+<button class="tab" data-cat="Drinks">🥤 Drinks</button>
+<button class="tab" data-cat="Cake">🎂 Cake & Desserts</button>
                     </div>
                     
                 </div>
@@ -1348,147 +1334,299 @@
         // Menu Data - FIXED VERSION
         const data = 
 
-[
-  // ============ 1. पिझ्झा / Pizza ============
-  { "id": 1, "cat": "पिझ्झा / Pizza", "name": "व्हेज चीज पिझ्झा / Veg Cheese Pizza", "price": "169 RS", "desc": "Classic pizza topped with mozzarella cheese and veggies", "tags": ["Veg", "Pizza"], "img": "img/veg_cheese_pizza.jpg" },
-  { "id": 2, "cat": "पिझ्झा / Pizza", "name": "स्वीतकॉर्न पिझ्झा / Sweetcorn Pizza", "price": "169 RS", "desc": "Pizza topped with sweet corn and cheese", "tags": ["Veg", "Pizza"], "img": "img/sweetcorn_pizza.jpg" },
-  { "id": 3, "cat": "पिझ्झा / Pizza", "name": "पनीर मसाला पिझ्झा / Paneer Masala Pizza", "price": "189 RS", "desc": "Spicy Indian style pizza topped with marinated paneer", "tags": ["Veg", "Pizza", "Paneer"], "img": "img/paneer_masala_pizza.jpg" },
-  { "id": 4, "cat": "पिझ्झा / Pizza", "name": "ओनियन चीज पिझ्झा / Onion Cheese Pizza", "price": "169 RS", "desc": "Pizza loaded with sliced onions and cheese", "tags": ["Veg", "Pizza"], "img": "img/onion_cheese_pizza.jpg" },
-  { "id": 5, "cat": "पिझ्झा / Pizza", "name": "प्लेन चीज पिझ्झा / Plain Cheese Pizza", "price": "179 RS", "desc": "Pizza loaded with extra mozzarella cheese", "tags": ["Veg", "Pizza"], "img": "img/plain_cheese_pizza.jpg" },
+const updatedMenuItems = [
+  // ============ 1. FAST FOOD ============
+  // पिझ्झा / Pizza
+  { "id": 1, "cat": "Fast Food", "name": "व्हेज चीज पिझ्झा / Veg Cheese Pizza", "price": "169 RS", "desc": "Classic pizza topped with mozzarella cheese and veggies", "tags": ["Veg", "Pizza"], "img": "img/veg_cheese_pizza.jpg" },
+  { "id": 2, "cat": "Fast Food", "name": "स्वीतकॉर्न पिझ्झा / Sweetcorn Pizza", "price": "169 RS", "desc": "Pizza topped with sweet corn and cheese", "tags": ["Veg", "Pizza"], "img": "img/sweetcorn_pizza.jpg" },
+  { "id": 3, "cat": "Fast Food", "name": "पनीर मसाला पिझ्झा / Paneer Masala Pizza", "price": "189 RS", "desc": "Spicy Indian style pizza topped with marinated paneer", "tags": ["Veg", "Pizza", "Paneer"], "img": "img/paneer_masala_pizza.jpg" },
+  { "id": 4, "cat": "Fast Food", "name": "ओनियन चीज पिझ्झा / Onion Cheese Pizza", "price": "169 RS", "desc": "Pizza loaded with sliced onions and cheese", "tags": ["Veg", "Pizza"], "img": "img/onion_cheese_pizza.jpg" },
+  { "id": 5, "cat": "Fast Food", "name": "प्लेन चीज पिझ्झा / Plain Cheese Pizza", "price": "179 RS", "desc": "Pizza loaded with extra mozzarella cheese", "tags": ["Veg", "Pizza"], "img": "img/plain_cheese_pizza.jpg" },
 
-  // ============ 2. सँडविच / Sandwich ============
-  { "id": 6, "cat": "सँडविच / Sandwich", "name": "व्हेज सँडविच / Veg Sandwich", "price": "79 RS", "desc": "Classic sandwich stuffed with fresh vegetables", "tags": ["Veg", "Sandwich"], "img": "img/veg_sandwich.jpg" },
-  { "id": 7, "cat": "सँडविच / Sandwich", "name": "चीज ब्लास्ट सँडविच / Cheese Blast Sandwich", "price": "99 RS", "desc": "Sandwich loaded with extra cheese", "tags": ["Veg", "Sandwich"], "img": "img/cheese_blast_sandwich.jpg" },
-  { "id": 8, "cat": "सँडविच / Sandwich", "name": "पनीर सँडविच / Paneer Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with spicy paneer filling", "tags": ["Veg", "Sandwich", "Paneer"], "img": "img/paneer_sandwich.jpg" },
-  { "id": 9, "cat": "सँडविच / Sandwich", "name": "स्वीतकॉर्न सँडविच / Sweetcorn Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with sweet corn and mayo", "tags": ["Veg", "Sandwich"], "img": "img/sweetcorn_sandwich.jpg" },
+  // सँडविच / Sandwich
+  { "id": 6, "cat": "Fast Food", "name": "व्हेज सँडविच / Veg Sandwich", "price": "79 RS", "desc": "Classic sandwich stuffed with fresh vegetables", "tags": ["Veg", "Sandwich"], "img": "img/veg_sandwich.jpg" },
+  { "id": 7, "cat": "Fast Food", "name": "चीज ब्लास्ट सँडविच / Cheese Blast Sandwich", "price": "99 RS", "desc": "Sandwich loaded with extra cheese", "tags": ["Veg", "Sandwich"], "img": "img/cheese_blast_sandwich.jpg" },
+  { "id": 8, "cat": "Fast Food", "name": "पनीर सँडविच / Paneer Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with spicy paneer filling", "tags": ["Veg", "Sandwich", "Paneer"], "img": "img/paneer_sandwich.jpg" },
+  { "id": 9, "cat": "Fast Food", "name": "स्वीतकॉर्न सँडविच / Sweetcorn Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with sweet corn and mayo", "tags": ["Veg", "Sandwich"], "img": "img/sweetcorn_sandwich.jpg" },
 
-  // ============ 3. पावभाजी & मिसळ / Pav Bhaji & Misal ============
-  { "id": 10, "cat": "पावभाजी / Pav Bhaji", "name": "स्पेशल पावभाजी / Special Pav Bhaji", "price": "90 RS", "desc": "Buttery mashed vegetable curry served with soft pav rolls", "tags": ["Veg", "Pav Bhaji"], "img": "img/special_pav_bhaji.jpg" },
-  { "id": 11, "cat": "पावभाजी / Pav Bhaji", "name": "जैन पावभाजी / Jain Pav Bhaji", "price": "100 RS", "desc": "Pav bhaji prepared without onions and garlic", "tags": ["Veg", "Pav Bhaji", "Jain"], "img": "img/jain_pav_bhaji.jpg" },
-  { "id": 12, "cat": "मिसळ / Misal", "name": "स्पेशल मिसळ थाळी / Special Misal Thali", "price": "140 RS", "desc": "Spicy sprouted bean curry served with farsan and bread/pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/special_misal_thali.jpg" },
-  { "id": 13, "cat": "मिसळ / Misal", "name": "दही मिसळ थाळी / Dahi Misal Thali", "price": "100 RS", "desc": "Misal topped with cooling yogurt served with pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/dahi_misal_thali.jpg" },
-  { "id": 14, "cat": "मिसळ / Misal", "name": "रेगुलर मिसळ थाळी / Regular Misal Thali", "price": "90 RS", "desc": "Classic Maharashtrian spicy misal pav thali", "tags": ["Veg", "Misal", "Thali"], "img": "img/regular_misal_thali.jpg" },
-  { "id": 15, "cat": "मिसळ / Misal", "name": "श्रीनाथ स्पेशल मिसळ थाळी / Shrinath Special Misal Thali", "price": "120 RS", "desc": "Farsan, Rassa, Papad, 2 Sweets, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak, Papdi, Pohe, Shev, Pani Bottle", "tags": ["Veg", "Misal", "Thali", "Special"], "img": "img/shrinath_special_misal_thali.jpg" },
-  { "id": 16, "cat": "मिसळ / Misal", "name": "श्रीनाथ दही मिसळ थाळी / Shrinath Dahi Misal Thali", "price": "80 RS", "desc": "Farsan, Rassa, Papad, Gulab Jamun, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_dahi_misal_thali.jpg" },
-  { "id": 17, "cat": "मिसळ / Misal", "name": "श्रीनाथ मिसळ थाळी / Shrinath Misal Thali", "price": "70 RS", "desc": "Farsan, Rassa, Papad, 1 Sweet, Kanda-Limbu, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_misal_thali.jpg" },
+  // पावभाजी & मिसळ / Pav Bhaji & Misal
+  { "id": 10, "cat": "Fast Food", "name": "स्पेशल पावभाजी / Special Pav Bhaji", "price": "90 RS", "desc": "Buttery mashed vegetable curry served with soft pav rolls", "tags": ["Veg", "Pav Bhaji"], "img": "img/special_pav_bhaji.jpg" },
+  { "id": 11, "cat": "Fast Food", "name": "जैन पावभाजी / Jain Pav Bhaji", "price": "100 RS", "desc": "Pav bhaji prepared without onions and garlic", "tags": ["Veg", "Pav Bhaji", "Jain"], "img": "img/jain_pav_bhaji.jpg" },
+  { "id": 12, "cat": "Fast Food", "name": "स्पेशल मिसळ थाळी / Special Misal Thali", "price": "140 RS", "desc": "Spicy sprouted bean curry served with farsan and bread/pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/special_misal_thali.jpg" },
+  { "id": 13, "cat": "Fast Food", "name": "दही मिसळ थाळी / Dahi Misal Thali", "price": "100 RS", "desc": "Misal topped with cooling yogurt served with pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/dahi_misal_thali.jpg" },
+  { "id": 14, "cat": "Fast Food", "name": "रेगुलर मिसळ थाळी / Regular Misal Thali", "price": "90 RS", "desc": "Classic Maharashtrian spicy misal pav thali", "tags": ["Veg", "Misal", "Thali"], "img": "img/regular_misal_thali.jpg" },
+  { "id": 15, "cat": "Fast Food", "name": "श्रीनाथ स्पेशल मिसळ थाळी / Shrinath Special Misal Thali", "price": "120 RS", "desc": "Farsan, Rassa, Papad, 2 Sweets, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak, Papdi, Pohe, Shev, Pani Bottle", "tags": ["Veg", "Misal", "Thali", "Special"], "img": "img/shrinath_special_misal_thali.jpg" },
+  { "id": 16, "cat": "Fast Food", "name": "श्रीनाथ दही मिसळ थाळी / Shrinath Dahi Misal Thali", "price": "80 RS", "desc": "Farsan, Rassa, Papad, Gulab Jamun, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_dahi_misal_thali.jpg" },
+  { "id": 17, "cat": "Fast Food", "name": "श्रीनाथ मिसळ थाळी / Shrinath Misal Thali", "price": "70 RS", "desc": "Farsan, Rassa, Papad, 1 Sweet, Kanda-Limbu, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_misal_thali.jpg" },
 
-  // ============ 4. चाट / Chaat ============
-  { "id": 18, "cat": "चाट / Chaat", "name": "स्पेशल भेळ / Special Bhel", "price": "60 RS", "desc": "Puffed rice mixed with tangy chutneys and special toppings", "tags": ["Veg", "Chaat"], "img": "img/special_bhel.jpg" },
-  { "id": 19, "cat": "चाट / Chaat", "name": "दही भेळ / Dahi Bhel", "price": "80 RS", "desc": "Bhel topped with sweet and tangy yogurt", "tags": ["Veg", "Chaat"], "img": "img/dahi_bhel.jpg" },
-  { "id": 20, "cat": "चाट / Chaat", "name": "मटकी भेळ / Matki Bhel", "price": "70 RS", "desc": "Healthy bhel made with sprouted moth beans", "tags": ["Veg", "Chaat"], "img": "img/matki_bhel.jpg" },
-  { "id": 21, "cat": "चाट / Chaat", "name": "शेव पुरी / Shev Puri", "price": "60 RS", "desc": "Crispy puris topped with potatoes, chutneys and lots of sev", "tags": ["Veg", "Chaat"], "img": "img/shev_puri.jpg" },
-  { "id": 22, "cat": "चाट / Chaat", "name": "दही पुरी / Dahi Puri", "price": "80 RS", "desc": "Crispy puris filled with yogurt and tangy chutneys", "tags": ["Veg", "Chaat"], "img": "img/dahi_puri.jpg" },
-  { "id": 23, "cat": "चाट / Chaat", "name": "सुकी पुरी / Suki Puri", "price": "30 RS", "desc": "Crispy puris served with dry masala stuffing", "tags": ["Veg", "Chaat"], "img": "img/suki_puri.jpg" },
-  { "id": 24, "cat": "चाट / Chaat", "name": "पाणी पुरी / Pani Puri", "price": "30 RS", "desc": "Crispy puris filled with spicy tangy water and stuffing", "tags": ["Veg", "Chaat"], "img": "img/pani_puri.jpg" },
-  { "id": 25, "cat": "चाट / Chaat", "name": "श्रीनाथ स्पे. ओली भेळ / Shrinath Spl. Oli Bhel", "price": "40 RS", "desc": "Special wet bhel with secret chutneys", "tags": ["Veg", "Chaat", "Special"], "img": "img/shrinath_spl_oli_bhel.jpg" },
+  // चाट / Chaat
+  { "id": 18, "cat": "Fast Food", "name": "स्पेशल भेळ / Special Bhel", "price": "60 RS", "desc": "Puffed rice mixed with tangy chutneys and special toppings", "tags": ["Veg", "Chaat"], "img": "img/special_bhel.jpg" },
+  { "id": 19, "cat": "Fast Food", "name": "दही भेळ / Dahi Bhel", "price": "80 RS", "desc": "Bhel topped with sweet and tangy yogurt", "tags": ["Veg", "Chaat"], "img": "img/dahi_bhel.jpg" },
+  { "id": 20, "cat": "Fast Food", "name": "मटकी भेळ / Matki Bhel", "price": "70 RS", "desc": "Healthy bhel made with sprouted moth beans", "tags": ["Veg", "Chaat"], "img": "img/matki_bhel.jpg" },
+  { "id": 21, "cat": "Fast Food", "name": "शेव पुरी / Shev Puri", "price": "60 RS", "desc": "Crispy puris topped with potatoes, chutneys and lots of sev", "tags": ["Veg", "Chaat"], "img": "img/shev_puri.jpg" },
+  { "id": 22, "cat": "Fast Food", "name": "दही पुरी / Dahi Puri", "price": "80 RS", "desc": "Crispy puris filled with yogurt and tangy chutneys", "tags": ["Veg", "Chaat"], "img": "img/dahi_puri.jpg" },
+  { "id": 23, "cat": "Fast Food", "name": "सुकी पुरी / Suki Puri", "price": "30 RS", "desc": "Crispy puris served with dry masala stuffing", "tags": ["Veg", "Chaat"], "img": "img/suki_puri.jpg" },
+  { "id": 24, "cat": "Fast Food", "name": "पाणी पुरी / Pani Puri", "price": "30 RS", "desc": "Crispy puris filled with spicy tangy water and stuffing", "tags": ["Veg", "Chaat"], "img": "img/pani_puri.jpg" },
+  { "id": 25, "cat": "Fast Food", "name": "श्रीनाथ स्पे. ओली भेळ / Shrinath Spl. Oli Bhel", "price": "40 RS", "desc": "Special wet bhel with secret chutneys", "tags": ["Veg", "Chaat", "Special"], "img": "img/shrinath_spl_oli_bhel.jpg" },
 
-  // ============ 5. नाष्टा / Snacks & Fries ============
-  { "id": 26, "cat": "फ्रेंच फ्राईज / French Fries", "name": "प्लेन फ्राईज / Plain Fries", "price": "100 RS", "desc": "Classic salted crispy french fries", "tags": ["Veg", "Fries"], "img": "img/plain_fries.jpg" },
-  { "id": 27, "cat": "फ्रेंच फ्राईज / French Fries", "name": "पेरी पेरी फ्राईज / Peri Peri Fries", "price": "120 RS", "desc": "Crispy fries tossed in spicy peri peri masala", "tags": ["Veg", "Fries"], "img": "img/peri_peri_fries.jpg" },
-  { "id": 28, "cat": "फ्रेंच फ्राईज / French Fries", "name": "चीज फ्राईज / Cheese Fries", "price": "150 RS", "desc": "French fries loaded with melted cheese", "tags": ["Veg", "Fries"], "img": "img/cheese_fries.jpg" },
-  { "id": 29, "cat": "फ्रेंच फ्राईज / French Fries", "name": "फिंगर चिप्स / Finger Chips", "price": "70 RS", "desc": "Crispy french fries", "tags": ["Veg", "Snacks", "Fries"], "img": "img/finger_chips_shrinath.jpg" },
-  { "id": 30, "cat": "नाष्टा / Snacks", "name": "रस्सा पोहे / Rassa Pohe", "price": "40 RS", "desc": "Flattened rice served with spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_pohe.jpg" },
-  { "id": 31, "cat": "नाष्टा / Snacks", "name": "वडापाव / Vadapav", "price": "25 RS", "desc": "Mumbai style potato fritter served in a bun", "tags": ["Veg", "Snacks"], "img": "img/vadapav.jpg" },
-  { "id": 32, "cat": "नाष्टा / Snacks", "name": "स्पेशल कांदा पकोडा / Special Kanda Pakoda", "price": "70 RS", "desc": "Crispy onion fritters served with chutney", "tags": ["Veg", "Snacks"], "img": "img/special_kanda_pakoda.jpg" },
-  { "id": 33, "cat": "नाष्टा / Snacks", "name": "रस्सा वडा / Rassa Vada", "price": "70 RS", "desc": "Potato fritter served in spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_vada.jpg" },
-  { "id": 34, "cat": "नाष्टा / Snacks", "name": "मसाला मॅगी / Masala Maggi", "price": "70 RS", "desc": "Spicy vegetable instant noodles", "tags": ["Veg", "Snacks"], "img": "img/masala_maggi.jpg" },
-  { "id": 35, "cat": "नाष्टा / Snacks", "name": "दही पोहे / Dahi Pohe", "price": "35 RS", "desc": "Flattened rice served with yogurt", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/dahi_pohe_shrinath.jpg" },
-  { "id": 36, "cat": "नाष्टा / Snacks", "name": "ब्रेड वडा / Bread Vada", "price": "20 RS", "desc": "Deep fried potato stuffed bread fritter", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/bread_vada_shrinath.jpg" },
-  { "id": 37, "cat": "नाष्टा / Snacks", "name": "कांदा भजी / Kanda Bhaji", "price": "40 RS", "desc": "Crispy onion fritters", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/kanda_bhaji_shrinath.jpg" },
-  { "id": 38, "cat": "नाष्टा / Snacks", "name": "मॅगी / Maggi", "price": "50 RS", "desc": "Classic instant noodles", "tags": ["Veg", "Snacks"], "img": "img/maggi_shrinath.jpg" },
+  // नाष्टा / Snacks & Fries
+  { "id": 26, "cat": "Fast Food", "name": "प्लेन फ्राईज / Plain Fries", "price": "100 RS", "desc": "Classic salted crispy french fries", "tags": ["Veg", "Fries"], "img": "img/plain_fries.jpg" },
+  { "id": 27, "cat": "Fast Food", "name": "पेरी पेरी फ्राईज / Peri Peri Fries", "price": "120 RS", "desc": "Crispy fries tossed in spicy peri peri masala", "tags": ["Veg", "Fries"], "img": "img/peri_peri_fries.jpg" },
+  { "id": 28, "cat": "Fast Food", "name": "चीज फ्राईज / Cheese Fries", "price": "150 RS", "desc": "French fries loaded with melted cheese", "tags": ["Veg", "Fries"], "img": "img/cheese_fries.jpg" },
+  { "id": 29, "cat": "Fast Food", "name": "फिंगर चिप्स / Finger Chips", "price": "70 RS", "desc": "Crispy french fries", "tags": ["Veg", "Snacks", "Fries"], "img": "img/finger_chips_shrinath.jpg" },
+  { "id": 30, "cat": "Fast Food", "name": "रस्सा पोहे / Rassa Pohe", "price": "40 RS", "desc": "Flattened rice served with spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_pohe.jpg" },
+  { "id": 31, "cat": "Fast Food", "name": "वडापाव / Vadapav", "price": "25 RS", "desc": "Mumbai style potato fritter served in a bun", "tags": ["Veg", "Snacks"], "img": "img/vadapav.jpg" },
+  { "id": 32, "cat": "Fast Food", "name": "स्पेशल कांदा पकोडा / Special Kanda Pakoda", "price": "70 RS", "desc": "Crispy onion fritters served with chutney", "tags": ["Veg", "Snacks"], "img": "img/special_kanda_pakoda.jpg" },
+  { "id": 33, "cat": "Fast Food", "name": "रस्सा वडा / Rassa Vada", "price": "70 RS", "desc": "Potato fritter served in spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_vada.jpg" },
+  { "id": 34, "cat": "Fast Food", "name": "मसाला मॅगी / Masala Maggi", "price": "70 RS", "desc": "Spicy vegetable instant noodles", "tags": ["Veg", "Snacks"], "img": "img/masala_maggi.jpg" },
+  { "id": 35, "cat": "Fast Food", "name": "दही पोहे / Dahi Pohe", "price": "35 RS", "desc": "Flattened rice served with yogurt", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/dahi_pohe_shrinath.jpg" },
+  { "id": 36, "cat": "Fast Food", "name": "ब्रेड वडा / Bread Vada", "price": "20 RS", "desc": "Deep fried potato stuffed bread fritter", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/bread_vada_shrinath.jpg" },
+  { "id": 37, "cat": "Fast Food", "name": "कांदा भजी / Kanda Bhaji", "price": "40 RS", "desc": "Crispy onion fritters", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/kanda_bhaji_shrinath.jpg" },
+  { "id": 38, "cat": "Fast Food", "name": "मॅगी / Maggi", "price": "50 RS", "desc": "Classic instant noodles", "tags": ["Veg", "Snacks"], "img": "img/maggi_shrinath.jpg" },
 
-  // ============ 6. उपवास / Fasting Special ============
-  { "id": 39, "cat": "उपवास / Upvas Special", "name": "साबुदाणा खिचडी / Sabudana Khichdi", "price": "80 RS", "desc": "Sago pearl pilaf specially for fasting", "tags": ["Veg", "Upvas"], "img": "img/sabudana_khichdi.jpg" },
+  // उपवास / Fasting Special
+  { "id": 39, "cat": "Fast Food", "name": "साबुदाणा खिचडी / Sabudana Khichdi", "price": "80 RS", "desc": "Sago pearl pilaf specially for fasting", "tags": ["Veg", "Upvas"], "img": "img/sabudana_khichdi.jpg" },
 
-  // ============ 7. शेक्स & कॉफी / Shakes & Coffee ============
-  { "id": 40, "cat": "शेक्स / Shakes", "name": "बटरस्कॉच शेक / Butterscotch Shake", "price": "100 RS", "desc": "Creamy butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/butterscotch_shake.jpg" },
-  { "id": 41, "cat": "शेक्स / Shakes", "name": "चॉकलेट शेक / Chocolate Shake", "price": "110 RS", "desc": "Rich and thick chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake.jpg" },
-  { "id": 42, "cat": "शेक्स / Shakes", "name": "ओरिओ शेक / Oreo Shake", "price": "110 RS", "desc": "Milkshake blended with Oreo cookies", "tags": ["Veg", "Shakes"], "img": "img/oreo_shake.jpg" },
-  { "id": 43, "cat": "शेक्स / Shakes", "name": "किटकॅट शेक / Kitkat Shake", "price": "110 RS", "desc": "Milkshake blended with Kitkat chocolate bars", "tags": ["Veg", "Shakes"], "img": "img/kitkat_shake.jpg" },
-  { "id": 44, "cat": "शेक्स / Shakes", "name": "स्ट्रॉबेरी शेक / Strawberry Shake", "price": "110 RS", "desc": "Fresh strawberry flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/strawberry_shake.jpg" },
-  { "id": 45, "cat": "शेक्स / Shakes", "name": "व्हॅनिला/बटर स्कॉच शेक / Vanilla/Butterscotch Shake", "price": "80 RS", "desc": "Classic vanilla or butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/vanilla_butterscotch_shake.jpg" },
-  { "id": 46, "cat": "शेक्स / Shakes", "name": "रोज शेक / Rose Shake", "price": "80 RS", "desc": "Refreshing rose syrup flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_shake.jpg" },
-  { "id": 47, "cat": "शेक्स / Shakes", "name": "मँगो शेक / Mango Shake", "price": "90 RS", "desc": "Thick mango pulp milkshake", "tags": ["Veg", "Shakes"], "img": "img/mango_shake.jpg" },
-  { "id": 48, "cat": "शेक्स / Shakes", "name": "पायनॅपल शेक / Pineapple Shake", "price": "99 RS", "desc": "Fresh pineapple milkshake", "tags": ["Veg", "Shakes"], "img": "img/pineapple_shake_plaza.jpg" },
-  { "id": 49, "cat": "शेक्स / Shakes", "name": "रोज मिल्क शेक / Rose Milk Shake", "price": "99 RS", "desc": "Refreshing rose flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_milk_shake.jpg" },
-  { "id": 50, "cat": "कॉफी / Coffee", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "99 RS", "desc": "Chilled refreshing coffee drink", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee.jpg" },
-  { "id": 51, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ चॉकलेट / Cold Coffee with Chocolate", "price": "120 RS", "desc": "Cold coffee topped with chocolate syrup", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_chocolate.jpg" },
-  { "id": 52, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "125 RS", "desc": "Cold coffee served with a scoop of vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_ice_cream.jpg" },
-  { "id": 53, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी / Cold Coffee", "price": "90 RS", "desc": "Chilled refreshing cold coffee", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_shrinath.jpg" },
-  { "id": 54, "cat": "कॉफी / Coffee", "name": "चहा / Tea", "price": "10 RS", "desc": "Hot milk tea", "tags": ["Veg", "Hot Drink"], "img": "img/tea_shrinath.jpg" },
-  { "id": 55, "cat": "कॉफी / Coffee", "name": "कॉफी / Coffee", "price": "15 RS", "desc": "Hot coffee", "tags": ["Veg", "Hot Drink"], "img": "img/coffee_shrinath.jpg" },
-  { "id": 56, "cat": "कॉफी / Coffee", "name": "दुध / Milk", "price": "10 RS", "desc": "Hot milk cup", "tags": ["Veg", "Hot Drink"], "img": "img/milk_shrinath.jpg" },
+  // साइड्स / Extras
+  { "id": 114, "cat": "Fast Food", "name": "रोस्टेड पापड / Roasted Papad", "price": "10 RS", "desc": "Roasted lentil cracker", "tags": ["Veg", "Sides"], "img": "img/roasted_papad_shrinath.jpg" },
+  { "id": 115, "cat": "Fast Food", "name": "एक्स्ट्रा पावजोडी / Extra Pav Pair", "price": "10 RS", "desc": "Extra pair of bread rolls", "tags": ["Veg", "Sides"], "img": "img/extra_pav.jpg" },
+  { "id": 116, "cat": "Fast Food", "name": "एक्स्ट्रा फरसान प्लेट / Extra Farsan Plate", "price": "20 RS", "desc": "Extra plate of crispy mix snacks", "tags": ["Veg", "Sides"], "img": "img/extra_farsan.jpg" },
+  { "id": 117, "cat": "Fast Food", "name": "मटकी वाटी / Matki Wati", "price": "10 RS", "desc": "Bowl of sprouted moth beans", "tags": ["Veg", "Sides"], "img": "img/matki_wati.jpg" },
+  { "id": 118, "cat": "Fast Food", "name": "दही वाटी / Dahi Wati", "price": "10 RS", "desc": "Bowl of fresh yogurt", "tags": ["Veg", "Sides"], "img": "img/dahi_wati_shrinath.jpg" },
 
-  // ============ 8. ज्यूस & ड्रिंक्स / Juice & Drinks ============
-  { "id": 57, "cat": "ज्यूस / Juice", "name": "मॅन्गो ज्यूस / Mango Juice", "price": "60 RS", "desc": "Fresh mango fruit juice", "tags": ["Veg", "Juice"], "img": "img/mango_juice.jpg" },
-  { "id": 58, "cat": "ज्यूस / Juice", "name": "पायनॅपल ज्यूस / Pineapple Juice", "price": "60 RS", "desc": "Fresh pineapple fruit juice", "tags": ["Veg", "Juice"], "img": "img/pineapple_juice.jpg" },
-  { "id": 59, "cat": "ज्यूस / Juice", "name": "मिक्स ज्यूस / Mix Juice", "price": "60 RS", "desc": "Mixed fruit juice blend", "tags": ["Veg", "Juice"], "img": "img/mix_juice.jpg" },
-  { "id": 60, "cat": "ज्यूस / Juice", "name": "अंजीर ज्यूस / Anjeer Juice", "price": "60 RS", "desc": "Fresh fig fruit juice", "tags": ["Veg", "Juice"], "img": "img/anjeer_juice.jpg" },
-  { "id": 61, "cat": "ज्यूस / Juice", "name": "स्पेशल भगवती ज्यूस / Special Bhagwati Juice", "price": "75 RS", "desc": "House special mixed fruit juice", "tags": ["Veg", "Juice"], "img": "img/special_bhagwati_juice.jpg" },
-  { "id": 62, "cat": "ज्यूस / Juice", "name": "सफरचंद ज्यूस / Apple Juice", "price": "50 RS", "desc": "Healthy fresh apple juice", "tags": ["Veg", "Juice"], "img": "img/apple_juice.jpg" },
-  { "id": 63, "cat": "ज्यूस / Juice", "name": "टर्बूज ज्यूस / Watermelon Juice", "price": "50 RS", "desc": "Refreshing watermelon juice", "tags": ["Veg", "Juice"], "img": "img/watermelon_juice.jpg" },
-  { "id": 64, "cat": "ज्यूस / Juice", "name": "लिंबूसरबत / Lime Juice", "price": "20 RS", "desc": "Sweet and tangy lemon juice refresher", "tags": ["Veg", "Juice"], "img": "img/lime_juice.jpg" },
-  { "id": 65, "cat": "ड्रिंक्स / Drinks", "name": "लस्सी / Lassi", "price": "Check Availability", "desc": "Sweet traditional yogurt drink", "tags": ["Veg", "Drink"], "img": "img/lassi_shrinath.jpg" },
-  { "id": 66, "cat": "ड्रिंक्स / Drinks", "name": "कोल्ड्रींग / Cold Drink", "price": "MRP", "desc": "Chilled bottled soft drinks", "tags": ["Veg", "Drink"], "img": "img/cold_drink_shrinath.jpg" },
-  { "id": 67, "cat": "ड्रिंक्स / Drinks", "name": "मसाला ताक / Masala Taak", "price": "20 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_shrinath.jpg" },
+  // ============ 2. DRINKS ============
+  // शेक्स / Shakes
+  { "id": 40, "cat": "Drinks", "name": "बटरस्कॉच शेक / Butterscotch Shake", "price": "100 RS", "desc": "Creamy butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/butterscotch_shake.jpg" },
+  { "id": 41, "cat": "Drinks", "name": "चॉकलेट शेक / Chocolate Shake", "price": "110 RS", "desc": "Rich and thick chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake.jpg" },
+  { "id": 42, "cat": "Drinks", "name": "ओरिओ शेक / Oreo Shake", "price": "110 RS", "desc": "Milkshake blended with Oreo cookies", "tags": ["Veg", "Shakes"], "img": "img/oreo_shake.jpg" },
+  { "id": 43, "cat": "Drinks", "name": "किटकॅट शेक / Kitkat Shake", "price": "110 RS", "desc": "Milkshake blended with Kitkat chocolate bars", "tags": ["Veg", "Shakes"], "img": "img/kitkat_shake.jpg" },
+  { "id": 44, "cat": "Drinks", "name": "स्ट्रॉबेरी शेक / Strawberry Shake", "price": "110 RS", "desc": "Fresh strawberry flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/strawberry_shake.jpg" },
+  { "id": 45, "cat": "Drinks", "name": "व्हॅनिला/बटर स्कॉच शेक / Vanilla/Butterscotch Shake", "price": "80 RS", "desc": "Classic vanilla or butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/vanilla_butterscotch_shake.jpg" },
+  { "id": 46, "cat": "Drinks", "name": "रोज शेक / Rose Shake", "price": "80 RS", "desc": "Refreshing rose syrup flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_shake.jpg" },
+  { "id": 47, "cat": "Drinks", "name": "मँगो शेक / Mango Shake", "price": "90 RS", "desc": "Thick mango pulp milkshake", "tags": ["Veg", "Shakes"], "img": "img/mango_shake.jpg" },
+  { "id": 48, "cat": "Drinks", "name": "पायनॅपल शेक / Pineapple Shake", "price": "99 RS", "desc": "Fresh pineapple milkshake", "tags": ["Veg", "Shakes"], "img": "img/pineapple_shake_plaza.jpg" },
+  { "id": 49, "cat": "Drinks", "name": "रोज मिल्क शेक / Rose Milk Shake", "price": "99 RS", "desc": "Refreshing rose flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_milk_shake.jpg" },
+  { "id": 81, "cat": "Drinks", "name": "बादाम शेक / Badam Shake", "price": "50 RS", "desc": "Rich almond flavored milk drink", "tags": ["Veg", "Shakes"], "img": "img/badam_shake_special.jpg" },
 
-  // ============ 9. आईस्क्रीम & डेझर्ट / Ice Cream & Dessert ============
-  { "id": 68, "cat": "आईस्क्रीम / Ice Cream", "name": "अमूल आईस्क्रीम / Amul Ice Cream", "price": "Check Availability", "desc": "Assorted flavors of Amul ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/amul_ice_cream.jpg" },
-  { "id": 69, "cat": "आईस्क्रीम / Ice Cream", "name": "व्हॅनिला / Vanilla", "price": "40 RS", "desc": "Classic vanilla ice cream (Half: 25 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream.jpg" },
-  { "id": 70, "cat": "आईस्क्रीम / Ice Cream", "name": "बटर स्कॉच / Butter Scotch", "price": "50 RS", "desc": "Crunchy butterscotch ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/butter_scotch_ice_cream.jpg" },
-  { "id": 71, "cat": "आईस्क्रीम / Ice Cream", "name": "मँगो / Mango", "price": "50 RS", "desc": "Fresh mango flavored ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/mango_ice_cream.jpg" },
-  { "id": 72, "cat": "आईस्क्रीम / Ice Cream", "name": "चॉकलेट / Chocolate", "price": "60 RS", "desc": "Rich chocolate ice cream (Half: 35 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/chocolate_ice_cream.jpg" },
-  { "id": 73, "cat": "आईस्क्रीम / Ice Cream", "name": "अमेरिकन नट / American Nuts", "price": "70 RS", "desc": "Ice cream loaded with nuts and jelly (Half: 40 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/american_nuts_ice_cream.jpg" },
-  { "id": 74, "cat": "आईस्क्रीम / Ice Cream", "name": "काजु किशमिश / Kaju Kishmis", "price": "80 RS", "desc": "Ice cream with cashews and raisins (Half: 45 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kaju_kishmis_ice_cream.jpg" },
-  { "id": 75, "cat": "आईस्क्रीम / Ice Cream", "name": "केशर पिस्ता / Kesar Pista", "price": "90 RS", "desc": "Saffron and pistachio flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kesar_pista_ice_cream.jpg" },
-  { "id": 76, "cat": "आईस्क्रीम / Ice Cream", "name": "राजभोग / Raj Bhog", "price": "90 RS", "desc": "Royal traditional flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/raj_bhog_ice_cream.jpg" },
-  { "id": 77, "cat": "आईस्क्रीम / Ice Cream", "name": "चोकोचिप्स आईस्क्रीम / Chocochips Ice Cream", "price": "89 RS", "desc": "Chocolate ice cream with chocolate chips", "tags": ["Veg", "Ice Cream"], "img": "img/chocochips_ice_cream.jpg" },
-  { "id": 78, "cat": "डेझर्ट / Dessert", "name": "भगवती स्पेशल लस्सी / Bhagwati Special Lassi", "price": "Check Availability", "desc": "Thick and creamy sweet yogurt drink", "tags": ["Veg", "Dessert"], "img": "img/bhagwati_special_lassi.jpg" },
-  { "id": 79, "cat": "डेझर्ट / Dessert", "name": "बासुंदी / Basundi", "price": "Check Availability", "desc": "Traditional thickened sweetened milk dessert", "tags": ["Veg", "Dessert"], "img": "img/basundi.jpg" },
-  { "id": 80, "cat": "डेझर्ट / Dessert", "name": "फालुदा / Falooda", "price": "60 RS", "desc": "Royal dessert drink with vermicelli and basil seeds", "tags": ["Veg", "Dessert"], "img": "img/falooda_special.jpg" },
-  { "id": 81, "cat": "डेझर्ट / Dessert", "name": "बादाम शेक / Badam Shake", "price": "50 RS", "desc": "Rich almond flavored milk drink", "tags": ["Veg", "Shakes"], "img": "img/badam_shake_special.jpg" },
-  { "id": 82, "cat": "डेझर्ट / Dessert", "name": "मॅन्गो मस्तानी / Mango Mastani", "price": "110 RS", "desc": "Mango milkshake topped with ice cream and dry fruits", "tags": ["Veg", "Dessert"], "img": "img/mango_mastani_special.jpg" },
-  { "id": 83, "cat": "डेझर्ट / Dessert", "name": "मसाला ताक / Masala Taak", "price": "25 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_special.jpg" },
-  { "id": 84, "cat": "डेझर्ट / Dessert", "name": "लस्सी विथ आईस क्रिम / Lassi with Ice Cream", "price": "70 RS", "desc": "Sweet lassi topped with a scoop of ice cream", "tags": ["Veg", "Dessert", "Lassi"], "img": "img/lassi_with_ice_cream.jpg" },
-  { "id": 85, "cat": "डेझर्ट / Dessert", "name": "गुलाब जामुन विथ आईस क्रिम / Gulab Jamun with Ice Cream", "price": "70 RS", "desc": "Hot gulab jamun served with cold vanilla ice cream", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_with_ice_cream.jpg" },
-  { "id": 86, "cat": "डेझर्ट / Dessert", "name": "मँगो लस्सी / Mango Lassi", "price": "50 RS", "desc": "Mango flavored sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/mango_lassi.jpg" },
-  { "id": 87, "cat": "डेझर्ट / Dessert", "name": "लस्सी / Lassi", "price": "40 RS", "desc": "Traditional sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/lassi.jpg" },
-  { "id": 88, "cat": "डेझर्ट / Dessert", "name": "भगवती स्पेशल आईस क्रिम थाळी / Bhagwati Special Ice Cream Thali", "price": "250 RS", "desc": "Assorted special ice cream platter", "tags": ["Veg", "Ice Cream", "Thali"], "img": "img/bhagwati_special_ice_cream_thali.jpg" },
-  { "id": 89, "cat": "डेझर्ट / Dessert", "name": "गुलाब जामुन (२ पीस) / Gulab Jamun (2 Pcs)", "price": "20 RS", "desc": "Sweet fried dough balls in sugar syrup", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_shrinath.jpg" },
+  // कॉफी / Coffee
+  { "id": 50, "cat": "Drinks", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "99 RS", "desc": "Chilled refreshing coffee drink", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee.jpg" },
+  { "id": 51, "cat": "Drinks", "name": "कोल्ड कॉफी विथ चॉकलेट / Cold Coffee with Chocolate", "price": "120 RS", "desc": "Cold coffee topped with chocolate syrup", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_chocolate.jpg" },
+  { "id": 52, "cat": "Drinks", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "125 RS", "desc": "Cold coffee served with a scoop of vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_ice_cream.jpg" },
+  { "id": 53, "cat": "Drinks", "name": "कोल्ड कॉफी / Cold Coffee", "price": "90 RS", "desc": "Chilled refreshing cold coffee", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_shrinath.jpg" },
+  { "id": 54, "cat": "Drinks", "name": "चहा / Tea", "price": "10 RS", "desc": "Hot milk tea", "tags": ["Veg", "Hot Drink"], "img": "img/tea_shrinath.jpg" },
+  { "id": 55, "cat": "Drinks", "name": "कॉफी / Coffee", "price": "15 RS", "desc": "Hot coffee", "tags": ["Veg", "Hot Drink"], "img": "img/coffee_shrinath.jpg" },
+  { "id": 56, "cat": "Drinks", "name": "दुध / Milk", "price": "10 RS", "desc": "Hot milk cup", "tags": ["Veg", "Hot Drink"], "img": "img/milk_shrinath.jpg" },
 
-  // ============ 10. केक & पेस्ट्री / Cakes & Pastries ============
-  { "id": 90, "cat": "केक / Cakes", "name": "रसमलाई केक / Rasmalai Cake", "price": "350 RS", "desc": "Fusion cake with rich rasmalai flavor and nuts", "tags": ["Veg", "Cake", "Premium"], "img": "img/rasmalai_cake.jpg" },
-  { "id": 91, "cat": "केक / Cakes", "name": "काजू मलाई केक / Kaju Malai Cake", "price": "400 RS", "desc": "Rich premium cake loaded with cashews and cream", "tags": ["Veg", "Cake", "Premium"], "img": "img/kaju_malai_cake.jpg" },
-  { "id": 92, "cat": "केक / Cakes", "name": "चॉकलेट ट्रफल / Chocolate Truffle", "price": "320 RS", "desc": "Dense and rich chocolate cake with truffle ganache", "tags": ["Veg", "Cake", "Premium"], "img": "img/chocolate_truffle.jpg" },
-  { "id": 93, "cat": "केक / Cakes", "name": "रेड वेलवेट / Red Velvet", "price": "350 RS", "desc": "Classic red velvet sponge with cream cheese frosting", "tags": ["Veg", "Cake", "Premium"], "img": "img/red_velvet.jpg" },
-  { "id": 94, "cat": "केक / Cakes", "name": "गुलकंद केक / Gulakand Cake", "price": "350 RS", "desc": "Refreshing cake flavored with sweet rose petal preserve", "tags": ["Veg", "Cake", "Premium"], "img": "img/gulakand_cake.jpg" },
-  { "id": 95, "cat": "केक / Cakes", "name": "कॉफी चॉकलेट / Coffee Chocolate", "price": "350 RS", "desc": "Perfect blend of coffee and chocolate flavors", "tags": ["Veg", "Cake", "Premium"], "img": "img/coffee_chocolate.jpg" },
-  { "id": 96, "cat": "केक / Cakes", "name": "फ्रूट केक / Fruit Cake", "price": "400 RS", "desc": "Fresh cream cake topped with exotic fruits", "tags": ["Veg", "Cake", "Premium"], "img": "img/fruit_cake.jpg" },
-  { "id": 97, "cat": "केक / Cakes", "name": "नॉर्मल रेगुलर केक / Normal Regular Cake", "price": "150 RS", "desc": "Basic sponge cake with light cream", "tags": ["Veg", "Cake"], "img": "img/normal_regular_cake.jpg" },
-  { "id": 98, "cat": "केक / Cakes", "name": "चॉकलेट केक / Chocolate Cake", "price": "300 RS", "desc": "Classic chocolate sponge with cream", "tags": ["Veg", "Cake"], "img": "img/chocolate_cake.jpg" },
-  { "id": 99, "cat": "केक / Cakes", "name": "बटरस्कॉच केक / Butterscotch Cake", "price": "300 RS", "desc": "Crunchy butterscotch flavored cake with caramel crunch", "tags": ["Veg", "Cake"], "img": "img/butterscotch_cake.jpg" },
-  { "id": 100, "cat": "केक / Cakes", "name": "पायनॅपल केक / Pineapple Cake", "price": "300 RS", "desc": "Fresh cream cake with pineapple chunks", "tags": ["Veg", "Cake"], "img": "img/pineapple_cake.jpg" },
-  { "id": 101, "cat": "केक / Cakes", "name": "स्ट्रॉबेरी केक / Strawberry Cake", "price": "300 RS", "desc": "Pink strawberry flavored fresh cream cake", "tags": ["Veg", "Cake"], "img": "img/strawberry_cake.jpg" },
-  { "id": 102, "cat": "केक / Cakes", "name": "ब्लॅक फॉरेस्ट / Black Forest", "price": "300 RS", "desc": "Classic chocolate cake with cherries and cream", "tags": ["Veg", "Cake"], "img": "img/black_forest.jpg" },
-  { "id": 103, "cat": "केक / Cakes", "name": "व्हाईट फॉरेस्ट / White Forest", "price": "300 RS", "desc": "Vanilla cake with white chocolate shavings and cherries", "tags": ["Veg", "Cake"], "img": "img/white_forest.jpg" },
-  { "id": 104, "cat": "पेस्ट्री / Pastries", "name": "चॉकलेट पेस्ट्री / Chocolate Pastry", "price": "45 RS", "desc": "Single slice of rich chocolate cake", "tags": ["Veg", "Pastry"], "img": "img/chocolate_pastry.jpg" },
-  { "id": 105, "cat": "पेस्ट्री / Pastries", "name": "पायनॅपल पेस्ट्री / Pineapple Pastry", "price": "45 RS", "desc": "Single slice of fresh pineapple cake", "tags": ["Veg", "Pastry"], "img": "img/pineapple_pastry.jpg" },
-  { "id": 106, "cat": "पेस्ट्री / Pastries", "name": "ब्लॅक फॉरेस्ट पेस्ट्री / Black Forest Pastry", "price": "45 RS", "desc": "Single slice of classic black forest cake", "tags": ["Veg", "Pastry"], "img": "img/black_forest_pastry.jpg" },
-  { "id": 107, "cat": "पेस्ट्री / Pastries", "name": "बटरस्कॉच पेस्ट्री / Butterscotch Pastry", "price": "45 RS", "desc": "Single slice of crunchy butterscotch cake", "tags": ["Veg", "Pastry"], "img": "img/butterscotch_pastry.jpg" },
-  { "id": 108, "cat": "केक / Cakes", "name": "बर्थडे थीम केक / Birthday Theme Cake", "price": "On Order", "desc": "Customized theme cakes for birthdays (Price depends on design)", "tags": ["Veg", "Cake", "Custom"], "img": "img/birthday_theme_cake.jpg" },
-  { "id": 109, "cat": "केक / Cakes", "name": "फोटो केक / Photo Cake", "price": "On Order", "desc": "Personalized cake with edible photo print", "tags": ["Veg", "Cake", "Custom"], "img": "img/photo_cake.jpg" },
-  { "id": 110, "cat": "केक / Cakes", "name": "अॅनिव्हर्सरी केक / Anniversary Special Cake", "price": "On Order", "desc": "Romantic heart shape or designer cakes for anniversary", "tags": ["Veg", "Cake", "Custom"], "img": "img/anniversary_cake.jpg" },
-  { "id": 111, "cat": "केक / Cakes", "name": "किड्स कार्टून केक / Kids Cartoon Cake", "price": "On Order", "desc": "Cakes with popular cartoon characters for kids", "tags": ["Veg", "Cake", "Custom"], "img": "img/kids_cartoon_cake.jpg" },
-  { "id": 112, "cat": "केक / Cakes", "name": "वेडिंग केक / Wedding Cake", "price": "On Order", "desc": "Multi-tier special cakes for weddings", "tags": ["Veg", "Cake", "Custom"], "img": "img/wedding_cake.jpg" },
-  { "id": 113, "cat": "केक / Cakes", "name": "आईस्क्रीम केक / Ice Cream Cake", "price": "On Order", "desc": "Delicious cake with ice cream layers (Custom Order)", "tags": ["Veg", "Cake", "Ice Cream"], "img": "img/ice_cream_cake.jpg" },
+  // ज्यूस / Juice
+  { "id": 57, "cat": "Drinks", "name": "मॅन्गो ज्यूस / Mango Juice", "price": "60 RS", "desc": "Fresh mango fruit juice", "tags": ["Veg", "Juice"], "img": "img/mango_juice.jpg" },
+  { "id": 58, "cat": "Drinks", "name": "पायनॅपल ज्यूस / Pineapple Juice", "price": "60 RS", "desc": "Fresh pineapple fruit juice", "tags": ["Veg", "Juice"], "img": "img/pineapple_juice.jpg" },
+  { "id": 59, "cat": "Drinks", "name": "मिक्स ज्यूस / Mix Juice", "price": "60 RS", "desc": "Mixed fruit juice blend", "tags": ["Veg", "Juice"], "img": "img/mix_juice.jpg" },
+  { "id": 60, "cat": "Drinks", "name": "अंजीर ज्यूस / Anjeer Juice", "price": "60 RS", "desc": "Fresh fig fruit juice", "tags": ["Veg", "Juice"], "img": "img/anjeer_juice.jpg" },
+  { "id": 61, "cat": "Drinks", "name": "स्पेशल भगवती ज्यूस / Special Bhagwati Juice", "price": "75 RS", "desc": "House special mixed fruit juice", "tags": ["Veg", "Juice"], "img": "img/special_bhagwati_juice.jpg" },
+  { "id": 62, "cat": "Drinks", "name": "सफरचंद ज्यूस / Apple Juice", "price": "50 RS", "desc": "Healthy fresh apple juice", "tags": ["Veg", "Juice"], "img": "img/apple_juice.jpg" },
+  { "id": 63, "cat": "Drinks", "name": "टर्बूज ज्यूस / Watermelon Juice", "price": "50 RS", "desc": "Refreshing watermelon juice", "tags": ["Veg", "Juice"], "img": "img/watermelon_juice.jpg" },
+  { "id": 64, "cat": "Drinks", "name": "लिंबूसरबत / Lime Juice", "price": "20 RS", "desc": "Sweet and tangy lemon juice refresher", "tags": ["Veg", "Juice"], "img": "img/lime_juice.jpg" },
 
-  // ============ 11. साइड्स / Extras ============
-  { "id": 114, "cat": "साइड्स / Extras", "name": "रोस्टेड पापड / Roasted Papad", "price": "10 RS", "desc": "Roasted lentil cracker", "tags": ["Veg", "Sides"], "img": "img/roasted_papad_shrinath.jpg" },
-  { "id": 115, "cat": "साइड्स / Extras", "name": "एक्स्ट्रा पावजोडी / Extra Pav Pair", "price": "10 RS", "desc": "Extra pair of bread rolls", "tags": ["Veg", "Sides"], "img": "img/extra_pav.jpg" },
-  { "id": 116, "cat": "साइड्स / Extras", "name": "एक्स्ट्रा फरसान प्लेट / Extra Farsan Plate", "price": "20 RS", "desc": "Extra plate of crispy mix snacks", "tags": ["Veg", "Sides"], "img": "img/extra_farsan.jpg" },
-  { "id": 117, "cat": "साइड्स / Extras", "name": "मटकी वाटी / Matki Wati", "price": "10 RS", "desc": "Bowl of sprouted moth beans", "tags": ["Veg", "Sides"], "img": "img/matki_wati.jpg" },
-  { "id": 118, "cat": "साइड्स / Extras", "name": "दही वाटी / Dahi Wati", "price": "10 RS", "desc": "Bowl of fresh yogurt", "tags": ["Veg", "Sides"], "img": "img/dahi_wati_shrinath.jpg" },
+  // ड्रिंक्स / Drinks
+  { "id": 65, "cat": "Drinks", "name": "लस्सी / Lassi", "price": "Check Availability", "desc": "Sweet traditional yogurt drink", "tags": ["Veg", "Drink"], "img": "img/lassi_shrinath.jpg" },
+  { "id": 66, "cat": "Drinks", "name": "कोल्ड्रींग / Cold Drink", "price": "MRP", "desc": "Chilled bottled soft drinks", "tags": ["Veg", "Drink"], "img": "img/cold_drink_shrinath.jpg" },
+  { "id": 67, "cat": "Drinks", "name": "मसाला ताक / Masala Taak", "price": "20 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_shrinath.jpg" },
+  { "id": 83, "cat": "Drinks", "name": "मसाला ताक / Masala Taak", "price": "25 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_special.jpg" },
+  { "id": 86, "cat": "Drinks", "name": "मँगो लस्सी / Mango Lassi", "price": "50 RS", "desc": "Mango flavored sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/mango_lassi.jpg" },
+  { "id": 87, "cat": "Drinks", "name": "लस्सी / Lassi", "price": "40 RS", "desc": "Traditional sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/lassi.jpg" },
+  { "id": 78, "cat": "Drinks", "name": "भगवती स्पेशल लस्सी / Bhagwati Special Lassi", "price": "Check Availability", "desc": "Thick and creamy sweet yogurt drink", "tags": ["Veg", "Dessert"], "img": "img/bhagwati_special_lassi.jpg" },
+
+  // ============ 3. CAKE ============
+  // केक / Cakes
+  { "id": 90, "cat": "Cake", "name": "रसमलाई केक / Rasmalai Cake", "price": "350 RS", "desc": "Fusion cake with rich rasmalai flavor and nuts", "tags": ["Veg", "Cake", "Premium"], "img": "img/rasmalai_cake.jpg" },
+  { "id": 91, "cat": "Cake", "name": "काजू मलाई केक / Kaju Malai Cake", "price": "400 RS", "desc": "Rich premium cake loaded with cashews and cream", "tags": ["Veg", "Cake", "Premium"], "img": "img/kaju_malai_cake.jpg" },
+  { "id": 92, "cat": "Cake", "name": "चॉकलेट ट्रफल / Chocolate Truffle", "price": "320 RS", "desc": "Dense and rich chocolate cake with truffle ganache", "tags": ["Veg", "Cake", "Premium"], "img": "img/chocolate_truffle.jpg" },
+  { "id": 93, "cat": "Cake", "name": "रेड वेलवेट / Red Velvet", "price": "350 RS", "desc": "Classic red velvet sponge with cream cheese frosting", "tags": ["Veg", "Cake", "Premium"], "img": "img/red_velvet.jpg" },
+  { "id": 94, "cat": "Cake", "name": "गुलकंद केक / Gulakand Cake", "price": "350 RS", "desc": "Refreshing cake flavored with sweet rose petal preserve", "tags": ["Veg", "Cake", "Premium"], "img": "img/gulakand_cake.jpg" },
+  { "id": 95, "cat": "Cake", "name": "कॉफी चॉकलेट / Coffee Chocolate", "price": "350 RS", "desc": "Perfect blend of coffee and chocolate flavors", "tags": ["Veg", "Cake", "Premium"], "img": "img/coffee_chocolate.jpg" },
+  { "id": 96, "cat": "Cake", "name": "फ्रूट केक / Fruit Cake", "price": "400 RS", "desc": "Fresh cream cake topped with exotic fruits", "tags": ["Veg", "Cake", "Premium"], "img": "img/fruit_cake.jpg" },
+  { "id": 97, "cat": "Cake", "name": "नॉर्मल रेगुलर केक / Normal Regular Cake", "price": "150 RS", "desc": "Basic sponge cake with light cream", "tags": ["Veg", "Cake"], "img": "img/normal_regular_cake.jpg" },
+  { "id": 98, "cat": "Cake", "name": "चॉकलेट केक / Chocolate Cake", "price": "300 RS", "desc": "Classic chocolate sponge with cream", "tags": ["Veg", "Cake"], "img": "img/chocolate_cake.jpg" },
+  { "id": 99, "cat": "Cake", "name": "बटरस्कॉच केक / Butterscotch Cake", "price": "300 RS", "desc": "Crunchy butterscotch flavored cake with caramel crunch", "tags": ["Veg", "Cake"], "img": "img/butterscotch_cake.jpg" },
+  { "id": 100, "cat": "Cake", "name": "पायनॅपल केक / Pineapple Cake", "price": "300 RS", "desc": "Fresh cream cake with pineapple chunks", "tags": ["Veg", "Cake"], "img": "img/pineapple_cake.jpg" },
+  { "id": 101, "cat": "Cake", "name": "स्ट्रॉबेरी केक / Strawberry Cake", "price": "300 RS", "desc": "Pink strawberry flavored fresh cream cake", "tags": ["Veg", "Cake"], "img": "img/strawberry_cake.jpg" },
+  { "id": 102, "cat": "Cake", "name": "ब्लॅक फॉरेस्ट / Black Forest", "price": "300 RS", "desc": "Classic chocolate cake with cherries and cream", "tags": ["Veg", "Cake"], "img": "img/black_forest.jpg" },
+  { "id": 103, "cat": "Cake", "name": "व्हाईट फॉरेस्ट / White Forest", "price": "300 RS", "desc": "Vanilla cake with white chocolate shavings and cherries", "tags": ["Veg", "Cake"], "img": "img/white_forest.jpg" },
+  { "id": 108, "cat": "Cake", "name": "बर्थडे थीम केक / Birthday Theme Cake", "price": "On Order", "desc": "Customized theme cakes for birthdays (Price depends on design)", "tags": ["Veg", "Cake", "Custom"], "img": "img/birthday_theme_cake.jpg" },
+  { "id": 109, "cat": "Cake", "name": "फोटो केक / Photo Cake", "price": "On Order", "desc": "Personalized cake with edible photo print", "tags": ["Veg", "Cake", "Custom"], "img": "img/photo_cake.jpg" },
+  { "id": 110, "cat": "Cake", "name": "अॅनिव्हर्सरी केक / Anniversary Special Cake", "price": "On Order", "desc": "Romantic heart shape or designer cakes for anniversary", "tags": ["Veg", "Cake", "Custom"], "img": "img/anniversary_cake.jpg" },
+  { "id": 111, "cat": "Cake", "name": "किड्स कार्टून केक / Kids Cartoon Cake", "price": "On Order", "desc": "Cakes with popular cartoon characters for kids", "tags": ["Veg", "Cake", "Custom"], "img": "img/kids_cartoon_cake.jpg" },
+  { "id": 112, "cat": "Cake", "name": "वेडिंग केक / Wedding Cake", "price": "On Order", "desc": "Multi-tier special cakes for weddings", "tags": ["Veg", "Cake", "Custom"], "img": "img/wedding_cake.jpg" },
+  { "id": 113, "cat": "Cake", "name": "आईस्क्रीम केक / Ice Cream Cake", "price": "On Order", "desc": "Delicious cake with ice cream layers (Custom Order)", "tags": ["Veg", "Cake", "Ice Cream"], "img": "img/ice_cream_cake.jpg" },
+
+  // पेस्ट्री / Pastries
+  { "id": 104, "cat": "Cake", "name": "चॉकलेट पेस्ट्री / Chocolate Pastry", "price": "45 RS", "desc": "Single slice of rich chocolate cake", "tags": ["Veg", "Pastry"], "img": "img/chocolate_pastry.jpg" },
+  { "id": 105, "cat": "Cake", "name": "पायनॅपल पेस्ट्री / Pineapple Pastry", "price": "45 RS", "desc": "Single slice of fresh pineapple cake", "tags": ["Veg", "Pastry"], "img": "img/pineapple_pastry.jpg" },
+  { "id": 106, "cat": "Cake", "name": "ब्लॅक फॉरेस्ट पेस्ट्री / Black Forest Pastry", "price": "45 RS", "desc": "Single slice of classic black forest cake", "tags": ["Veg", "Pastry"], "img": "img/black_forest_pastry.jpg" },
+  { "id": 107, "cat": "Cake", "name": "बटरस्कॉच पेस्ट्री / Butterscotch Pastry", "price": "45 RS", "desc": "Single slice of crunchy butterscotch cake", "tags": ["Veg", "Pastry"], "img": "img/butterscotch_pastry.jpg" },
+
+  // आईस्क्रीम & डेझर्ट (कुछ डेजर्ट्स जो केक से related हैं)
+  { "id": 68, "cat": "Cake", "name": "अमूल आईस्क्रीम / Amul Ice Cream", "price": "Check Availability", "desc": "Assorted flavors of Amul ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/amul_ice_cream.jpg" },
+  { "id": 69, "cat": "Cake", "name": "व्हॅनिला / Vanilla", "price": "40 RS", "desc": "Classic vanilla ice cream (Half: 25 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream.jpg" },
+  { "id": 70, "cat": "Cake", "name": "बटर स्कॉच / Butter Scotch", "price": "50 RS", "desc": "Crunchy butterscotch ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/butter_scotch_ice_cream.jpg" },
+  { "id": 71, "cat": "Cake", "name": "मँगो / Mango", "price": "50 RS", "desc": "Fresh mango flavored ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/mango_ice_cream.jpg" },
+  { "id": 72, "cat": "Cake", "name": "चॉकलेट / Chocolate", "price": "60 RS", "desc": "Rich chocolate ice cream (Half: 35 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/chocolate_ice_cream.jpg" },
+  { "id": 73, "cat": "Cake", "name": "अमेरिकन नट / American Nuts", "price": "70 RS", "desc": "Ice cream loaded with nuts and jelly (Half: 40 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/american_nuts_ice_cream.jpg" },
+  { "id": 74, "cat": "Cake", "name": "काजु किशमिश / Kaju Kishmis", "price": "80 RS", "desc": "Ice cream with cashews and raisins (Half: 45 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kaju_kishmis_ice_cream.jpg" },
+  { "id": 75, "cat": "Cake", "name": "केशर पिस्ता / Kesar Pista", "price": "90 RS", "desc": "Saffron and pistachio flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kesar_pista_ice_cream.jpg" },
+  { "id": 76, "cat": "Cake", "name": "राजभोग / Raj Bhog", "price": "90 RS", "desc": "Royal traditional flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/raj_bhog_ice_cream.jpg" },
+  { "id": 77, "cat": "Cake", "name": "चोकोचिप्स आईस्क्रीम / Chocochips Ice Cream", "price": "89 RS", "desc": "Chocolate ice cream with chocolate chips", "tags": ["Veg", "Ice Cream"], "img": "img/chocochips_ice_cream.jpg" },
+  { "id": 88, "cat": "Cake", "name": "भगवती स्पेशल आईस क्रिम थाळी / Bhagwati Special Ice Cream Thali", "price": "250 RS", "desc": "Assorted special ice cream platter", "tags": ["Veg", "Ice Cream", "Thali"], "img": "img/bhagwati_special_ice_cream_thali.jpg" },
+  { "id": 79, "cat": "Cake", "name": "बासुंदी / Basundi", "price": "Check Availability", "desc": "Traditional thickened sweetened milk dessert", "tags": ["Veg", "Dessert"], "img": "img/basundi.jpg" },
+  { "id": 80, "cat": "Cake", "name": "फालुदा / Falooda", "price": "60 RS", "desc": "Royal dessert drink with vermicelli and basil seeds", "tags": ["Veg", "Dessert"], "img": "img/falooda_special.jpg" },
+  { "id": 82, "cat": "Cake", "name": "मॅन्गो मस्तानी / Mango Mastani", "price": "110 RS", "desc": "Mango milkshake topped with ice cream and dry fruits", "tags": ["Veg", "Dessert"], "img": "img/mango_mastani_special.jpg" },
+  { "id": 84, "cat": "Cake", "name": "लस्सी विथ आईस क्रिम / Lassi with Ice Cream", "price": "70 RS", "desc": "Sweet lassi topped with a scoop of ice cream", "tags": ["Veg", "Dessert", "Lassi"], "img": "img/lassi_with_ice_cream.jpg" },
+  { "id": 85, "cat": "Cake", "name": "गुलाब जामुन विथ आईस क्रिम / Gulab Jamun with Ice Cream", "price": "70 RS", "desc": "Hot gulab jamun served with cold vanilla ice cream", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_with_ice_cream.jpg" },
+  { "id": 89, "cat": "Cake", "name": "गुलाब जामुन (२ पीस) / Gulab Jamun (2 Pcs)", "price": "20 RS", "desc": "Sweet fried dough balls in sugar syrup", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_shrinath.jpg" }
 ];
+            
+
+// [
+//   // ============ 1. पिझ्झा / Pizza ============
+//   { "id": 1, "cat": "पिझ्झा / Pizza", "name": "व्हेज चीज पिझ्झा / Veg Cheese Pizza", "price": "169 RS", "desc": "Classic pizza topped with mozzarella cheese and veggies", "tags": ["Veg", "Pizza"], "img": "img/veg_cheese_pizza.jpg" },
+//   { "id": 2, "cat": "पिझ्झा / Pizza", "name": "स्वीतकॉर्न पिझ्झा / Sweetcorn Pizza", "price": "169 RS", "desc": "Pizza topped with sweet corn and cheese", "tags": ["Veg", "Pizza"], "img": "img/sweetcorn_pizza.jpg" },
+//   { "id": 3, "cat": "पिझ्झा / Pizza", "name": "पनीर मसाला पिझ्झा / Paneer Masala Pizza", "price": "189 RS", "desc": "Spicy Indian style pizza topped with marinated paneer", "tags": ["Veg", "Pizza", "Paneer"], "img": "img/paneer_masala_pizza.jpg" },
+//   { "id": 4, "cat": "पिझ्झा / Pizza", "name": "ओनियन चीज पिझ्झा / Onion Cheese Pizza", "price": "169 RS", "desc": "Pizza loaded with sliced onions and cheese", "tags": ["Veg", "Pizza"], "img": "img/onion_cheese_pizza.jpg" },
+//   { "id": 5, "cat": "पिझ्झा / Pizza", "name": "प्लेन चीज पिझ्झा / Plain Cheese Pizza", "price": "179 RS", "desc": "Pizza loaded with extra mozzarella cheese", "tags": ["Veg", "Pizza"], "img": "img/plain_cheese_pizza.jpg" },
+
+//   // ============ 2. सँडविच / Sandwich ============
+//   { "id": 6, "cat": "सँडविच / Sandwich", "name": "व्हेज सँडविच / Veg Sandwich", "price": "79 RS", "desc": "Classic sandwich stuffed with fresh vegetables", "tags": ["Veg", "Sandwich"], "img": "img/veg_sandwich.jpg" },
+//   { "id": 7, "cat": "सँडविच / Sandwich", "name": "चीज ब्लास्ट सँडविच / Cheese Blast Sandwich", "price": "99 RS", "desc": "Sandwich loaded with extra cheese", "tags": ["Veg", "Sandwich"], "img": "img/cheese_blast_sandwich.jpg" },
+//   { "id": 8, "cat": "सँडविच / Sandwich", "name": "पनीर सँडविच / Paneer Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with spicy paneer filling", "tags": ["Veg", "Sandwich", "Paneer"], "img": "img/paneer_sandwich.jpg" },
+//   { "id": 9, "cat": "सँडविच / Sandwich", "name": "स्वीतकॉर्न सँडविच / Sweetcorn Sandwich", "price": "110 RS", "desc": "Sandwich stuffed with sweet corn and mayo", "tags": ["Veg", "Sandwich"], "img": "img/sweetcorn_sandwich.jpg" },
+
+//   // ============ 3. पावभाजी & मिसळ / Pav Bhaji & Misal ============
+//   { "id": 10, "cat": "पावभाजी / Pav Bhaji", "name": "स्पेशल पावभाजी / Special Pav Bhaji", "price": "90 RS", "desc": "Buttery mashed vegetable curry served with soft pav rolls", "tags": ["Veg", "Pav Bhaji"], "img": "img/special_pav_bhaji.jpg" },
+//   { "id": 11, "cat": "पावभाजी / Pav Bhaji", "name": "जैन पावभाजी / Jain Pav Bhaji", "price": "100 RS", "desc": "Pav bhaji prepared without onions and garlic", "tags": ["Veg", "Pav Bhaji", "Jain"], "img": "img/jain_pav_bhaji.jpg" },
+//   { "id": 12, "cat": "मिसळ / Misal", "name": "स्पेशल मिसळ थाळी / Special Misal Thali", "price": "140 RS", "desc": "Spicy sprouted bean curry served with farsan and bread/pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/special_misal_thali.jpg" },
+//   { "id": 13, "cat": "मिसळ / Misal", "name": "दही मिसळ थाळी / Dahi Misal Thali", "price": "100 RS", "desc": "Misal topped with cooling yogurt served with pav", "tags": ["Veg", "Misal", "Thali"], "img": "img/dahi_misal_thali.jpg" },
+//   { "id": 14, "cat": "मिसळ / Misal", "name": "रेगुलर मिसळ थाळी / Regular Misal Thali", "price": "90 RS", "desc": "Classic Maharashtrian spicy misal pav thali", "tags": ["Veg", "Misal", "Thali"], "img": "img/regular_misal_thali.jpg" },
+//   { "id": 15, "cat": "मिसळ / Misal", "name": "श्रीनाथ स्पेशल मिसळ थाळी / Shrinath Special Misal Thali", "price": "120 RS", "desc": "Farsan, Rassa, Papad, 2 Sweets, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak, Papdi, Pohe, Shev, Pani Bottle", "tags": ["Veg", "Misal", "Thali", "Special"], "img": "img/shrinath_special_misal_thali.jpg" },
+//   { "id": 16, "cat": "मिसळ / Misal", "name": "श्रीनाथ दही मिसळ थाळी / Shrinath Dahi Misal Thali", "price": "80 RS", "desc": "Farsan, Rassa, Papad, Gulab Jamun, Kanda-Limbu, Dahi Wati, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_dahi_misal_thali.jpg" },
+//   { "id": 17, "cat": "मिसळ / Misal", "name": "श्रीनाथ मिसळ थाळी / Shrinath Misal Thali", "price": "70 RS", "desc": "Farsan, Rassa, Papad, 1 Sweet, Kanda-Limbu, Butter Pav, Masala Taak", "tags": ["Veg", "Misal", "Thali"], "img": "img/shrinath_misal_thali.jpg" },
+
+//   // ============ 4. चाट / Chaat ============
+//   { "id": 18, "cat": "चाट / Chaat", "name": "स्पेशल भेळ / Special Bhel", "price": "60 RS", "desc": "Puffed rice mixed with tangy chutneys and special toppings", "tags": ["Veg", "Chaat"], "img": "img/special_bhel.jpg" },
+//   { "id": 19, "cat": "चाट / Chaat", "name": "दही भेळ / Dahi Bhel", "price": "80 RS", "desc": "Bhel topped with sweet and tangy yogurt", "tags": ["Veg", "Chaat"], "img": "img/dahi_bhel.jpg" },
+//   { "id": 20, "cat": "चाट / Chaat", "name": "मटकी भेळ / Matki Bhel", "price": "70 RS", "desc": "Healthy bhel made with sprouted moth beans", "tags": ["Veg", "Chaat"], "img": "img/matki_bhel.jpg" },
+//   { "id": 21, "cat": "चाट / Chaat", "name": "शेव पुरी / Shev Puri", "price": "60 RS", "desc": "Crispy puris topped with potatoes, chutneys and lots of sev", "tags": ["Veg", "Chaat"], "img": "img/shev_puri.jpg" },
+//   { "id": 22, "cat": "चाट / Chaat", "name": "दही पुरी / Dahi Puri", "price": "80 RS", "desc": "Crispy puris filled with yogurt and tangy chutneys", "tags": ["Veg", "Chaat"], "img": "img/dahi_puri.jpg" },
+//   { "id": 23, "cat": "चाट / Chaat", "name": "सुकी पुरी / Suki Puri", "price": "30 RS", "desc": "Crispy puris served with dry masala stuffing", "tags": ["Veg", "Chaat"], "img": "img/suki_puri.jpg" },
+//   { "id": 24, "cat": "चाट / Chaat", "name": "पाणी पुरी / Pani Puri", "price": "30 RS", "desc": "Crispy puris filled with spicy tangy water and stuffing", "tags": ["Veg", "Chaat"], "img": "img/pani_puri.jpg" },
+//   { "id": 25, "cat": "चाट / Chaat", "name": "श्रीनाथ स्पे. ओली भेळ / Shrinath Spl. Oli Bhel", "price": "40 RS", "desc": "Special wet bhel with secret chutneys", "tags": ["Veg", "Chaat", "Special"], "img": "img/shrinath_spl_oli_bhel.jpg" },
+
+//   // ============ 5. नाष्टा / Snacks & Fries ============
+//   { "id": 26, "cat": "फ्रेंच फ्राईज / French Fries", "name": "प्लेन फ्राईज / Plain Fries", "price": "100 RS", "desc": "Classic salted crispy french fries", "tags": ["Veg", "Fries"], "img": "img/plain_fries.jpg" },
+//   { "id": 27, "cat": "फ्रेंच फ्राईज / French Fries", "name": "पेरी पेरी फ्राईज / Peri Peri Fries", "price": "120 RS", "desc": "Crispy fries tossed in spicy peri peri masala", "tags": ["Veg", "Fries"], "img": "img/peri_peri_fries.jpg" },
+//   { "id": 28, "cat": "फ्रेंच फ्राईज / French Fries", "name": "चीज फ्राईज / Cheese Fries", "price": "150 RS", "desc": "French fries loaded with melted cheese", "tags": ["Veg", "Fries"], "img": "img/cheese_fries.jpg" },
+//   { "id": 29, "cat": "फ्रेंच फ्राईज / French Fries", "name": "फिंगर चिप्स / Finger Chips", "price": "70 RS", "desc": "Crispy french fries", "tags": ["Veg", "Snacks", "Fries"], "img": "img/finger_chips_shrinath.jpg" },
+//   { "id": 30, "cat": "नाष्टा / Snacks", "name": "रस्सा पोहे / Rassa Pohe", "price": "40 RS", "desc": "Flattened rice served with spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_pohe.jpg" },
+//   { "id": 31, "cat": "नाष्टा / Snacks", "name": "वडापाव / Vadapav", "price": "25 RS", "desc": "Mumbai style potato fritter served in a bun", "tags": ["Veg", "Snacks"], "img": "img/vadapav.jpg" },
+//   { "id": 32, "cat": "नाष्टा / Snacks", "name": "स्पेशल कांदा पकोडा / Special Kanda Pakoda", "price": "70 RS", "desc": "Crispy onion fritters served with chutney", "tags": ["Veg", "Snacks"], "img": "img/special_kanda_pakoda.jpg" },
+//   { "id": 33, "cat": "नाष्टा / Snacks", "name": "रस्सा वडा / Rassa Vada", "price": "70 RS", "desc": "Potato fritter served in spicy gravy", "tags": ["Veg", "Snacks"], "img": "img/rassa_vada.jpg" },
+//   { "id": 34, "cat": "नाष्टा / Snacks", "name": "मसाला मॅगी / Masala Maggi", "price": "70 RS", "desc": "Spicy vegetable instant noodles", "tags": ["Veg", "Snacks"], "img": "img/masala_maggi.jpg" },
+//   { "id": 35, "cat": "नाष्टा / Snacks", "name": "दही पोहे / Dahi Pohe", "price": "35 RS", "desc": "Flattened rice served with yogurt", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/dahi_pohe_shrinath.jpg" },
+//   { "id": 36, "cat": "नाष्टा / Snacks", "name": "ब्रेड वडा / Bread Vada", "price": "20 RS", "desc": "Deep fried potato stuffed bread fritter", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/bread_vada_shrinath.jpg" },
+//   { "id": 37, "cat": "नाष्टा / Snacks", "name": "कांदा भजी / Kanda Bhaji", "price": "40 RS", "desc": "Crispy onion fritters", "tags": ["Veg", "Breakfast", "Snacks"], "img": "img/kanda_bhaji_shrinath.jpg" },
+//   { "id": 38, "cat": "नाष्टा / Snacks", "name": "मॅगी / Maggi", "price": "50 RS", "desc": "Classic instant noodles", "tags": ["Veg", "Snacks"], "img": "img/maggi_shrinath.jpg" },
+
+//   // ============ 6. उपवास / Fasting Special ============
+//   { "id": 39, "cat": "उपवास / Upvas Special", "name": "साबुदाणा खिचडी / Sabudana Khichdi", "price": "80 RS", "desc": "Sago pearl pilaf specially for fasting", "tags": ["Veg", "Upvas"], "img": "img/sabudana_khichdi.jpg" },
+
+//   // ============ 7. शेक्स & कॉफी / Shakes & Coffee ============
+//   { "id": 40, "cat": "शेक्स / Shakes", "name": "बटरस्कॉच शेक / Butterscotch Shake", "price": "100 RS", "desc": "Creamy butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/butterscotch_shake.jpg" },
+//   { "id": 41, "cat": "शेक्स / Shakes", "name": "चॉकलेट शेक / Chocolate Shake", "price": "110 RS", "desc": "Rich and thick chocolate milkshake", "tags": ["Veg", "Shakes"], "img": "img/chocolate_shake.jpg" },
+//   { "id": 42, "cat": "शेक्स / Shakes", "name": "ओरिओ शेक / Oreo Shake", "price": "110 RS", "desc": "Milkshake blended with Oreo cookies", "tags": ["Veg", "Shakes"], "img": "img/oreo_shake.jpg" },
+//   { "id": 43, "cat": "शेक्स / Shakes", "name": "किटकॅट शेक / Kitkat Shake", "price": "110 RS", "desc": "Milkshake blended with Kitkat chocolate bars", "tags": ["Veg", "Shakes"], "img": "img/kitkat_shake.jpg" },
+//   { "id": 44, "cat": "शेक्स / Shakes", "name": "स्ट्रॉबेरी शेक / Strawberry Shake", "price": "110 RS", "desc": "Fresh strawberry flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/strawberry_shake.jpg" },
+//   { "id": 45, "cat": "शेक्स / Shakes", "name": "व्हॅनिला/बटर स्कॉच शेक / Vanilla/Butterscotch Shake", "price": "80 RS", "desc": "Classic vanilla or butterscotch flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/vanilla_butterscotch_shake.jpg" },
+//   { "id": 46, "cat": "शेक्स / Shakes", "name": "रोज शेक / Rose Shake", "price": "80 RS", "desc": "Refreshing rose syrup flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_shake.jpg" },
+//   { "id": 47, "cat": "शेक्स / Shakes", "name": "मँगो शेक / Mango Shake", "price": "90 RS", "desc": "Thick mango pulp milkshake", "tags": ["Veg", "Shakes"], "img": "img/mango_shake.jpg" },
+//   { "id": 48, "cat": "शेक्स / Shakes", "name": "पायनॅपल शेक / Pineapple Shake", "price": "99 RS", "desc": "Fresh pineapple milkshake", "tags": ["Veg", "Shakes"], "img": "img/pineapple_shake_plaza.jpg" },
+//   { "id": 49, "cat": "शेक्स / Shakes", "name": "रोज मिल्क शेक / Rose Milk Shake", "price": "99 RS", "desc": "Refreshing rose flavored milkshake", "tags": ["Veg", "Shakes"], "img": "img/rose_milk_shake.jpg" },
+//   { "id": 50, "cat": "कॉफी / Coffee", "name": "प्लेन कोल्ड कॉफी / Plain Cold Coffee", "price": "99 RS", "desc": "Chilled refreshing coffee drink", "tags": ["Veg", "Coffee"], "img": "img/plain_cold_coffee.jpg" },
+//   { "id": 51, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ चॉकलेट / Cold Coffee with Chocolate", "price": "120 RS", "desc": "Cold coffee topped with chocolate syrup", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_chocolate.jpg" },
+//   { "id": 52, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी विथ आईस्क्रीम / Cold Coffee with Ice Cream", "price": "125 RS", "desc": "Cold coffee served with a scoop of vanilla ice cream", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_with_ice_cream.jpg" },
+//   { "id": 53, "cat": "कॉफी / Coffee", "name": "कोल्ड कॉफी / Cold Coffee", "price": "90 RS", "desc": "Chilled refreshing cold coffee", "tags": ["Veg", "Coffee"], "img": "img/cold_coffee_shrinath.jpg" },
+//   { "id": 54, "cat": "कॉफी / Coffee", "name": "चहा / Tea", "price": "10 RS", "desc": "Hot milk tea", "tags": ["Veg", "Hot Drink"], "img": "img/tea_shrinath.jpg" },
+//   { "id": 55, "cat": "कॉफी / Coffee", "name": "कॉफी / Coffee", "price": "15 RS", "desc": "Hot coffee", "tags": ["Veg", "Hot Drink"], "img": "img/coffee_shrinath.jpg" },
+//   { "id": 56, "cat": "कॉफी / Coffee", "name": "दुध / Milk", "price": "10 RS", "desc": "Hot milk cup", "tags": ["Veg", "Hot Drink"], "img": "img/milk_shrinath.jpg" },
+
+//   // ============ 8. ज्यूस & ड्रिंक्स / Juice & Drinks ============
+//   { "id": 57, "cat": "ज्यूस / Juice", "name": "मॅन्गो ज्यूस / Mango Juice", "price": "60 RS", "desc": "Fresh mango fruit juice", "tags": ["Veg", "Juice"], "img": "img/mango_juice.jpg" },
+//   { "id": 58, "cat": "ज्यूस / Juice", "name": "पायनॅपल ज्यूस / Pineapple Juice", "price": "60 RS", "desc": "Fresh pineapple fruit juice", "tags": ["Veg", "Juice"], "img": "img/pineapple_juice.jpg" },
+//   { "id": 59, "cat": "ज्यूस / Juice", "name": "मिक्स ज्यूस / Mix Juice", "price": "60 RS", "desc": "Mixed fruit juice blend", "tags": ["Veg", "Juice"], "img": "img/mix_juice.jpg" },
+//   { "id": 60, "cat": "ज्यूस / Juice", "name": "अंजीर ज्यूस / Anjeer Juice", "price": "60 RS", "desc": "Fresh fig fruit juice", "tags": ["Veg", "Juice"], "img": "img/anjeer_juice.jpg" },
+//   { "id": 61, "cat": "ज्यूस / Juice", "name": "स्पेशल भगवती ज्यूस / Special Bhagwati Juice", "price": "75 RS", "desc": "House special mixed fruit juice", "tags": ["Veg", "Juice"], "img": "img/special_bhagwati_juice.jpg" },
+//   { "id": 62, "cat": "ज्यूस / Juice", "name": "सफरचंद ज्यूस / Apple Juice", "price": "50 RS", "desc": "Healthy fresh apple juice", "tags": ["Veg", "Juice"], "img": "img/apple_juice.jpg" },
+//   { "id": 63, "cat": "ज्यूस / Juice", "name": "टर्बूज ज्यूस / Watermelon Juice", "price": "50 RS", "desc": "Refreshing watermelon juice", "tags": ["Veg", "Juice"], "img": "img/watermelon_juice.jpg" },
+//   { "id": 64, "cat": "ज्यूस / Juice", "name": "लिंबूसरबत / Lime Juice", "price": "20 RS", "desc": "Sweet and tangy lemon juice refresher", "tags": ["Veg", "Juice"], "img": "img/lime_juice.jpg" },
+//   { "id": 65, "cat": "ड्रिंक्स / Drinks", "name": "लस्सी / Lassi", "price": "Check Availability", "desc": "Sweet traditional yogurt drink", "tags": ["Veg", "Drink"], "img": "img/lassi_shrinath.jpg" },
+//   { "id": 66, "cat": "ड्रिंक्स / Drinks", "name": "कोल्ड्रींग / Cold Drink", "price": "MRP", "desc": "Chilled bottled soft drinks", "tags": ["Veg", "Drink"], "img": "img/cold_drink_shrinath.jpg" },
+//   { "id": 67, "cat": "ड्रिंक्स / Drinks", "name": "मसाला ताक / Masala Taak", "price": "20 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_shrinath.jpg" },
+
+//   // ============ 9. आईस्क्रीम & डेझर्ट / Ice Cream & Dessert ============
+//   { "id": 68, "cat": "आईस्क्रीम / Ice Cream", "name": "अमूल आईस्क्रीम / Amul Ice Cream", "price": "Check Availability", "desc": "Assorted flavors of Amul ice cream", "tags": ["Veg", "Ice Cream"], "img": "img/amul_ice_cream.jpg" },
+//   { "id": 69, "cat": "आईस्क्रीम / Ice Cream", "name": "व्हॅनिला / Vanilla", "price": "40 RS", "desc": "Classic vanilla ice cream (Half: 25 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/vanilla_ice_cream.jpg" },
+//   { "id": 70, "cat": "आईस्क्रीम / Ice Cream", "name": "बटर स्कॉच / Butter Scotch", "price": "50 RS", "desc": "Crunchy butterscotch ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/butter_scotch_ice_cream.jpg" },
+//   { "id": 71, "cat": "आईस्क्रीम / Ice Cream", "name": "मँगो / Mango", "price": "50 RS", "desc": "Fresh mango flavored ice cream (Half: 30 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/mango_ice_cream.jpg" },
+//   { "id": 72, "cat": "आईस्क्रीम / Ice Cream", "name": "चॉकलेट / Chocolate", "price": "60 RS", "desc": "Rich chocolate ice cream (Half: 35 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/chocolate_ice_cream.jpg" },
+//   { "id": 73, "cat": "आईस्क्रीम / Ice Cream", "name": "अमेरिकन नट / American Nuts", "price": "70 RS", "desc": "Ice cream loaded with nuts and jelly (Half: 40 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/american_nuts_ice_cream.jpg" },
+//   { "id": 74, "cat": "आईस्क्रीम / Ice Cream", "name": "काजु किशमिश / Kaju Kishmis", "price": "80 RS", "desc": "Ice cream with cashews and raisins (Half: 45 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kaju_kishmis_ice_cream.jpg" },
+//   { "id": 75, "cat": "आईस्क्रीम / Ice Cream", "name": "केशर पिस्ता / Kesar Pista", "price": "90 RS", "desc": "Saffron and pistachio flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/kesar_pista_ice_cream.jpg" },
+//   { "id": 76, "cat": "आईस्क्रीम / Ice Cream", "name": "राजभोग / Raj Bhog", "price": "90 RS", "desc": "Royal traditional flavored ice cream (Half: 50 RS)", "tags": ["Veg", "Ice Cream"], "img": "img/raj_bhog_ice_cream.jpg" },
+//   { "id": 77, "cat": "आईस्क्रीम / Ice Cream", "name": "चोकोचिप्स आईस्क्रीम / Chocochips Ice Cream", "price": "89 RS", "desc": "Chocolate ice cream with chocolate chips", "tags": ["Veg", "Ice Cream"], "img": "img/chocochips_ice_cream.jpg" },
+//   { "id": 78, "cat": "डेझर्ट / Dessert", "name": "भगवती स्पेशल लस्सी / Bhagwati Special Lassi", "price": "Check Availability", "desc": "Thick and creamy sweet yogurt drink", "tags": ["Veg", "Dessert"], "img": "img/bhagwati_special_lassi.jpg" },
+//   { "id": 79, "cat": "डेझर्ट / Dessert", "name": "बासुंदी / Basundi", "price": "Check Availability", "desc": "Traditional thickened sweetened milk dessert", "tags": ["Veg", "Dessert"], "img": "img/basundi.jpg" },
+//   { "id": 80, "cat": "डेझर्ट / Dessert", "name": "फालुदा / Falooda", "price": "60 RS", "desc": "Royal dessert drink with vermicelli and basil seeds", "tags": ["Veg", "Dessert"], "img": "img/falooda_special.jpg" },
+//   { "id": 81, "cat": "डेझर्ट / Dessert", "name": "बादाम शेक / Badam Shake", "price": "50 RS", "desc": "Rich almond flavored milk drink", "tags": ["Veg", "Shakes"], "img": "img/badam_shake_special.jpg" },
+//   { "id": 82, "cat": "डेझर्ट / Dessert", "name": "मॅन्गो मस्तानी / Mango Mastani", "price": "110 RS", "desc": "Mango milkshake topped with ice cream and dry fruits", "tags": ["Veg", "Dessert"], "img": "img/mango_mastani_special.jpg" },
+//   { "id": 83, "cat": "डेझर्ट / Dessert", "name": "मसाला ताक / Masala Taak", "price": "25 RS", "desc": "Spiced buttermilk", "tags": ["Veg", "Drink"], "img": "img/masala_taak_special.jpg" },
+//   { "id": 84, "cat": "डेझर्ट / Dessert", "name": "लस्सी विथ आईस क्रिम / Lassi with Ice Cream", "price": "70 RS", "desc": "Sweet lassi topped with a scoop of ice cream", "tags": ["Veg", "Dessert", "Lassi"], "img": "img/lassi_with_ice_cream.jpg" },
+//   { "id": 85, "cat": "डेझर्ट / Dessert", "name": "गुलाब जामुन विथ आईस क्रिम / Gulab Jamun with Ice Cream", "price": "70 RS", "desc": "Hot gulab jamun served with cold vanilla ice cream", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_with_ice_cream.jpg" },
+//   { "id": 86, "cat": "डेझर्ट / Dessert", "name": "मँगो लस्सी / Mango Lassi", "price": "50 RS", "desc": "Mango flavored sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/mango_lassi.jpg" },
+//   { "id": 87, "cat": "डेझर्ट / Dessert", "name": "लस्सी / Lassi", "price": "40 RS", "desc": "Traditional sweet yogurt drink", "tags": ["Veg", "Lassi"], "img": "img/lassi.jpg" },
+//   { "id": 88, "cat": "डेझर्ट / Dessert", "name": "भगवती स्पेशल आईस क्रिम थाळी / Bhagwati Special Ice Cream Thali", "price": "250 RS", "desc": "Assorted special ice cream platter", "tags": ["Veg", "Ice Cream", "Thali"], "img": "img/bhagwati_special_ice_cream_thali.jpg" },
+//   { "id": 89, "cat": "डेझर्ट / Dessert", "name": "गुलाब जामुन (२ पीस) / Gulab Jamun (2 Pcs)", "price": "20 RS", "desc": "Sweet fried dough balls in sugar syrup", "tags": ["Veg", "Dessert"], "img": "img/gulab_jamun_shrinath.jpg" },
+
+//   // ============ 10. केक & पेस्ट्री / Cakes & Pastries ============
+//   { "id": 90, "cat": "केक / Cakes", "name": "रसमलाई केक / Rasmalai Cake", "price": "350 RS", "desc": "Fusion cake with rich rasmalai flavor and nuts", "tags": ["Veg", "Cake", "Premium"], "img": "img/rasmalai_cake.jpg" },
+//   { "id": 91, "cat": "केक / Cakes", "name": "काजू मलाई केक / Kaju Malai Cake", "price": "400 RS", "desc": "Rich premium cake loaded with cashews and cream", "tags": ["Veg", "Cake", "Premium"], "img": "img/kaju_malai_cake.jpg" },
+//   { "id": 92, "cat": "केक / Cakes", "name": "चॉकलेट ट्रफल / Chocolate Truffle", "price": "320 RS", "desc": "Dense and rich chocolate cake with truffle ganache", "tags": ["Veg", "Cake", "Premium"], "img": "img/chocolate_truffle.jpg" },
+//   { "id": 93, "cat": "केक / Cakes", "name": "रेड वेलवेट / Red Velvet", "price": "350 RS", "desc": "Classic red velvet sponge with cream cheese frosting", "tags": ["Veg", "Cake", "Premium"], "img": "img/red_velvet.jpg" },
+//   { "id": 94, "cat": "केक / Cakes", "name": "गुलकंद केक / Gulakand Cake", "price": "350 RS", "desc": "Refreshing cake flavored with sweet rose petal preserve", "tags": ["Veg", "Cake", "Premium"], "img": "img/gulakand_cake.jpg" },
+//   { "id": 95, "cat": "केक / Cakes", "name": "कॉफी चॉकलेट / Coffee Chocolate", "price": "350 RS", "desc": "Perfect blend of coffee and chocolate flavors", "tags": ["Veg", "Cake", "Premium"], "img": "img/coffee_chocolate.jpg" },
+//   { "id": 96, "cat": "केक / Cakes", "name": "फ्रूट केक / Fruit Cake", "price": "400 RS", "desc": "Fresh cream cake topped with exotic fruits", "tags": ["Veg", "Cake", "Premium"], "img": "img/fruit_cake.jpg" },
+//   { "id": 97, "cat": "केक / Cakes", "name": "नॉर्मल रेगुलर केक / Normal Regular Cake", "price": "150 RS", "desc": "Basic sponge cake with light cream", "tags": ["Veg", "Cake"], "img": "img/normal_regular_cake.jpg" },
+//   { "id": 98, "cat": "केक / Cakes", "name": "चॉकलेट केक / Chocolate Cake", "price": "300 RS", "desc": "Classic chocolate sponge with cream", "tags": ["Veg", "Cake"], "img": "img/chocolate_cake.jpg" },
+//   { "id": 99, "cat": "केक / Cakes", "name": "बटरस्कॉच केक / Butterscotch Cake", "price": "300 RS", "desc": "Crunchy butterscotch flavored cake with caramel crunch", "tags": ["Veg", "Cake"], "img": "img/butterscotch_cake.jpg" },
+//   { "id": 100, "cat": "केक / Cakes", "name": "पायनॅपल केक / Pineapple Cake", "price": "300 RS", "desc": "Fresh cream cake with pineapple chunks", "tags": ["Veg", "Cake"], "img": "img/pineapple_cake.jpg" },
+//   { "id": 101, "cat": "केक / Cakes", "name": "स्ट्रॉबेरी केक / Strawberry Cake", "price": "300 RS", "desc": "Pink strawberry flavored fresh cream cake", "tags": ["Veg", "Cake"], "img": "img/strawberry_cake.jpg" },
+//   { "id": 102, "cat": "केक / Cakes", "name": "ब्लॅक फॉरेस्ट / Black Forest", "price": "300 RS", "desc": "Classic chocolate cake with cherries and cream", "tags": ["Veg", "Cake"], "img": "img/black_forest.jpg" },
+//   { "id": 103, "cat": "केक / Cakes", "name": "व्हाईट फॉरेस्ट / White Forest", "price": "300 RS", "desc": "Vanilla cake with white chocolate shavings and cherries", "tags": ["Veg", "Cake"], "img": "img/white_forest.jpg" },
+//   { "id": 104, "cat": "पेस्ट्री / Pastries", "name": "चॉकलेट पेस्ट्री / Chocolate Pastry", "price": "45 RS", "desc": "Single slice of rich chocolate cake", "tags": ["Veg", "Pastry"], "img": "img/chocolate_pastry.jpg" },
+//   { "id": 105, "cat": "पेस्ट्री / Pastries", "name": "पायनॅपल पेस्ट्री / Pineapple Pastry", "price": "45 RS", "desc": "Single slice of fresh pineapple cake", "tags": ["Veg", "Pastry"], "img": "img/pineapple_pastry.jpg" },
+//   { "id": 106, "cat": "पेस्ट्री / Pastries", "name": "ब्लॅक फॉरेस्ट पेस्ट्री / Black Forest Pastry", "price": "45 RS", "desc": "Single slice of classic black forest cake", "tags": ["Veg", "Pastry"], "img": "img/black_forest_pastry.jpg" },
+//   { "id": 107, "cat": "पेस्ट्री / Pastries", "name": "बटरस्कॉच पेस्ट्री / Butterscotch Pastry", "price": "45 RS", "desc": "Single slice of crunchy butterscotch cake", "tags": ["Veg", "Pastry"], "img": "img/butterscotch_pastry.jpg" },
+//   { "id": 108, "cat": "केक / Cakes", "name": "बर्थडे थीम केक / Birthday Theme Cake", "price": "On Order", "desc": "Customized theme cakes for birthdays (Price depends on design)", "tags": ["Veg", "Cake", "Custom"], "img": "img/birthday_theme_cake.jpg" },
+//   { "id": 109, "cat": "केक / Cakes", "name": "फोटो केक / Photo Cake", "price": "On Order", "desc": "Personalized cake with edible photo print", "tags": ["Veg", "Cake", "Custom"], "img": "img/photo_cake.jpg" },
+//   { "id": 110, "cat": "केक / Cakes", "name": "अॅनिव्हर्सरी केक / Anniversary Special Cake", "price": "On Order", "desc": "Romantic heart shape or designer cakes for anniversary", "tags": ["Veg", "Cake", "Custom"], "img": "img/anniversary_cake.jpg" },
+//   { "id": 111, "cat": "केक / Cakes", "name": "किड्स कार्टून केक / Kids Cartoon Cake", "price": "On Order", "desc": "Cakes with popular cartoon characters for kids", "tags": ["Veg", "Cake", "Custom"], "img": "img/kids_cartoon_cake.jpg" },
+//   { "id": 112, "cat": "केक / Cakes", "name": "वेडिंग केक / Wedding Cake", "price": "On Order", "desc": "Multi-tier special cakes for weddings", "tags": ["Veg", "Cake", "Custom"], "img": "img/wedding_cake.jpg" },
+//   { "id": 113, "cat": "केक / Cakes", "name": "आईस्क्रीम केक / Ice Cream Cake", "price": "On Order", "desc": "Delicious cake with ice cream layers (Custom Order)", "tags": ["Veg", "Cake", "Ice Cream"], "img": "img/ice_cream_cake.jpg" },
+
+//   // ============ 11. साइड्स / Extras ============
+//   { "id": 114, "cat": "साइड्स / Extras", "name": "रोस्टेड पापड / Roasted Papad", "price": "10 RS", "desc": "Roasted lentil cracker", "tags": ["Veg", "Sides"], "img": "img/roasted_papad_shrinath.jpg" },
+//   { "id": 115, "cat": "साइड्स / Extras", "name": "एक्स्ट्रा पावजोडी / Extra Pav Pair", "price": "10 RS", "desc": "Extra pair of bread rolls", "tags": ["Veg", "Sides"], "img": "img/extra_pav.jpg" },
+//   { "id": 116, "cat": "साइड्स / Extras", "name": "एक्स्ट्रा फरसान प्लेट / Extra Farsan Plate", "price": "20 RS", "desc": "Extra plate of crispy mix snacks", "tags": ["Veg", "Sides"], "img": "img/extra_farsan.jpg" },
+//   { "id": 117, "cat": "साइड्स / Extras", "name": "मटकी वाटी / Matki Wati", "price": "10 RS", "desc": "Bowl of sprouted moth beans", "tags": ["Veg", "Sides"], "img": "img/matki_wati.jpg" },
+//   { "id": 118, "cat": "साइड्स / Extras", "name": "दही वाटी / Dahi Wati", "price": "10 RS", "desc": "Bowl of fresh yogurt", "tags": ["Veg", "Sides"], "img": "img/dahi_wati_shrinath.jpg" },
+// ];
           
   //       [
 
